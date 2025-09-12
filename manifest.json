@@ -3,54 +3,11 @@
   "short_name": "Polytrack",
   "description": "Build custom tracks and race cars in this browser-based racing game",
   "start_url": "/",
-  "display": "standalone",
+  "display": "browser",
   "background_color": "#ffffff",
   "theme_color": "#0ea5e9",
   "orientation": "landscape-primary",
   "scope": "/",
   "lang": "en",
-  "categories": ["games", "entertainment"],
-  "icons": [
-    {
-      "src": "/assets/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/assets/screenshot-wide.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpeg",
-      "form_factor": "wide",
-      "label": "Polytrack racing gameplay"
-    },
-    {
-      "src": "/assets/screenshot-narrow.jpg",
-      "sizes": "720x1280",
-      "type": "image/jpeg",
-      "form_factor": "narrow",
-      "label": "Polytrack mobile interface"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Play Game",
-      "short_name": "Play",
-      "description": "Start playing Polytrack immediately",
-      "url": "/#play"
-    },
-    {
-      "name": "Track Builder",
-      "short_name": "Build",
-      "description": "Create custom racing tracks",
-      "url": "/#features"
-    }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "edge_side_panel": {
-    "preferred_width": 400
-  }
+  "categories": ["games", "entertainment"]
 }
