@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Polytrack - Play Online Racing Game | Build Custom Tracks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Play Polytrack online - the ultimate racing game where you build custom tracks and race against time. Fast-paced, low-poly driving with loops, jumps." />
+  <link rel="canonical" href="https://polytrack.best/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://polytrack.best/" />
+  <meta property="og:title" content="Polytrack - Play Online Racing Game | Build Custom Tracks" />
+  <meta property="og:description" content="Race custom cars on tracks you design yourself. Play Polytrack online with thrilling loops, jumps, and community challenges." />
+  <meta property="og:image" content="https://polytrack.best/assets/og-cover.jpg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Polytrack - Play Online Racing Game | Build Custom Tracks" />
+  <meta name="twitter:description" content="Build tracks, customize cars, race against time in this TrackMania-inspired browser game." />
+  <meta name="twitter:image" content="https://polytrack.best/assets/og-cover.jpg" />
+
+  <!-- Preconnect to speed up iframe load -->
+  <link rel="preconnect" href="https://app-polytrack.kodub.com" crossorigin />
+  <link rel="dns-prefetch" href="//app-polytrack.kodub.com" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Critical CSS inline for faster rendering -->
+  <style>
+    /* Critical CSS - Above the fold styles */
+    *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+    ::before,::after{--tw-content:''}
+    html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    body{margin:0;line-height:inherit}
+    h1,h2,h3{font-size:inherit;font-weight:inherit}
+    a{color:inherit;text-decoration:inherit}
+    button{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+    img,svg{display:block;vertical-align:middle;max-width:100%;height:auto}
+    
+    /* Critical layout styles */
+    .bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}
+    .text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity))}
+    .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .sticky{position:sticky}.top-0{top:0px}.z-40{z-index:40}
+    .backdrop-blur{backdrop-filter:blur(8px)}
+    .border-b{border-bottom-width:1px}
+    .border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity))}
+    .max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}
+    .mx-auto{margin-left:auto;margin-right:auto}
+    .px-4{padding-left:1rem;padding-right:1rem}
+    .flex{display:flex}.items-center{align-items:center}.justify-between{justify-content:space-between}
+    .h-14{height:3.5rem}.gap-2{gap:0.5rem}.h-6{height:1.5rem}.w-6{width:1.5rem}
+    .font-semibold{font-weight:600}.hidden{display:none}.gap-6{gap:1.5rem}
+    .text-sm{font-size:0.875rem;line-height:1.25rem}
+    .hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity))}
+    .transition-colors{transition-property:color,background-color,border-color;transition-duration:150ms}
+    
+    /* Game container critical styles */
+    .rounded-xl{border-radius:0.75rem}.rounded-lg{border-radius:0.5rem}
+    .overflow-hidden{overflow:hidden}.border{border-width:1px}
+    .border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity))}
+    .shadow-xl{box-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)}
+    .w-full{width:100%}.h-full{height:100%}
+    
+    /* Game container height */
+    .game-container{height:75vh;min-height:400px;cursor:pointer}
+    
+    @media (min-width:768px){
+      .md\:px-6{padding-left:1.5rem;padding-right:1.5rem}
+      .md\:flex{display:flex}
+      .md\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+    }
+  </style>
+  
+  <!-- Async load full CSS -->
+  <link rel="preload" href="assets/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/styles.css"></noscript>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="assets/logo.svg" as="image">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      page_title: 'Polytrack Online Racing Game',
+      page_location: window.location.href,
+      content_group1: 'Gaming',
+      content_group2: 'Racing'
+    });
+    
+    // Enhanced ecommerce events
+    gtag('event', 'page_view', {
+      page_title: 'Polytrack Homepage',
+      page_location: window.location.href
+    });
+  </script>
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_CODE" />
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://polytrack.best/#website",
+    "name": "Polytrack",
+    "url": "https://polytrack.best/",
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytrack",
+      "url": "https://polytrack.best/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://polytrack.best/assets/logo.svg"
+      }
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Polytrack - Play Online Racing Game | Build Custom Tracks",
+    "url": "https://polytrack.best/",
+    "inLanguage": "en",
+    "isPartOf": { "@id": "https://polytrack.best/#website" },
+    "description": "Play Polytrack online - race custom cars on tracks you design yourself. Fast-paced, low-poly driving with loops, jumps, and community challenges.",
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://polytrack.best/assets/og-cover.jpg",
+      "width": 1200,
+      "height": 630
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: VideoGame -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Polytrack",
+    "alternateName": ["PolyTrack", "Poly Track"],
+    "url": "https://polytrack.best/",
+    "playMode": "SinglePlayer",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Browser",
+    "genre": ["Racing", "Driving", "Building", "3D"],
+    "inLanguage": "en",
+    "image": "https://polytrack.best/assets/og-cover.jpg",
+    "description": "A fast-paced, low-poly racing game where you build custom tracks and race against time. Features thrilling loops, jumps, and community-shared designs inspired by TrackMania.",
+    "author": {
+      "@type": "Organization",
+      "name": "Kodub"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytrack",
+      "url": "https://polytrack.best/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://polytrack.best/"
+    },
+    "gamePlatform": ["WebBrowser"],
+    "mainEntityOfPage": "https://polytrack.best/"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Polytrack free to play?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Polytrack is completely free to play in your browser with no downloads required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I build my own tracks in Polytrack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! Polytrack features a built-in level editor where you can design custom tracks with obstacles, ramps, and curves, then share them with the community."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Polytrack work on mobile devices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Polytrack runs smoothly on mobile devices, tablets, and desktop browsers with optimized touch controls."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytrack.best/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Play Game",
+        "item": "https://polytrack.best/#play"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Features",
+        "item": "https://polytrack.best/#features"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Polytrack",
+    "operatingSystem": "Web Browser",
+    "applicationCategory": "GameApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "downloadUrl": "https://polytrack.best/",
+    "featureList": [
+      "Custom Track Builder",
+      "Ghost Racing",
+      "Vehicle Customization",
+      "Community Sharing",
+      "Cross-Platform Play",
+      "No Download Required"
+    ],
+    "screenshot": "https://polytrack.best/assets/og-cover.jpg"
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Play Polytrack Racing Game",
+    "description": "Learn how to play Polytrack, build custom tracks, and race online",
+    "image": "https://polytrack.best/assets/og-cover.jpg",
+    "totalTime": "PT5M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Access the Game",
+        "text": "Visit polytrack.best and click Play Now to start instantly",
+        "image": "https://polytrack.best/assets/logo.svg"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Learn Controls",
+        "text": "Use WASD or arrow keys to drive, R to restart, and mouse to build tracks",
+        "image": "https://polytrack.best/assets/logo.svg"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Build Custom Tracks",
+        "text": "Use the track editor to create loops, jumps, and obstacles",
+        "image": "https://polytrack.best/assets/logo.svg"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Race and Compete",
+        "text": "Challenge ghost racers and compete for best times on community tracks",
+        "image": "https://polytrack.best/assets/logo.svg"
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between h-14">
+        <a href="/" class="flex items-center gap-2" aria-label="Polytrack Home">
+          <img src="assets/logo.svg" alt="Polytrack racing game logo - low-poly track design" class="h-6 w-6" />
+          <span class="font-semibold">Polytrack</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" class="hover:text-slate-900 transition-colors">Features</a>
+          <a href="#what-is" class="hover:text-slate-900 transition-colors">What is</a>
+          <a href="#how-to-play" class="hover:text-slate-900 transition-colors">How to Play</a>
+          <a href="#why-play" class="hover:text-slate-900 transition-colors">Why Play</a>
+          <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
+        </nav>
+        <a href="#play" class="inline-flex items-center justify-center rounded-md bg-sky-600 text-white px-4 py-2 text-sm font-medium hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-colors">
+          Play Now
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero: Game-first layout -->
+  <section id="play" class="py-4 md:py-6">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">Play Polytrack Online - Build Custom Racing Tracks</h1>
+      
+      <!-- Game container - takes 75% of screen height -->
+      <div class="mb-8">
+        <div class="rounded-xl overflow-hidden border border-slate-200 skeleton shadow-xl" 
+             style="height: 75vh; min-height: 500px;" 
+             id="game-shell" 
+             aria-label="Polytrack Racing Game">
+          <iframe
+            title="Polytrack Online Racing Game"
+            src="https://app-polytrack.kodub.com/0.5.1/?"
+            loading="eager"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            onload="document.getElementById('game-shell')?.classList.remove('skeleton')"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <p class="mt-3 text-center text-sm text-slate-500">💡 Use WASD or arrow keys to drive. Press R to restart. Click game to enter fullscreen.</p>
+      </div>
+
+      <!-- Content below game - optimized typography -->
+      <div class="max-w-4xl mx-auto text-center space-y-8 content-section">
+        <!-- Main heading and description -->
+        <div class="space-y-4">
+          <p class="text-xs uppercase tracking-wider text-sky-600 font-semibold">Build & Race</p>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
+            Design tracks. Race cars. Beat records.
+          </h2>
+          <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Polytrack is a fast-paced racing game where you build custom tracks and race against time.
+            Create thrilling loops, jumps, and obstacles, then challenge yourself and the community.
+          </p>
+        </div>
+        
+        <!-- Action buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <a href="#how-to-play" class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-6 py-3 text-sm font-medium hover:bg-slate-50 transition-colors">
+            How to Play
+          </a>
+          <a href="#features" class="inline-flex items-center justify-center rounded-lg bg-sky-600 text-white px-6 py-3 text-sm font-medium hover:bg-sky-700 transition-colors">
+            Game Features
+          </a>
+        </div>
+
+        <!-- Key features - compact grid -->
+        <div class="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg">
+            <div class="text-2xl mb-2">🛠️</div>
+            <h3 class="font-semibold text-sm mb-1">Track Editor</h3>
+            <p class="text-xs text-slate-600 text-center">Built-in editor with sharing</p>
+          </div>
+          <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg">
+            <div class="text-2xl mb-2">👻</div>
+            <h3 class="font-semibold text-sm mb-1">Ghost Racing</h3>
+            <p class="text-xs text-slate-600 text-center">Race against best times</p>
+          </div>
+          <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg">
+            <div class="text-2xl mb-2">📱</div>
+            <h3 class="font-semibold text-sm mb-1">Cross-Platform</h3>
+            <p class="text-xs text-slate-600 text-center">Mobile-optimized controls</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Polytrack Game Features</h2>
+      <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Discover what makes Polytrack the ultimate racing and building experience. Polytrack combines creative track design with high-speed racing action, offering players unlimited possibilities to create, share, and compete. Whether you're building complex racing circuits or challenging community records, Polytrack delivers an engaging gaming experience that keeps players coming back for more thrilling races and creative challenges.
+      </p>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🛠️</div>
+          <h3 class="font-semibold text-lg mb-3">Advanced Track Builder</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Polytrack features a comprehensive track editor that allows players to design custom racing circuits with ramps, loops, jumps, and obstacles. The intuitive building system makes track creation accessible while offering advanced tools for experienced designers to craft complex racing challenges.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🎨</div>
+          <h3 class="font-semibold text-lg mb-3">Vehicle Customization</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Personalize your racing experience in Polytrack by customizing vehicle colors, frames, and rims. Create unique racing machines that reflect your style while maintaining optimal performance on challenging tracks designed by the Polytrack community.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">👻</div>
+          <h3 class="font-semibold text-lg mb-3">Competitive Ghost Racing</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Challenge yourself against ghost recordings of top Polytrack players or compete against your own best times. This feature adds competitive depth to every race, encouraging players to perfect their racing lines and achieve faster completion times.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🏁</div>
+          <h3 class="font-semibold text-lg mb-3">Extensive Track Library</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Access over 37 racing tracks in Polytrack, including 15 official courses and 22+ community-designed circuits. Each track offers unique challenges and racing experiences, ensuring endless entertainment for players of all skill levels.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🌍</div>
+          <h3 class="font-semibold text-lg mb-3">Diverse Racing Environments</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Experience racing through multiple environments in Polytrack, including summer landscapes, winter terrains, and desert settings. Each environment features unique visual themes and atmospheric elements that enhance the racing experience.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">⚡</div>
+          <h3 class="font-semibold text-lg mb-3">Instant Browser Gaming</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Play Polytrack instantly without downloads or installations. The browser-based platform ensures immediate access to racing action, making Polytrack available on any device with internet connectivity for seamless gaming experiences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is -->
+  <section id="what-is" class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">What is Polytrack?</h2>
+      <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Polytrack is a revolutionary browser-based racing game that combines creative track building with high-speed competition. This innovative polytrack platform allows players to design custom racing circuits and challenge themselves on unique courses.
+      </p>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🏎️</div>
+          <h3 class="font-semibold text-lg mb-3">Ultimate Polytrack Racing</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Experience high-speed polytrack racing with distinctive low-poly graphics that ensure smooth performance across all devices while maintaining stunning visual appeal.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🛠️</div>
+          <h3 class="font-semibold text-lg mb-3">Core Polytrack Gameplay</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Every polytrack session offers unlimited creative possibilities. Construct complex racing circuits with loops, jumps, and technical sections that test driving skills and imagination.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🌍</div>
+          <h3 class="font-semibold text-lg mb-3">Polytrack Community</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The polytrack community actively shares custom-built tracks, creating an ever-expanding library of racing challenges for players worldwide to enjoy and master.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to play -->
+  <section id="how-to-play" class="py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">How to Play Polytrack</h2>
+      <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Begin your polytrack journey by selecting from existing community tracks or creating your own masterpiece. The polytrack interface is designed for immediate accessibility and advanced building capabilities.
+      </p>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🎮</div>
+          <h3 class="font-semibold text-lg mb-3">Getting Started with Polytrack</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            New players can start racing within seconds while polytrack offers advanced tools for experienced builders. Use WASD or arrow keys for precise vehicle control in every race.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🏗️</div>
+          <h3 class="font-semibold text-lg mb-3">Essential Polytrack Controls</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Press R to restart and perfect your polytrack racing lines. Master the track editor with intuitive click-and-build mechanics for creating amazing racing circuits.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">👻</div>
+          <h3 class="font-semibold text-lg mb-3">Polytrack Competition</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Challenge ghost racers to improve your polytrack performance. Compete against community records and continuously refine your racing techniques for better times.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why play -->
+  <section id="why-play" class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Why Play Polytrack</h2>
+      <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Polytrack offers unparalleled creative freedom through its comprehensive track editor. Experience intense competition through polytrack's ghost racing system and community leaderboards.
+      </p>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🎨</div>
+          <h3 class="font-semibold text-lg mb-3">Unlimited Creative Freedom</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Design intricate racing circuits with ramps, loops, and obstacles in polytrack. Share your polytrack creations with a global community of racing enthusiasts worldwide.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🏆</div>
+          <h3 class="font-semibold text-lg mb-3">Competitive Polytrack Racing</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Challenge verified player records and compete against precise ghost cars. The polytrack platform encourages skill development through time trials and precision-based challenges.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">⚡</div>
+          <h3 class="font-semibold text-lg mb-3">Instant Polytrack Access</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The game's intuitive building system makes track creation accessible to beginners while providing advanced features for experienced polytrack designers and racers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions About Polytrack</h2>
+      <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Get answers to common questions about polytrack gameplay, features, and technical requirements. Learn everything you need to know about this exciting racing and building experience.
+      </p>
+      
+      <div class="grid lg:grid-cols-2 gap-8 text-left">
+        <!-- Left Column -->
+        <div class="space-y-8">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h3 class="text-xl font-semibold mb-4 text-slate-800">Is Polytrack Free to Play?</h3>
+            <p class="text-slate-700 leading-relaxed mb-3">
+              Yes, polytrack is completely free to play in your browser with no downloads required. The entire polytrack experience is accessible instantly without any registration fees or premium subscriptions.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Simply visit the polytrack website and start racing immediately on any device with internet connectivity.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h3 class="text-xl font-semibold mb-4 text-slate-800">Can I Build Custom Polytrack Tracks?</h3>
+            <p class="text-slate-700 leading-relaxed mb-3">
+              Absolutely! Polytrack features a comprehensive built-in level editor where you can design custom racing circuits with obstacles, ramps, loops, and curves.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Share your polytrack creations with the global community and discover thousands of player-made tracks for endless racing entertainment.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h3 class="text-xl font-semibold mb-4 text-slate-800">Does Polytrack Work on Mobile?</h3>
+            <p class="text-slate-700 leading-relaxed">
+              Yes, polytrack runs smoothly on mobile devices, tablets, and desktop browsers with optimized touch controls. The polytrack interface automatically adapts to your device screen size for the best possible gaming experience.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right Column -->
+        <div class="space-y-8">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h3 class="text-xl font-semibold mb-4 text-slate-800">How Many Polytrack Racing Tracks Available?</h3>
+            <p class="text-slate-700 leading-relaxed mb-3">
+              There are currently 15 official polytrack tracks and over 22 community-made racing circuits across diverse environments including summer landscapes, winter terrains, and desert settings.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              The polytrack library continues expanding as community members contribute new creative racing challenges regularly.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h3 class="text-xl font-semibold mb-4 text-slate-800">What Makes Polytrack Special?</h3>
+            <p class="text-slate-700 leading-relaxed mb-3">
+              Polytrack combines creative track building with competitive racing in a unique low-poly art style. The game offers unlimited creative possibilities through its intuitive editor system.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Players can customize vehicles, compete against ghost racers, and participate in time trials that challenge both speed and precision in every polytrack session.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h3 class="text-xl font-semibold mb-4 text-slate-800">Polytrack System Requirements</h3>
+            <p class="text-slate-700 leading-relaxed">
+              Polytrack requires only a modern web browser and stable internet connection. The game is optimized for performance across all devices, ensuring smooth polytrack gameplay regardless of your hardware specifications or operating system.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 py-12 text-center">
+      <div class="mb-6">
+        <img src="assets/logo.svg" alt="Polytrack online racing game - build custom tracks and race cars" class="w-8 h-8 mx-auto mb-4">
+        <p class="text-lg font-semibold text-slate-800 mb-2">Polytrack</p>
+        <p class="text-sm text-slate-600 max-w-md mx-auto">
+          The ultimate browser-based racing game where creativity meets speed. Build, race, and compete!
+        </p>
+      </div>
+      
+      <nav class="flex flex-wrap justify-center gap-6 mb-8">
+        <a href="#play" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Play Game</a>
+        <a href="#features" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Features</a>
+        <a href="#how-to-play" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">How to Play</a>
+        <a href="#faq" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">FAQ</a>
+        <a href="#what-is" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">About</a>
+        <a href="#why-play" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Why Play</a>
+      </nav>
+      
+      <div class="border-t border-slate-200 pt-6">
+        <p class="text-xs text-slate-500">
+          © <span id="y"></span> Polytrack. All rights reserved. Game by Kodub.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try {
+          const registration = await navigator.serviceWorker.register('sw.js');
+          console.log('SW registered: ', registration);
+          
+          // Check for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // Show update notification
+                showUpdateNotification();
+              }
+            });
+          });
+        } catch (error) {
+          console.log('SW registration failed: ', error);
+        }
+      });
+    }
+    
+    // PWA install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      showInstallButton();
+    });
+    
+    function showInstallButton() {
+      const installButton = document.createElement('button');
+      installButton.textContent = '安装应用';
+      installButton.className = 'fixed bottom-4 right-4 bg-polytrack-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-polytrack-700 transition-colors z-50';
+      installButton.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log(`User response to the install prompt: ${outcome}`);
+          deferredPrompt = null;
+          installButton.remove();
+        }
+      });
+      document.body.appendChild(installButton);
+    }
+    
+    function showUpdateNotification() {
+      const notification = document.createElement('div');
+      notification.className = 'fixed top-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg z-50 max-w-sm';
+      notification.innerHTML = `
+        <p class="mb-2">新版本可用！</p>
+        <button onclick="window.location.reload()" class="bg-white text-blue-600 px-3 py-1 rounded text-sm hover:bg-gray-100">
+          更新
+        </button>
+        <button onclick="this.parentElement.remove()" class="ml-2 text-white/80 hover:text-white">
+          ✕
+        </button>
+      `;
+      document.body.appendChild(notification);
+      
+      // Auto remove after 10 seconds
+      setTimeout(() => {
+        if (notification.parentElement) {
+          notification.remove();
+        }
+      }, 10000);
+    }
+    
+    // Performance monitoring
+    function measureWebVitals() {
+      // Largest Contentful Paint
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('LCP:', entry.startTime);
+          // Send to analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              name: 'LCP',
+              value: Math.round(entry.startTime),
+              event_category: 'Performance'
+            });
+          }
+        }
+      }).observe({entryTypes: ['largest-contentful-paint']});
+      
+      // First Input Delay
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('FID:', entry.processingStart - entry.startTime);
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              name: 'FID',
+              value: Math.round(entry.processingStart - entry.startTime),
+              event_category: 'Performance'
+            });
+          }
+        }
+      }).observe({entryTypes: ['first-input']});
+      
+      // Cumulative Layout Shift
+      let clsValue = 0;
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
+          }
+        }
+        console.log('CLS:', clsValue);
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'web_vitals', {
+            name: 'CLS',
+            value: Math.round(clsValue * 1000),
+            event_category: 'Performance'
+          });
+        }
+      }).observe({entryTypes: ['layout-shift']});
+    }
+    
+    // 全屏游戏功能
+    function enterFullscreenGame() {
+      const gameContainer = document.getElementById('game-shell');
+      const iframe = gameContainer.querySelector('iframe');
+      
+      if (gameContainer && iframe) {
+        // 创建全屏覆盖层
+        const fullscreenOverlay = document.createElement('div');
+        fullscreenOverlay.id = 'fullscreen-overlay';
+        fullscreenOverlay.className = 'fixed inset-0 z-50 bg-black flex items-center justify-center';
+        fullscreenOverlay.innerHTML = `
+          <div class="relative w-full h-full">
+            <button 
+              onclick="exitFullscreenGame()" 
+              class="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
+              title="退出全屏"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+            <iframe
+              title="Polytrack Online Racing Game - Fullscreen"
+              src="${iframe.src}"
+              class="w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        `;
+        
+        document.body.appendChild(fullscreenOverlay);
+        document.body.style.overflow = 'hidden';
+        
+        // 尝试进入浏览器全屏模式
+        if (fullscreenOverlay.requestFullscreen) {
+          fullscreenOverlay.requestFullscreen();
+        } else if (fullscreenOverlay.webkitRequestFullscreen) {
+          fullscreenOverlay.webkitRequestFullscreen();
+        } else if (fullscreenOverlay.msRequestFullscreen) {
+          fullscreenOverlay.msRequestFullscreen();
+        }
+      }
+    }
+    
+    function exitFullscreenGame() {
+      const overlay = document.getElementById('fullscreen-overlay');
+      if (overlay) {
+        overlay.remove();
+        document.body.style.overflow = '';
+        
+        // 退出浏览器全屏模式
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    }
+    
+    // 监听ESC键退出全屏
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        exitFullscreenGame();
+      }
+    });
+    
+    // 监听全屏状态变化
+    document.addEventListener('fullscreenchange', function() {
+      if (!document.fullscreenElement) {
+        exitFullscreenGame();
+      }
+    });
+    
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Start performance monitoring
+      measureWebVitals();
+      
+      // Setup fullscreen functionality
+      const playButtons = document.querySelectorAll('a[href="#play"]');
+      playButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // 先滚动到游戏区域
+          const gameSection = document.getElementById('play');
+          if (gameSection) {
+            gameSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // 延迟一下再进入全屏，让滚动完成
+            setTimeout(() => {
+              enterFullscreenGame();
+            }, 500);
+          }
+        });
+      });
+      
+      // 为游戏容器添加点击全屏功能
+      const gameContainer = document.getElementById('game-shell');
+      if (gameContainer) {
+        gameContainer.style.cursor = 'pointer';
+        gameContainer.addEventListener('click', enterFullscreenGame);
+        
+        // 添加全屏提示
+        const fullscreenHint = document.createElement('div');
+        fullscreenHint.className = 'absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity pointer-events-none';
+        fullscreenHint.textContent = '点击进入全屏';
+        gameContainer.style.position = 'relative';
+        gameContainer.appendChild(fullscreenHint);
+      }
+      
+      // Game loading optimization
+      const gameIframe = document.querySelector('#game-shell iframe');
+      if (gameIframe) {
+        gameIframe.addEventListener('load', () => {
+          console.log('Game loaded successfully');
+          // Remove skeleton loading
+          const gameShell = document.getElementById('game-shell');
+          if (gameShell) {
+            gameShell.classList.remove('skeleton');
+          }
+        });
+        
+        gameIframe.addEventListener('error', () => {
+          console.error('Game failed to load');
+          // Show error message
+          const gameShell = document.getElementById('game-shell');
+          if (gameShell) {
+            gameShell.innerHTML = `
+              <div class="flex items-center justify-center h-full bg-gray-100 rounded-xl">
+                <div class="text-center">
+                  <p class="text-gray-600 mb-4">游戏加载失败</p>
+                  <button onclick="window.location.reload()" class="btn-primary">
+                    重新加载
+                  </button>
+                </div>
+              </div>
+            `;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

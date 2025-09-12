@@ -1,0 +1,33 @@
+{
+  "name": "polytrack-best",
+  "version": "1.0.0",
+  "description": "Polytrack - Play Online Racing Game | Build Custom Tracks",
+  "main": "index.html",
+  "scripts": {
+    "build-css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch",
+    "build-css-prod": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
+    "dev": "npm run build-css",
+    "build": "npm run build-css-prod",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "polytrack",
+    "racing",
+    "game",
+    "browser",
+    "track-builder",
+    "online-game"
+  ],
+  "author": "Polytrack.best",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polytrack-best/polytrack.best.git"
+  },
+  "homepage": "https://polytrack.best"
+}
