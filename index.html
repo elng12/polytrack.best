@@ -75,6 +75,11 @@
     .game-container{height:75vh;min-height:500px;cursor:pointer}
     
     /* Additional critical styles */
+    .grid{display:grid}
+    .flex-col{flex-direction:column}
+    .gap-4{gap:1rem}
+    .p-4{padding:1rem}
+    .border-0{border-width:0}
     .py-4{padding-top:1rem;padding-bottom:1rem}
     .py-6{padding-top:1.5rem;padding-bottom:1.5rem}
     .py-12{padding-top:3rem;padding-bottom:3rem}
@@ -137,9 +142,8 @@
     }
   </style>
   
-  <!-- Async load full CSS -->
-  <link rel="preload" href="assets/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="assets/styles.css"></noscript>
+  <!-- Load full CSS synchronously to ensure styles apply -->
+  <link rel="stylesheet" href="assets/styles.css">
   
   <!-- Preload critical resources -->
   <link rel="preload" href="assets/logo.svg" as="image">
