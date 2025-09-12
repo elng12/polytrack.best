@@ -818,29 +818,7 @@
       });
     }
     
-    // PWA install prompt
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      showInstallButton();
-    });
-    
-    function showInstallButton() {
-      const installButton = document.createElement('button');
-      installButton.textContent = '安装应用';
-      installButton.className = 'fixed bottom-4 right-4 bg-polytrack-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-polytrack-700 transition-colors z-50';
-      installButton.addEventListener('click', async () => {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          const { outcome } = await deferredPrompt.userChoice;
-          console.log(`User response to the install prompt: ${outcome}`);
-          deferredPrompt = null;
-          installButton.remove();
-        }
-      });
-      document.body.appendChild(installButton);
-    }
+    // PWA install prompt removed by request: do not show install UI or call prompt
     
     function showUpdateNotification() {
       const notification = document.createElement('div');
