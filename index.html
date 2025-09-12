@@ -721,28 +721,72 @@
 
   <!-- Footer -->
   <footer class="border-t border-slate-200 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4 md:px-6 py-12 text-center">
-      <div class="mb-6">
-        <img src="assets/logo.svg" alt="Polytrack online racing game - build custom tracks and race cars" class="w-8 h-8 mx-auto mb-4">
-        <p class="text-lg font-semibold text-slate-800 mb-2">Polytrack</p>
-        <p class="text-sm text-slate-600 max-w-md mx-auto">
-          The ultimate browser-based racing game where creativity meets speed. Build, race, and compete!
-        </p>
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-12">
+      <!-- Three Column Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        
+        <!-- Left Column: Brand -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <img src="assets/logo.svg" alt="Polytrack racing game logo" class="w-8 h-8">
+            <h3 class="text-xl font-bold text-slate-800">Polytrack</h3>
+          </div>
+          <p class="text-sm text-slate-600 leading-relaxed max-w-xs">
+            The ultimate browser-based racing game where creativity meets speed. Build custom tracks, race cars, and compete with players worldwide.
+          </p>
+        </div>
+        
+        <!-- Middle Column: Navigation -->
+        <div class="space-y-4">
+          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider">Game</h4>
+          <nav class="space-y-2">
+            <a href="#play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Play Now</a>
+            <a href="#features" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Features</a>
+            <a href="#how-to-play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">How to Play</a>
+            <a href="#faq" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">FAQ</a>
+          </nav>
+          
+          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider pt-4">About</h4>
+          <nav class="space-y-2">
+            <a href="#what-is" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">What is Polytrack</a>
+            <a href="#why-play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Why Play</a>
+          </nav>
+        </div>
+        
+        <!-- Right Column: Info -->
+        <div class="space-y-4">
+          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider">Info</h4>
+          <div class="space-y-3">
+            <p class="text-sm text-slate-600">
+              <span class="font-medium">Game Version:</span> 0.5.1
+            </p>
+            <p class="text-sm text-slate-600">
+              <span class="font-medium">Developer:</span> Kodub
+            </p>
+            <p class="text-sm text-slate-600">
+              <span class="font-medium">Platform:</span> Browser-based
+            </p>
+          </div>
+          
+          <div class="pt-4">
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Free to play racing game with no downloads required. Compatible with all modern browsers.
+            </p>
+          </div>
+        </div>
+        
       </div>
       
-      <nav class="flex flex-wrap justify-center gap-6 mb-8">
-        <a href="#play" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Play Game</a>
-        <a href="#features" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Features</a>
-        <a href="#how-to-play" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">How to Play</a>
-        <a href="#faq" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">FAQ</a>
-        <a href="#what-is" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">About</a>
-        <a href="#why-play" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Why Play</a>
-      </nav>
-      
+      <!-- Bottom Border and Copyright -->
       <div class="border-t border-slate-200 pt-6">
-        <p class="text-xs text-slate-500">
-          © <span id="y"></span> Polytrack. All rights reserved. Game by Kodub.
-        </p>
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+          <p class="text-xs text-slate-500">
+            © <span id="y"></span> Polytrack. All rights reserved.
+          </p>
+          <p class="text-xs text-slate-500">
+            Game powered by <a href="https://www.kodub.com" class="hover:text-slate-700 transition-colors">Kodub</a>
+          </p>
+        </div>
       </div>
     </div>
   </footer>
