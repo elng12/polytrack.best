@@ -8,11 +8,11 @@ const DYNAMIC_CACHE = 'polytrack-dynamic-v1.0.0';
 // Files to cache immediately
 const STATIC_FILES = [
   '/',
-  '/index.html',
-  '/assets/styles.css',
-  '/assets/logo.svg',
-  '/manifest.json',
-  '/sw.js'
+  'index.html',
+  'assets/styles.css',
+  'assets/logo.svg',
+  'manifest.json',
+  'sw.js'
 ];
 
 // External resources to cache dynamically
@@ -26,20 +26,25 @@ const EXTERNAL_RESOURCES = [
 self.addEventListener('install', event => {
   console.log('[SW] Installing Service Worker...');
   
-  event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then(cache => {
-        console.log('[SW] Caching static files');
-        return cache.addAll(STATIC_FILES);
-      })
-      .then(() => {
-        console.log('[SW] Static files cached successfully');
-        return self.skipWaiting();
-      })
-      .catch(error => {
-        console.error('[SW] Failed to cache static files:', error);
-      })
-  );
+  event.waitUntil((async () => {
+    try {
+      const cache = await caches.open(STATIC_CACHE);
+      console.log('[SW] Caching static files individually');
+      for (const url of STATIC_FILES) {
+        try {
+          const res = await fetch(url, { cache: 'no-cache' });
+          if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+          await cache.put(url, res.clone());
+        } catch (e) {
+          console.warn('[SW] Failed to cache:', url, e?.message || e);
+        }
+      }
+      console.log('[SW] Static files caching step completed');
+      await self.skipWaiting();
+    } catch (error) {
+      console.error('[SW] Failed during install:', error);
+    }
+  })());
 });
 
 // Activate event - clean up old caches
