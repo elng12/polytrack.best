@@ -8,7 +8,8 @@
     "build-css-prod": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
     "dev": "npm run build-css",
     "build": "npm run build-css-prod",
-    "serve": "python -m http.server 8000"
+    "serve": "python -m http.server 8000",
+    "indexnow": "node scripts/submit-indexnow.mjs"
   },
   "keywords": [
     "polytrack",
