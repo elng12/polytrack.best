@@ -1,2 +1,7 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize line endings to LF for text files
+* text=auto eol=lf
+
+# Treat common binary assets as binary
+*.{png,jpg,jpeg,gif,webp,ico} -text
+*.{woff,woff2,ttf,otf} -text
+*.{pdf,zip} -text

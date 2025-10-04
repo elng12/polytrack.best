@@ -38,6 +38,14 @@
         <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
         <a aria-current="page" href="/blog/" class="text-slate-900 font-semibold">Blog</a>
       </nav>
+      <button id="nav-toggle" class="md:hidden text-sm px-3 py-2 border border-slate-200 rounded-md"
+              onclick="document.getElementById('nav-mobile')?.classList.toggle('hidden')">
+        Menu
+      </button>
+      <div id="nav-mobile" class="md:hidden hidden border-t border-slate-200 px-4 py-3">
+        <a href="/" class="block py-2 hover:text-slate-900 transition-colors">Home</a>
+        <a href="/blog/" class="block py-2 hover:text-sky-700 transition-colors">Blog</a>
+      </div>
     </div>
   </header>
 

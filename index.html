@@ -386,6 +386,14 @@
           <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
           <a href="/blog/" class="hover:text-slate-900 transition-colors">Blog</a>
         </nav>
+        <button id="nav-toggle" class="md:hidden text-sm px-3 py-2 border border-slate-200 rounded-md"
+                onclick="document.getElementById('nav-mobile')?.classList.toggle('hidden')">
+          Menu
+        </button>
+        <div id="nav-mobile" class="md:hidden hidden border-t border-slate-200 px-4 py-3">
+          <a href="/" class="block py-2 hover:text-slate-900 transition-colors">Home</a>
+          <a href="/blog/" class="block py-2 hover:text-sky-700 transition-colors">Blog</a>
+        </div>
 
         <a href="#play" class="inline-flex items-center justify-center rounded-md bg-sky-600 text-white px-4 py-2 text-sm font-medium hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-colors">
           Play Now
