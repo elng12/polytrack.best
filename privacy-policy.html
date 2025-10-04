@@ -43,6 +43,7 @@
 
     <h2>1. 信息收集</h2>
     <p>Polytrack.best（"我们"、"本网站"）致力于保护您的隐私。本隐私政策说明我们如何收集、使用和保护您的个人信息。</p>
+    <p>You can change your choice at any time via <a href="#cookie-settings" onclick="CookieConsent.showPreferences()">Cookie Settings</a>.</p>
     
     <h3>1.1 我们收集的信息类型</h3>
     <ul>
@@ -77,6 +78,10 @@
         <li>在浏览器设置中禁用或删除Cookie</li>
         <li>使用浏览器的隐私模式</li>
         <li>通过我们网站的Cookie设置面板进行管理</li>
+    </ul>
+    <ul>
+      <li>Chrome/Edge: Settings → Privacy and security → Third-party cookies → See all site data → Search "polytrack.best" → Remove.</li>
+      <li>Google Analytics opt-out browser add-on: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a></li>
     </ul>
 
     <h2>3. 第三方服务</h2>
@@ -161,5 +166,31 @@
         </ul>
         <p>我们将在收到您的请求后30天内回复。</p>
     </div>
+
+    <!-- Cookie Consent global include -->
+    <link rel="stylesheet" href="/assets/cookieconsent.css">
+    <script src="/assets/cookieconsent.umd.js"></script>
+    <script>
+    CookieConsent.run({
+      categories: { necessary: true, analytics: false },
+      language: {
+        en: {
+          consentModal: { title: 'We use cookies', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all' },
+          preferencesModal: { title: 'Cookie settings', acceptAllBtn: 'Accept all', savePreferencesBtn: 'Save settings' }
+        }
+      },
+      onAccept: ({categories}) => {
+        if (categories.includes('analytics')) {
+          const ga = document.createElement('script'); ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y841F5N4SD';
+          document.head.appendChild(ga);
+          const gtagInit = document.createElement('script');
+          gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','G-Y841F5N4SD');";
+          document.head.appendChild(gtagInit);
+          const ads = document.createElement('script'); ads.async=1; ads.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446'; ads.setAttribute('crossorigin','anonymous');
+          document.head.appendChild(ads);
+        }
+      }
+    });
+    </script>
 </body>
 </html>

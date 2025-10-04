@@ -201,5 +201,31 @@
     </div>
 
     <p><em>感谢您使用Polytrack.best！</em></p>
-</body>
-</html>
+
+    <!-- Cookie Consent global include -->
+    <link rel="stylesheet" href="/assets/cookieconsent.css">
+    <script src="/assets/cookieconsent.umd.js"></script>
+    <script>
+    CookieConsent.run({
+      categories: { necessary: true, analytics: false },
+      language: {
+        en: {
+          consentModal: { title: 'We use cookies', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all' },
+          preferencesModal: { title: 'Cookie settings', acceptAllBtn: 'Accept all', savePreferencesBtn: 'Save settings' }
+        }
+      },
+      onAccept: ({categories}) => {
+        if (categories.includes('analytics')) {
+          const ga = document.createElement('script'); ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y841F5N4SD';
+          document.head.appendChild(ga);
+          const gtagInit = document.createElement('script');
+          gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','G-Y841F5N4SD');";
+          document.head.appendChild(gtagInit);
+          const ads = document.createElement('script'); ads.async=1; ads.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446'; ads.setAttribute('crossorigin','anonymous');
+          document.head.appendChild(ads);
+        }
+      }
+    });
+    </script>
+  </body>
+  </html>

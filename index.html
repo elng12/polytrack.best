@@ -148,29 +148,7 @@
   <!-- Preload critical resources -->
   <link rel="preload" href="assets/logo.svg" as="image">
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID', {
-      page_title: 'Polytrack Online Racing Game',
-      page_location: window.location.href,
-      content_group1: 'Gaming',
-      content_group2: 'Racing'
-    });
-    
-    // Enhanced ecommerce events
-    gtag('event', 'page_view', {
-      page_title: 'Polytrack Homepage',
-      page_location: window.location.href
-    });
-  </script>
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446"
-       crossorigin="anonymous"></script>
+  
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_CODE" />
@@ -405,6 +383,7 @@
           <a href="#how-to-play" class="hover:text-slate-900 transition-colors">How to Play</a>
           <a href="#why-play" class="hover:text-slate-900 transition-colors">Why Play</a>
           <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
+          <a href="/blog/" class="hover:text-slate-900 transition-colors">Blog</a>
         </nav>
         <a href="#play" class="inline-flex items-center justify-center rounded-md bg-sky-600 text-white px-4 py-2 text-sm font-medium hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-colors">
           Play Now
@@ -797,6 +776,7 @@
           <nav class="space-y-2">
             <a href="#what-is" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">What is Polytrack</a>
             <a href="#why-play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Why Play</a>
+            <a href="/blog/" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Blog</a>
           </nav>
 
           <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider pt-4">Legal</h4>
@@ -1141,6 +1121,31 @@
         });
       }
     });
+  </script>
+  <!-- Cookie Consent global include -->
+  <link rel="stylesheet" href="/assets/cookieconsent.css">
+  <script src="/assets/cookieconsent.umd.js"></script>
+  <script>
+  CookieConsent.run({
+    categories: { necessary: true, analytics: false },
+    language: {
+      en: {
+        consentModal: { title: 'We use cookies', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all' },
+        preferencesModal: { title: 'Cookie settings', acceptAllBtn: 'Accept all', savePreferencesBtn: 'Save settings' }
+      }
+    },
+    onAccept: ({categories}) => {
+      if (categories.includes('analytics')) {
+        const ga = document.createElement('script'); ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y841F5N4SD';
+        document.head.appendChild(ga);
+        const gtagInit = document.createElement('script');
+        gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','G-Y841F5N4SD');";
+        document.head.appendChild(gtagInit);
+        const ads = document.createElement('script'); ads.async=1; ads.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446'; ads.setAttribute('crossorigin','anonymous');
+        document.head.appendChild(ads);
+      }
+    }
+  });
   </script>
 </body>
 </html>

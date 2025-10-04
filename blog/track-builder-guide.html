@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polytrack Track Builder Bible：从 0 到上传自定义赛道</title>
+  <meta name="description" content="一步步掌握 polytrack track builder：从赛道规划、polytrack track editor 操作、polytrack imports、调试与 polytrack show last test path，到发布 polytrack custom tracks 的完整流程。" />
+  <link rel="canonical" href="https://polytrack.best/blog/track-builder-guide.html" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/assets/styles.css" />
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Polytrack Track Builder Bible：从 0 到上传自定义赛道",
+    "author": {"@type": "Organization", "name": "Polytrack"},
+    "datePublished": "2025-10-04",
+    "dateModified": "2025-10-04",
+    "mainEntityOfPage": "https://polytrack.best/blog/track-builder-guide.html"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://polytrack.best/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://polytrack.best/blog/"},
+      {"@type": "ListItem", "position": 3, "name": "Track Builder Fundamentals"}
+    ]
+  }
+  </script>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+  <header class="border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between">
+      <a href="/blog/" class="text-sm text-slate-600 hover:text-sky-700">← Back to Blog</a>
+      <a href="/" class="flex items-center gap-2" aria-label="Polytrack Home">
+        <img src="/assets/logo.svg" alt="Polytrack logo" class="h-5 w-5" />
+        <span class="font-semibold">Polytrack</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="py-10">
+    <article class="max-w-4xl mx-auto px-4 md:px-6 prose prose-slate">
+      <h1>Polytrack Track Builder Bible：从 0 到上传自定义赛道</h1>
+      <p class="lead">想系统掌握 polytrack track builder，从空白画布到发布 polytrack custom tracks？这份 Bible 以“规划→编辑→导入→调试→发布”为主线，配合 polytrack track editor 实操与 polytrack imports、polytrack show last test path 等细节，帮你一步步构建节奏清晰、可重玩性高的赛道，并安全上传到社区。</p>
+
+      <h2>01 赛道蓝图：目标时间、难度曲线与主题定位</h2>
+      <p>任何优秀赛道都始于清晰的蓝图。首先确定目标单圈时间（如 30–40s 的短节奏或 50–70s 的标准节奏）与难度曲线：易上手的开局、强刺激的中段验证、以及“高风险但可读”的标志性终点段。主题决定材质与地形基调——沙漠的高对比跳台、冰原的低摩擦弯、或“体育场”风格的紧凑技术组合。将这些约束写下来，后续每一步都围绕它们评估取舍。</p>
+      <p>把单圈拆成“教学→释放→标志动作”的循环模块。教学段用较低速度与宽容线路引入机制；释放段提供直道或温和大弯；标志动作承担记忆点（长斜面、S 弯串、节奏跳）。这种模块化能让 polytrack track builder 在迭代时不至于牵一发而动全身。</p>
+
+      <h2>02 快速上手 polytrack track editor：视角、网格与模块管理</h2>
+      <p>进入 polytrack track editor，先把视角与网格单位调顺手：确保在“地标物可读、曲率可判断”的距离下放置模块。为常用模块建立收藏与命名规则，避免后期查找成本过高。放置弯道时，优先保证“读线清晰”，用护栏、地面纹理或光暗对比来指示转向趋势。</p>
+      <p>新手常见误区是“漂亮但难跑”。请记住：读线清晰优先于装饰密度，稳定帧时间优先于极端几何。必要时，在练习版本中关闭大体量装饰，只保留关键参照物，等节奏确认后再逐步增添。</p>
+
+      <h2>03 资源导入与版本管理：polytrack imports 的最佳实践</h2>
+      <p>当你需要外部素材或模板时，使用 polytrack imports 能大幅加快搭建效率。建议为导入内容维持“来源、用途、版本”三元标注，变更前先在副本上实验；若导入改变了碰撞体积或光影，请记录影响范围与回滚方式。多人协作时，给每次 polytrack imports 制作 Changelog，保证后续调试能快速定位问题引入点。</p>
+
+      <h2>04 调试循环：polytrack show last test path 与数据化修正</h2>
+      <p>测试十圈胜过盯图十分钟。启用 polytrack show last test path，观察“理论理想线”和“实际车轮轨迹”的差距：若大量玩家在同一处过度修正或刹停，说明读线或坡度在速度下不可行；若常在跳台后蛇形摆动，考虑减小落点侧倾或延长缓冲段。每次几何改动后务必重新计时，节奏的“秒数”才是真正的体验指标。</p>
+      <p>建议建立“问题→假设→改动→验证”的表格：例如“出弯过度滑移→入口视线被遮挡→降低路肩高度+提高对比→再测十圈”。当数据收敛，你会发现 polytrack track builder 的迭代效率呈指数提升。</p>
+
+      <h2>05 发布流程：从本地到 polytrack custom tracks 列表</h2>
+      <p>发布前做一份“可读性体检”：至少两位体验者在首次尝试中能不靠记忆完圈；至少一位能在十圈内稳定降时；标志动作的读线在移动端与桌面端都清晰。准备一张能体现轨迹走势的缩略图，并在描述里用一句话写出节奏骨架（例如“教学 S → 高速外飘 → 晚弯 apex → 标志跳台”）。这些做法能显著提升 polytrack custom tracks 的点击与完赛率。</p>
+
+      <h2>06 常见问题速查与高阶建议</h2>
+      <ul>
+        <li>“看着顺，跑着飘”：增大弯中轻微外倾或拓宽出弯 0.5 车宽。</li>
+        <li>“跳台落地甩”：检查落点对齐与坡度过渡，必要时提前 1–2 模块设置收拢引导。</li>
+        <li>“中段太累”：在高负荷组合后插入 2–3 秒恢复直路，让手腕复位。</li>
+        <li>“性能不稳”：减少高面数装饰，优先保障读线灯光与赛道边缘对比。</li>
+      </ul>
+
+      <h2>07 轻清单：一键回看整图质量</h2>
+      <ul>
+        <li>目标单圈时间与主题已确定；模块化节奏闭环成立。</li>
+        <li>关键转向点有“远提示 + 近提示”两层地标；可视不遮挡。</li>
+        <li>安全线与进攻线同时成立；失误后 2 秒内可回到正轨。</li>
+        <li>使用 polytrack show last test path 验证读线与落点；十圈计时后节奏合理。</li>
+        <li>准备好缩略图与一句话骨架；发布到 polytrack custom tracks。</li>
+      </ul>
+
+      <figure>
+        <img src="/assets/logo.svg" width="64" height="64" alt="polytrack track builder 读线与地标示意" />
+        <figcaption>用对比强的地标指引转向，比堆砌装饰更有效。</figcaption>
+      </figure>
+
+      <p>当你把“规划→编辑→导入→调试→发布”这条链路走顺，polytrack track builder 会变成富有节奏感的创作流程。祝你早日把第一条高评分赛道送上 polytrack custom tracks 榜单！</p>
+    </article>
+  </main>
+  <!-- Cookie Consent global include -->
+  <link rel="stylesheet" href="/assets/cookieconsent.css">
+  <script src="/assets/cookieconsent.umd.js"></script>
+  <script>
+  CookieConsent.run({
+    categories: { necessary: true, analytics: false },
+    language: { en: { consentModal: { title: 'We use cookies', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all' }, preferencesModal: { title: 'Cookie settings', acceptAllBtn: 'Accept all', savePreferencesBtn: 'Save settings' } } },
+    onAccept: ({categories}) => {
+      if (categories.includes('analytics')) {
+        const ga = document.createElement('script'); ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y841F5N4SD'; document.head.appendChild(ga);
+        const gtagInit = document.createElement('script'); gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','G-Y841F5N4SD');"; document.head.appendChild(gtagInit);
+        const ads = document.createElement('script'); ads.async=1; ads.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446'; ads.setAttribute('crossorigin','anonymous'); document.head.appendChild(ads);
+      }
+    }
+  });
+  </script>
+</body>
+</html>
