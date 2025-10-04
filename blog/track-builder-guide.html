@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Polytrack Track Builder Bible：从 0 到上传自定义赛道</title>
   <meta name="description" content="一步步掌握 polytrack track builder：从赛道规划、polytrack track editor 操作、polytrack imports、调试与 polytrack show last test path，到发布 polytrack custom tracks 的完整流程。" />
-  <link rel="canonical" href="https://polytrack.best/blog/track-builder-guide.html" />
+  <link rel="canonical" href="https://polytrack.best/blog/track-builder-guide" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="stylesheet" href="/assets/styles.css" />
 
@@ -18,7 +18,7 @@
     "author": {"@type": "Organization", "name": "Polytrack"},
     "datePublished": "2025-10-04",
     "dateModified": "2025-10-04",
-    "mainEntityOfPage": "https://polytrack.best/blog/track-builder-guide.html"
+    "mainEntityOfPage": "https://polytrack.best/blog/track-builder-guide"
   }
   </script>
 
@@ -38,8 +38,8 @@
 <body class="bg-white text-slate-800 antialiased">
   <header class="border-b border-slate-200">
     <div class="max-w-4xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between">
-      <a href="/blog/" class="text-sm text-slate-600 hover:text-sky-700">← Back to Blog</a>
-      <a href="/" class="flex items-center gap-2" aria-label="Polytrack Home">
+      <a href="https://polytrack.best/blog/" class="text-sm text-slate-600 hover:text-sky-700">← Back to Blog</a>
+      <a href="https://polytrack.best/" class="flex items-center gap-2" aria-label="Polytrack Home">
         <img src="/assets/logo.svg" alt="Polytrack logo" class="h-5 w-5" />
         <span class="font-semibold">Polytrack</span>
       </a>
@@ -48,22 +48,22 @@
 
   <main class="py-10">
     <article class="max-w-4xl mx-auto px-4 md:px-6 prose prose-slate">
-      <h1>Polytrack Track Builder Bible：从 0 到上传自定义赛道</h1>
-      <p class="lead">想系统掌握 polytrack track builder，从空白画布到发布 polytrack custom tracks？这份 Bible 以“规划→编辑→导入→调试→发布”为主线，配合 polytrack track editor 实操与 polytrack imports、polytrack show last test path 等细节，帮你一步步构建节奏清晰、可重玩性高的赛道，并安全上传到社区。</p>
+      <h1>Track Builder Bible: From idea to published custom track</h1>
+      <p class="lead leading-relaxed">Want a clear path from blank canvas to a published custom track? This Bible lays out a plain flow: plan → edit → import → test (show last test path) → publish to custom tracks. Keep lines readable, rhythm repeatable, and uploads safe.</p>
 
-      <h2>01 赛道蓝图：目标时间、难度曲线与主题定位</h2>
-      <p>任何优秀赛道都始于清晰的蓝图。首先确定目标单圈时间（如 30–40s 的短节奏或 50–70s 的标准节奏）与难度曲线：易上手的开局、强刺激的中段验证、以及“高风险但可读”的标志性终点段。主题决定材质与地形基调——沙漠的高对比跳台、冰原的低摩擦弯、或“体育场”风格的紧凑技术组合。将这些约束写下来，后续每一步都围绕它们评估取舍。</p>
-      <p>把单圈拆成“教学→释放→标志动作”的循环模块。教学段用较低速度与宽容线路引入机制；释放段提供直道或温和大弯；标志动作承担记忆点（长斜面、S 弯串、节奏跳）。这种模块化能让 polytrack track builder 在迭代时不至于牵一发而动全身。</p>
+      <h2>01 Blueprint: target lap time, difficulty curve, and theme</h2>
+      <p>Start with a clear blueprint. Set a target lap time (short 30–40s, standard 50–70s) and a readable difficulty curve: easy onboarding, a stimulating mid‑section, and a “high‑risk yet readable” finish. Pick a theme that guides materials and geometry (desert high‑contrast ramps, icy low‑friction turns, stadium‑style technical packs). Write these constraints down — every decision should reference them.</p>
+      <p>Build modular loops: teach → release → signature action. Teach with low speed and forgiving lines; release with straights or gentle sweepers; use signature actions (long ramps, S‑chains, rhythm jumps) as memory anchors. Modular design keeps edits isolated and iteration efficient.</p>
 
-      <h2>02 快速上手 polytrack track editor：视角、网格与模块管理</h2>
-      <p>进入 polytrack track editor，先把视角与网格单位调顺手：确保在“地标物可读、曲率可判断”的距离下放置模块。为常用模块建立收藏与命名规则，避免后期查找成本过高。放置弯道时，优先保证“读线清晰”，用护栏、地面纹理或光暗对比来指示转向趋势。</p>
-      <p>新手常见误区是“漂亮但难跑”。请记住：读线清晰优先于装饰密度，稳定帧时间优先于极端几何。必要时，在练习版本中关闭大体量装饰，只保留关键参照物，等节奏确认后再逐步增添。</p>
+      <h2>02 Editor basics: camera, grid, and module management</h2>
+      <p>In the editor, tune camera and grid first so landmarks are readable and curvature is judgeable. Curate common modules and name them consistently. When placing turns, prioritize line readability — use rails, ground textures, or light/dark contrast to telegraph direction.</p>
+      <p>A common trap: pretty but hard to drive. Favor readable lines over decoration density, and stable frame time over extreme geometry. For practice builds, disable heavy decor and keep key landmarks; add visuals back after rhythm is confirmed.</p>
 
-      <h2>03 资源导入与版本管理：polytrack imports 的最佳实践</h2>
-      <p>当你需要外部素材或模板时，使用 polytrack imports 能大幅加快搭建效率。建议为导入内容维持“来源、用途、版本”三元标注，变更前先在副本上实验；若导入改变了碰撞体积或光影，请记录影响范围与回滚方式。多人协作时，给每次 polytrack imports 制作 Changelog，保证后续调试能快速定位问题引入点。</p>
+      <h2>03 Imports and versioning: best practices</h2>
+      <p>Use imports for external assets and templates to speed up building. Track source, purpose, and version; experiment on copies before changing live content. If imports affect collision or lighting, record impact scope and rollback steps. In teams, keep a changelog per import to locate issues fast.</p>
 
-      <h2>04 调试循环：polytrack show last test path 与数据化修正</h2>
-      <p>测试十圈胜过盯图十分钟。启用 polytrack show last test path，观察“理论理想线”和“实际车轮轨迹”的差距：若大量玩家在同一处过度修正或刹停，说明读线或坡度在速度下不可行；若常在跳台后蛇形摆动，考虑减小落点侧倾或延长缓冲段。每次几何改动后务必重新计时，节奏的“秒数”才是真正的体验指标。</p>
+      <h2>04 Debugging loop: show last test path and data‑driven fixes</h2>
+      <p>Ten laps beat ten minutes of staring. Use “show last test path” to compare ideal lines to wheel traces. Heavy corrections or stalls at the same spot mean the line or slope fails at speed; snake moves after ramps suggest reducing tilt or extending buffer sections. Time every geometry change — seconds are the true experience metric.</p>
       <p>建议建立“问题→假设→改动→验证”的表格：例如“出弯过度滑移→入口视线被遮挡→降低路肩高度+提高对比→再测十圈”。当数据收敛，你会发现 polytrack track builder 的迭代效率呈指数提升。</p>
 
       <h2>05 发布流程：从本地到 polytrack custom tracks 列表</h2>
