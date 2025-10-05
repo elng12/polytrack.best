@@ -39,6 +39,9 @@
             margin-top: 30px;
         }
     </style>
+    <style>
+      .mobile-only{display:none}@media(max-width:768px){.mobile-only{display:inline-block}}
+    </style>
 </head>
 <body>
   <div style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:10;">
@@ -48,6 +51,13 @@
         <a href="/" style="color:#334155;text-decoration:none;">Home</a>
         <a href="/blog/" style="color:#334155;text-decoration:none;">Blog</a>
       </nav>
+      <button class="mobile-only" style="margin-left:12px;padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('mobile-nav'))">Menu</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="mobile-only" style="display:none;border-top:1px solid #e5e7eb;background:#ffffff;">
+    <div style="max-width:800px;margin:0 auto;padding:8px 20px;">
+      <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none;">Home</a>
+      <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none;">Blog</a>
     </div>
   </div>
     <h1>服务条款</h1>
