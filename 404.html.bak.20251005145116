@@ -1,11 +1,24 @@
-<!DOCTYPE html><html><head>
-    <title>Icon Generator</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>404 - Page Not Found | Polytrack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Page not found. Return to Polytrack racing game homepage to build custom tracks and race online." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://polytrack.best/" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body>
+<body class="bg-white text-slate-800 antialiased">
 <header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
   <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
     <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
-      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px">
+      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px" />
       <span style="font-weight:600">Polytrack</span>
     </a>
     <div style="display: flex; align-items: center; gap: 16px;">
@@ -32,93 +45,35 @@
 </header>
 
 
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-md mx-auto text-center">
+      <div class="mb-8">
+        <img src="assets/logo.svg" alt="Polytrack racing game logo" class="w-16 h-16 mx-auto mb-4">
+        <h1 class="text-6xl font-bold text-slate-900 mb-4">404</h1>
+        <h2 class="text-2xl font-semibold text-slate-700 mb-4">Page Not Found</h2>
+        <p class="text-slate-600 mb-8">
+          The page you're looking for doesn't exist. Let's get you back to racing!
+        </p>
+      </div>
+      
+      <div class="space-y-4">
+        <a href="/" class="inline-flex items-center justify-center rounded-lg bg-sky-600 text-white px-6 py-3 font-medium hover:bg-sky-700 transition-colors w-full">
+          馃彔 Back to Homepage
+        </a>
+        <a href="/#play" class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-6 py-3 font-medium hover:bg-slate-50 transition-colors w-full">
+          馃弾锔?Play Polytrack Now
+        </a>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-slate-200">
+        <p class="text-sm text-slate-500">
+          漏 2025 Polytrack. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
 
-
-    <canvas id="canvas" style="border: 1px solid #ccc;"></canvas>
-    <div id="download-links"></div>
-
-    <script>
-        // Icon sizes needed
-        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
-        
-        // SVG content for Polytrack logo
-        const svgContent = `
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="trackGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          
-          <!-- Background circle -->
-          <circle cx="50" cy="50" r="45" fill="url(#trackGradient)" stroke="#1e40af" stroke-width="2"/>
-          
-          <!-- Racing track -->
-          <path d="M20 50 Q30 30, 50 35 Q70 30, 80 50 Q70 70, 50 65 Q30 70, 20 50 Z" 
-                fill="none" stroke="white" stroke-width="3" opacity="0.9"/>
-          
-          <!-- Inner track -->
-          <path d="M30 50 Q35 40, 50 42 Q65 40, 70 50 Q65 60, 50 58 Q35 60, 30 50 Z" 
-                fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
-          
-          <!-- Racing car -->
-          <rect x="45" y="47" width="10" height="6" rx="2" fill="white"/>
-          <circle cx="47" cy="49" r="1" fill="#0ea5e9"/>
-          <circle cx="53" cy="49" r="1" fill="#0ea5e9"/>
-        </svg>`;
-
-        function generateIcon(size) {
-            const canvas = document.getElementById('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = size;
-            canvas.height = size;
-            
-            const img = new Image();
-            const svgBlob = new Blob([svgContent], {type: 'image/svg+xml'});
-            const url = URL.createObjectURL(svgBlob);
-            
-            img.onload = function() {
-                ctx.clearRect(0, 0, size, size);
-                ctx.drawImage(img, 0, 0, size, size);
-                
-                // Convert to PNG and create download link
-                canvas.toBlob(function(blob) {
-                    const link = document.createElement('a');
-                    link.download = `icon-${size}x${size}.png`;
-                    link.href = URL.createObjectURL(blob);
-                    link.textContent = `Download ${size}x${size} icon`;
-                    link.style.display = 'block';
-                    link.style.margin = '5px 0';
-                    
-                    document.getElementById('download-links').appendChild(link);
-                    
-                    // Auto-click to download
-                    link.click();
-                }, 'image/png');
-                
-                URL.revokeObjectURL(url);
-            };
-            
-            img.src = url;
-        }
-
-        // Generate all icons
-        window.onload = function() {
-            let index = 0;
-            function generateNext() {
-                if (index < sizes.length) {
-                    generateIcon(sizes[index]);
-                    index++;
-                    setTimeout(generateNext, 1000); // Delay between generations
-                }
-            }
-            generateNext();
-        };
-    </script>
-
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<<<<<<< HEAD
 &lt;footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc"&gt;
   &lt;div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px"&gt;
     &lt;p class="text-xs text-slate-500"&gt; &lt;span id="y"&gt;&lt;/span&gt; Polytrack. All rights reserved.&lt;/p&gt;
@@ -199,8 +154,8 @@
   })();
 </script>
 
-
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; ad0b69c (fix(footer): dedupe year script; re-inject snippets)
+</script>
+>>>>>>> ad0b69c (fix(footer): dedupe year script; re-inject snippets)
 
 <script>
   (function() {
@@ -321,23 +276,5 @@
 <script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
 <script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
 <script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-
-
-&lt;footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc"&gt;
-  &lt;div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px"&gt;
-    &lt;p class="text-xs text-slate-500"&gt; &lt;span id="y"&gt;&lt;/span&gt; Polytrack. All rights reserved.&lt;/p&gt;
-    &lt;nav style="display:flex;gap:16px;font-size:14px"&gt;
-      &lt;a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Legal&lt;/a&gt;
-      &lt;a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Privacy&lt;/a&gt;
-      &lt;a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Terms&lt;/a&gt;
-    &lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-&lt;script&gt;
-  (function() {
-    const el = document.getElementById('y');
-    if (el) el.textContent = new Date().getFullYear().toString();
-  })();
-&lt;/script&gt;
-
-</body></html>
+</body>
+</html>

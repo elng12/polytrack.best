@@ -9,7 +9,11 @@
     "dev": "npm run build-css",
     "build": "npm run build-css-prod",
     "serve": "python -m http.server 8000",
-    "indexnow": "node scripts/submit-indexnow.mjs"
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "sanitize:files": "node scripts/sanitize-files.mjs",
+    "sanitize:files:write": "node scripts/sanitize-files.mjs --write",
+    "apply:layout": "node scripts/apply-layout.mjs",
+    "apply:layout:write": "node scripts/apply-layout.mjs --write --backup"
   },
   "keywords": [
     "polytrack",
@@ -24,7 +28,8 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.0",
+    "jsdom": "24.0.0"
   },
   "repository": {
     "type": "git",

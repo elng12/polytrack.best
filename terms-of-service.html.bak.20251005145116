@@ -1,8 +1,10 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>娉曞緥鏂囨。 - Polytrack.best</title>
-    <link rel="canonical" href="https://polytrack.best/legal-documents">
+    <title>鏈嶅姟鏉℃ - Polytrack.best</title>
+    <link rel="canonical" href="https://polytrack.best/terms-of-service" />
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -11,81 +13,31 @@
             margin: 0 auto;
             padding: 20px;
             color: #333;
-            background: #f8f9fa;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
+        h1, h2 {
             color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
         }
-        .document-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .document-card {
+        .last-updated {
             background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
+            padding: 10px;
             border-left: 4px solid #3498db;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .document-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .document-card h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        .document-card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        .document-link {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.2s;
-        }
-        .document-link:hover {
-            background: #2980b9;
-        }
-        .intro-section {
-            background: #e8f4fd;
-            padding: 20px;
-            border-radius: 8px;
             margin-bottom: 30px;
         }
-        .footer-note {
-            background: #fff3cd;
+        .contact-info {
+            background: #e8f4fd;
             padding: 15px;
             border-radius: 5px;
             margin-top: 30px;
-            text-align: center;
         }
-    </style>
-    <style>
-      .mobile-only{display:none}@media(max-width:768px){.mobile-only{display:inline-block}}
     </style>
 </head>
 <body>
 <header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
   <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
     <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
-      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px">
+      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px" />
       <span style="font-weight:600">Polytrack</span>
     </a>
     <div style="display: flex; align-items: center; gap: 16px;">
@@ -112,48 +64,65 @@
 </header>
 
 
+    <h1>鏈嶅姟鏉℃</h1>
+    
+    <div class="last-updated">
+        <strong>鏈€鍚庢洿鏂版棩鏈燂細</strong>2024骞?鏈?鏃?br>
+        <strong>鐢熸晥鏃ユ湡锛?/strong>2024骞?鏈?鏃?    </div>
 
-    <div class="container">
-        <h1>馃搵 Polytrack.best 娉曞緥鏂囨。</h1>
-        
-        <div class="intro-section">
-            <p><strong>娆㈣繋璁块棶 Polytrack.best 娉曞緥鏂囨。涓績</strong></p>
-            <p>涓轰簡纭繚閫忔槑搴﹀拰鍚堣鎬э紝鎴戜滑鎻愪緵浜嗗畬鏁寸殑娉曞緥鏂囨。銆傝繖浜涙枃妗ｈ缁嗚鏄庝簡鎴戜滑鐨勬湇鍔℃潯娆俱€侀殣绉佷繚鎶ゆ帾鏂戒互鍙婂叕鍙镐俊鎭€?/p&gt;
-        </p></div>
+    <h2>1. 鎺ュ彈鏉℃</h2>
+    <p>娆㈣繋璁块棶 Polytrack.best锛?鎴戜滑"銆?鏈綉绔?锛夈€傝闂垨浣跨敤鏈綉绔欏嵆琛ㄧず鎮ㄥ悓鎰忛伒瀹堜互涓嬫湇鍔℃潯娆俱€傚鏋滄偍涓嶅悓鎰忚繖浜涙潯娆撅紝璇峰嬁浣跨敤鏈綉绔欍€?/p>
 
-        <div class="document-grid">
-            <div class="document-card">
-                <h3>馃敀 闅愮鏀跨瓥</h3>
-                <p>璇︾粏璇存槑鎴戜滑濡備綍鏀堕泦銆佷娇鐢ㄥ拰淇濇姢鎮ㄧ殑涓汉淇℃伅锛屽寘鎷珻ookie浣跨敤銆佺涓夋柟鏈嶅姟鍜岀敤鎴锋潈鍒┿€?/p&gt;
-                <a href="privacy-policy.html" class="document-link">鏌ョ湅闅愮鏀跨瓥</a>
-            </p></div>
+    <h2>2. 鏈嶅姟鍐呭</h2>
+    <p>Polytrack.best 鎻愪緵鍦ㄧ嚎娓告垙銆佺ぞ鍖哄姛鑳藉拰鐩稿叧淇℃伅鏈嶅姟銆傛垜浠繚鐣欓殢鏃朵慨鏀规垨缁堟鏈嶅姟鐨勬潈鍒╋紝鎭曚笉鍙﹁閫氱煡銆?/p>
 
-            <div class="document-card">
-                <h3>馃摐 鏈嶅姟鏉℃</h3>
-                <p>瑙勫畾缃戠珯浣跨敤瑙勫垯銆佺敤鎴疯矗浠汇€佸厤璐ｅ０鏄庡拰浜夎瑙ｅ喅鏂瑰紡锛岀‘淇濇湇鍔＄殑鍚堟硶鍚堣浣跨敤銆?/p&gt;
-                <a href="terms-of-service.html" class="document-link">鏌ョ湅鏈嶅姟鏉℃</a>
-            </p></div>
+    <h2>3. 鐢ㄦ埛琛屼负鍑嗗垯</h2>
+    <p>鎮ㄥ悓鎰忓湪浣跨敤鏈綉绔欐椂閬靛畧浠ヤ笅琛屼负鍑嗗垯锛?/p>
+    <ul>
+        <li>涓嶅彂甯冧换浣曢潪娉曘€侀獨鎵般€佽璋ゃ€佹帆绉芥垨鍏朵粬浠や汉鍙嶆劅鐨勫唴瀹广€?/li>
+        <li>涓嶄镜鐘粬浜虹殑鐭ヨ瘑浜ф潈鎴栧叾浠栧悎娉曟潈鍒┿€?/li>
+        <li>涓嶄笂浼犳垨浼犳挱鐥呮瘨銆佹伓鎰忚蒋浠舵垨鍏朵粬鏈夊浠ｇ爜銆?/li>
+        <li>涓嶄粠浜嬩换浣曞彲鑳藉共鎵版垨鐮村潖鏈綉绔欐甯歌繍琛岀殑娲诲姩銆?/li>
+        <li>涓嶄娇鐢ㄨ嚜鍔ㄥ寲鑴氭湰鎴栨満鍣ㄤ汉璁块棶鎴栨敹闆嗘暟鎹€?/li>
+    </ul>
 
-            <div class="document-card">
-                <h3>馃彚 鍏充簬鎴戜滑</h3>
-                <p>浜嗚В Polytrack.best 鐨勮儗鏅€佹湇鍔″唴瀹广€佸洟闃熶俊鎭拰鑱旂郴鏂瑰紡锛屽寘鍚究鎹风殑鑱旂郴琛ㄥ崟銆?/p&gt;
-                <a href="about-us.html" class="document-link">浜嗚В鎴戜滑</a>
-            </p></div>
-        </div>
+    <h2>4. 鐭ヨ瘑浜ф潈</h2>
+    <p>鏈綉绔欎笂鐨勬墍鏈夊唴瀹癸紝鍖呮嫭鏂囨湰銆佸浘褰€佸窘鏍囥€佷唬鐮佸拰杞欢锛屽潎涓?Polytrack.best 鎴栧叾鍐呭渚涘簲鍟嗙殑璐骇锛屽彈鍥介檯鐗堟潈娉曚繚鎶ゃ€?/p>
+    <p>鎮ㄤ笉寰楀鍒躲€佷慨鏀广€佸垎鍙戞垨浠ュ叾浠栨柟寮忎娇鐢ㄦ湰缃戠珯鐨勪换浣曞唴瀹癸紝闄ら潪鑾峰緱鎴戜滑鐨勬槑纭功闈㈣鍙€?/p>
 
-        <div class="footer-note">
-            <p><strong>馃摟 鑱旂郴鎴戜滑锛?/strong&gt;paly@polytrack.best</strong></p><strong>
-            <p>濡傛灉鎮ㄥ杩欎簺鏂囨。鏈変换浣曠枒闂紝璇烽殢鏃朵笌鎴戜滑鑱旂郴銆?/p&gt;
-        </p></strong></div><strong>
+    <h2>5. 鐢ㄦ埛鐢熸垚鍐呭</h2>
+    <p>濡傛灉鎮ㄥ湪鏈綉绔欎笂鍙戝竷鎴栦笂浼犱换浣曞唴瀹癸紙渚嬪锛岃嚜瀹氫箟璧涢亾銆佽瘎璁猴級锛屾偍鎺堜簣鎴戜滑闈炵嫭瀹剁殑銆佸叏鐞冩€х殑銆佸厤鐗堢◣鐨勮鍙紝浠ヤ娇鐢ㄣ€佸鍒躲€佷慨鏀瑰拰鍒嗗彂鎮ㄧ殑鍐呭銆?/p>
+    <p>鎮ㄥ鎮ㄥ彂甯冪殑鍐呭璐熷叏閮ㄨ矗浠伙紝骞朵繚璇佹偍鎷ユ湁鍙戝竷璇ュ唴瀹规墍闇€鐨勬墍鏈夋潈鍒┿€?/p>
 
-        <div style="margin-top: 30px; text-align: center; color: #666; font-size: 14px;">
-            <p>鏈€鍚庢洿鏂帮細2024骞?鏈?鏃?/p&gt;
-            </p><p>© 2024 Polytrack.best. 淇濈暀鎵€鏈夋潈鍒┿€?/p&gt;
-        </p></div>
-    </strong></div><strong>
+    <h2>6. 鍏嶈矗澹版槑</h2>
+    <p>鏈綉绔欐寜"鐜扮姸"鍜?鐜版湁"鍩虹鎻愪緵銆傛垜浠笉浣滀换浣曟槑绀烘垨鏆楃ず鐨勪繚璇侊紝鍖呮嫭浣嗕笉闄愪簬瀵归€傞攢鎬с€佺壒瀹氱敤閫旈€傜敤鎬у拰闈炰镜鏉冩€х殑淇濊瘉銆?/p>
+    <p>鎴戜滑涓嶄繚璇佹湰缃戠珯灏嗕笉闂存柇銆佹棤閿欒鎴栧畬鍏ㄥ畨鍏ㄣ€?/p>
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    <h2>7. 璐ｄ换闄愬埗</h2>
+    <p>鍦ㄦ硶寰嬪厑璁哥殑鏈€澶ц寖鍥村唴锛孭olytrack.best 鍙婂叾鍏宠仈鏂逛笉瀵瑰洜浣跨敤鎴栨棤娉曚娇鐢ㄦ湰缃戠珯鑰屽鑷寸殑浠讳綍鐩存帴銆侀棿鎺ャ€佸伓鐒躲€佺壒娈婃垨鍚庢灉鎬ф崯瀹虫壙鎷呰矗浠汇€?/p>
+
+    <h2>8. 璧斿伩</h2>
+    <p>鎮ㄥ悓鎰忚禂鍋垮苟浣?Polytrack.best 鍙婂叾鍛樺伐銆佽懀浜嬪拰浠ｇ悊浜哄厤鍙楀洜鎮ㄨ繚鍙嶆湰鏈嶅姟鏉℃鎴栦娇鐢ㄦ湰缃戠珯鑰屽紩璧风殑浠讳綍绱㈣禂銆佹崯澶辨垨鎹熷銆?/p>
+
+    <h2>9. 閾炬帴鍒扮涓夋柟缃戠珯</h2>
+    <p>鏈綉绔欏彲鑳藉寘鍚寚鍚戠涓夋柟缃戠珯鐨勯摼鎺ャ€傛垜浠杩欎簺缃戠珯鐨勫唴瀹规垨闅愮鏀跨瓥涓嶆壙鎷呬换浣曡矗浠汇€傝闂繖浜涢摼鎺ョ殑椋庨櫓鐢辨偍鑷鎵挎媴銆?/p>
+
+    <h2>10. 鏉℃鍙樻洿</h2>
+    <p>鎴戜滑淇濈暀闅忔椂淇敼鏈湇鍔℃潯娆剧殑鏉冨埄銆傞噸澶у彉鏇村皢閫氳繃缃戠珯閫氱煡鎴栫數瀛愰偖浠堕€氱煡鐢ㄦ埛銆傜户缁娇鐢ㄦ湰缃戠珯鍗宠〃绀烘偍鎺ュ彈淇敼鍚庣殑鏉℃銆?/p>
+
+    <h2>11. 閫傜敤娉曞緥鍜屼簤璁В鍐?/h2>
+    <p>鏈湇鍔℃潯娆惧彈涓崕浜烘皯鍏卞拰鍥芥硶寰嬬杈栥€傚洜鏈潯娆惧紩璧风殑浠讳綍浜夎搴旈€氳繃鍙嬪ソ鍗忓晢瑙ｅ喅銆傚鏋滃崗鍟嗕笉鎴愶紝搴旀彁浜よ嚦鏈夌杈栨潈鐨勪汉姘戞硶闄㈣В鍐炽€?/p>
+
+    <div class="contact-info">
+        <h2>12. 鑱旂郴鎴戜滑</h2>
+        <p>濡傛灉鎮ㄥ鏈湇鍔℃潯娆炬湁浠讳綍鐤戦棶锛岃閫氳繃浠ヤ笅鏂瑰紡鑱旂郴鎴戜滑锛?/p>
+        <ul>
+            <li><strong>鐢靛瓙閭锛?/strong>paly@polytrack.best</li>
+        </ul>
+    </div>
+
+<<<<<<< HEAD
+<<<<<<< HEAD
 &lt;footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc"&gt;
   &lt;div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px"&gt;
     &lt;p class="text-xs text-slate-500"&gt; &lt;span id="y"&gt;&lt;/span&gt; Polytrack. All rights reserved.&lt;/p&gt;
@@ -234,8 +203,8 @@
   })();
 </script>
 
-
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; ad0b69c (fix(footer): dedupe year script; re-inject snippets)
+</script>
+>>>>>>> ad0b69c (fix(footer): dedupe year script; re-inject snippets)
 
 <script>
   (function() {
@@ -274,12 +243,6 @@
     const el = document.getElementById('y');
     if (el) el.textContent = new Date().getFullYear().toString();
   })();
-
-<script>
-  (function() {
-    const el = document.getElementById('y');
-    if (el) el.textContent = new Date().getFullYear().toString();
-  })();
 </script>
 <script>
   (function() {
@@ -293,24 +256,12 @@
     if (el) el.textContent = new Date().getFullYear().toString();
   })();
 </script>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; ad0b69c (fix(footer): dedupe year script; re-inject snippets)
-
-
-</strong>&lt;footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc"&gt;
-  &lt;div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px"&gt;
-    &lt;p class="text-xs text-slate-500"&gt; &lt;span id="y"&gt;&lt;/span&gt; Polytrack. All rights reserved.&lt;/p&gt;
-    &lt;nav style="display:flex;gap:16px;font-size:14px"&gt;
-      &lt;a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Legal&lt;/a&gt;
-      &lt;a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Privacy&lt;/a&gt;
-      &lt;a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Terms&lt;/a&gt;
-    &lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-&lt;script&gt;
+<script>
   (function() {
     const el = document.getElementById('y');
     if (el) el.textContent = new Date().getFullYear().toString();
   })();
-&lt;/script&gt;
-
-</body></html>
+</script>
+>>>>>>> ad0b69c (fix(footer): dedupe year script; re-inject snippets)
+</body>
+</html>
