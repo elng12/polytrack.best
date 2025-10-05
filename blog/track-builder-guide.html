@@ -1,28 +1,82 @@
 ﻿<!DOCTYPE html>
 
 
+
+
+
+
+
+
 <html lang="zh-CN">
+
+
+
+
+
+
 
 
 <head>
 
 
+
+
+
+
+
+
   <meta charset="utf-8" />
+
+
+
+
+
+
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
+
+
+
+
+
+
   <title>Polytrack Track Builder Bible锛氫粠 0 鍒颁笂浼犺嚜瀹氫箟璧涢亾</title>
+
+
+
+
+
+
 
 
   <meta name="description" content="涓€姝ユ鎺屾彙 polytrack track builder锛氫粠璧涢亾瑙勫垝銆乸olytrack track editor 鎿嶄綔銆乸olytrack imports銆佽皟璇曚笌 polytrack show last test path锛屽埌鍙戝竷 polytrack custom tracks 鐨勫畬鏁存祦绋嬨€? />
 
 
+
+
+
+
+
+
   <link rel="canonical" href="https://polytrack.best/blog/track-builder-guide" />
 
 
+
+
+
+
+
+
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+
+
+
+
+
 
 
   <link rel="stylesheet" href="/assets/styles.css" />
@@ -31,40 +85,130 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- JSON-LD: Article -->
+
+
+
+
+
+
 
 
   <script type="application/ld+json">
 
 
+
+
+
+
+
+
   {
+
+
+
+
+
+
 
 
     "@context": "https://schema.org",
 
 
+
+
+
+
+
+
     "@type": "Article",
+
+
+
+
+
+
 
 
     "headline": "Polytrack Track Builder Bible锛氫粠 0 鍒颁笂浼犺嚜瀹氫箟璧涢亾",
 
 
+
+
+
+
+
+
     "author": {"@type": "Organization", "name": "Polytrack"},
+
+
+
+
+
+
 
 
     "datePublished": "2025-10-04",
 
 
+
+
+
+
+
+
     "dateModified": "2025-10-04",
+
+
+
+
+
+
 
 
     "mainEntityOfPage": "https://polytrack.best/blog/track-builder-guide"
 
 
+
+
+
+
+
+
   }
 
 
+
+
+
+
+
+
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -73,124 +217,370 @@
   <!-- JSON-LD: Breadcrumbs -->
 
 
+
+
+
+
+
+
   <script type="application/ld+json">
+
+
+
+
+
+
 
 
   {
 
 
+
+
+
+
+
+
     "@context": "https://schema.org",
+
+
+
+
+
+
 
 
     "@type": "BreadcrumbList",
 
 
+
+
+
+
+
+
     "itemListElement": [
+
+
+
+
+
+
 
 
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://polytrack.best/"},
 
 
+
+
+
+
+
+
       {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://polytrack.best/blog/"},
+
+
+
+
+
+
 
 
       {"@type": "ListItem", "position": 3, "name": "Track Builder Fundamentals"}
 
 
+
+
+
+
+
+
     ]
+
+
+
+
+
+
 
 
   }
 
 
+
+
+
+
+
+
   </script>
+
+
+
+
+
+
 
 
 </head>
 
 
+
+
+
+
+
+
 <body class="bg-white text-slate-800 antialiased">
 
 
-  ﻿﻿﻿<header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
+
+
+
+
+
+
+  ﻿﻿﻿﻿﻿﻿﻿<header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
+
+
+
+
+
+
 
 
   <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
 
 
+
+
+
+
+
+
     <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
+
+
+
+
+
+
 
 
       <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px" />
 
 
+
+
+
+
+
+
       <span style="font-weight:600">Polytrack</span>
+
+
+
+
+
+
 
 
     </a>
 
 
+
+
+
+
+
+
     <div style="display: flex; align-items: center; gap: 16px;">
+
+
+
+
+
+
 
 
       <nav class="hidden md:flex items-center gap-6 text-sm" style="gap:16px;font-size:14px">
 
 
+
+
+
+
+
+
         <a href="/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Home</a>
+
+
+
+
+
+
 
 
         <a href="/features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Features</a>
 
 
+
+
+
+
+
+
         <a href="/what-is-polytrack" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">What is</a>
+
+
+
+
+
+
 
 
         <a href="/how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">How to Play</a>
 
 
+
+
+
+
+
+
         <a href="/why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why Play</a>
+
+
+
+
+
+
 
 
         <a href="/faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
 
 
+
+
+
+
+
+
         <a href="/blog/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
+
+
+
+
+
+
 
 
       </nav>
 
 
+
+
+
+
+
+
       <a href="/play" class="hidden md:inline-flex" style="background-color:#0284c7; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play Now</a>
+
+
+
+
+
+
 
 
       <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
 
 
+
+
+
+
+
+
     </div>
 
 
+
+
+
+
+
+
   </div>
+
+
+
+
+
+
 
 
   <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
 
 
+
+
+
+
+
+
     <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
+
+
+
+
+
+
 
 
       <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
 
 
+
+
+
+
+
+
       <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
+
+
+
+
+
+
 
 
       <a href="/play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
 
 
+
+
+
+
+
+
     </div>
 
 
+
+
+
+
+
+
   </div>
+
+
+
+
+
+
 
 
 </header>
@@ -208,13 +598,97 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <main class="py-10">
+
+
+
+
+
+
 
 
     <article class="max-w-4xl mx-auto px-4 md:px-6 prose prose-slate">
 
 
+
+
+
+
+
+
       <h1>Track Builder Bible: From idea to published custom track</h1>
+
+
+
+
+
+
 
 
       <p class="lead leading-relaxed">Want a clear path from blank canvas to a published custom track? This Bible lays out a plain flow: plan 鈫?edit 鈫?import 鈫?test (show last test path) 鈫?publish to custom tracks. Keep lines readable, rhythm repeatable, and uploads safe.</p>
@@ -223,10 +697,34 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <h2>01 Blueprint: target lap time, difficulty curve, and theme</h2>
 
 
+
+
+
+
+
+
       <p>Start with a clear blueprint. Set a target lap time (short 30鈥?0s, standard 50鈥?0s) and a readable difficulty curve: easy onboarding, a stimulating mid鈥憇ection, and a 鈥渉igh鈥憆isk yet readable鈥?finish. Pick a theme that guides materials and geometry (desert high鈥慶ontrast ramps, icy low鈥慺riction turns, stadium鈥憇tyle technical packs). Write these constraints down 鈥?every decision should reference them.</p>
+
+
+
+
+
+
 
 
       <p>Build modular loops: teach 鈫?release 鈫?signature action. Teach with low speed and forgiving lines; release with straights or gentle sweepers; use signature actions (long ramps, S鈥慶hains, rhythm jumps) as memory anchors. Modular design keeps edits isolated and iteration efficient.</p>
@@ -235,10 +733,34 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <h2>02 Editor basics: camera, grid, and module management</h2>
 
 
+
+
+
+
+
+
       <p>In the editor, tune camera and grid first so landmarks are readable and curvature is judgeable. Curate common modules and name them consistently. When placing turns, prioritize line readability 鈥?use rails, ground textures, or light/dark contrast to telegraph direction.</p>
+
+
+
+
+
+
 
 
       <p>A common trap: pretty but hard to drive. Favor readable lines over decoration density, and stable frame time over extreme geometry. For practice builds, disable heavy decor and keep key landmarks; add visuals back after rhythm is confirmed.</p>
@@ -247,7 +769,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <h2>03 Imports and versioning: best practices</h2>
+
+
+
+
+
+
 
 
       <p>Use imports for external assets and templates to speed up building. Track source, purpose, and version; experiment on copies before changing live content. If imports affect collision or lighting, record impact scope and rollback steps. In teams, keep a changelog per import to locate issues fast.</p>
@@ -256,10 +796,34 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <h2>04 Debugging loop: show last test path and data鈥慸riven fixes</h2>
 
 
+
+
+
+
+
+
       <p>Ten laps beat ten minutes of staring. Use 鈥渟how last test path鈥?to compare ideal lines to wheel traces. Heavy corrections or stalls at the same spot mean the line or slope fails at speed; snake moves after ramps suggest reducing tilt or extending buffer sections. Time every geometry change 鈥?seconds are the true experience metric.</p>
+
+
+
+
+
+
 
 
       <p>寤鸿寤虹珛鈥滈棶棰樷啋鍋囪鈫掓敼鍔ㄢ啋楠岃瘉鈥濈殑琛ㄦ牸锛氫緥濡傗€滃嚭寮繃搴︽粦绉烩啋鍏ュ彛瑙嗙嚎琚伄鎸♀啋闄嶄綆璺偐楂樺害+鎻愰珮瀵规瘮鈫掑啀娴嬪崄鍦堚€濄€傚綋鏁版嵁鏀舵暃锛屼綘浼氬彂鐜?polytrack track builder 鐨勮凯浠ｆ晥鐜囧憟鎸囨暟鎻愬崌銆?/p>
@@ -268,7 +832,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <h2>05 鍙戝竷娴佺▼锛氫粠鏈湴鍒?polytrack custom tracks 鍒楄〃</h2>
+
+
+
+
+
+
 
 
       <p>鍙戝竷鍓嶅仛涓€浠解€滃彲璇绘€т綋妫€鈥濓細鑷冲皯涓や綅浣撻獙鑰呭湪棣栨灏濊瘯涓兘涓嶉潬璁板繂瀹屽湀锛涜嚦灏戜竴浣嶈兘鍦ㄥ崄鍦堝唴绋冲畾闄嶆椂锛涙爣蹇楀姩浣滅殑璇荤嚎鍦ㄧЩ鍔ㄧ涓庢闈㈢閮芥竻鏅般€傚噯澶囦竴寮犺兘浣撶幇杞ㄨ抗璧板娍鐨勭缉鐣ュ浘锛屽苟鍦ㄦ弿杩伴噷鐢ㄤ竴鍙ヨ瘽鍐欏嚭鑺傚楠ㄦ灦锛堜緥濡傗€滄暀瀛?S 鈫?楂橀€熷椋?鈫?鏅氬集 apex 鈫?鏍囧織璺冲彴鈥濓級銆傝繖浜涘仛娉曡兘鏄捐憲鎻愬崌 polytrack custom tracks 鐨勭偣鍑讳笌瀹岃禌鐜囥€?/p>
@@ -277,25 +859,85 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <h2>06 甯歌闂閫熸煡涓庨珮闃跺缓璁?/h2>
+
+
+
+
+
+
 
 
       <ul>
 
 
+
+
+
+
+
+
         <li>鈥滅湅鐫€椤猴紝璺戠潃椋樷€濓細澧炲ぇ寮腑杞诲井澶栧€炬垨鎷撳鍑哄集 0.5 杞﹀銆?/li>
+
+
+
+
+
+
 
 
         <li>鈥滆烦鍙拌惤鍦扮敥鈥濓細妫€鏌ヨ惤鐐瑰榻愪笌鍧″害杩囨浮锛屽繀瑕佹椂鎻愬墠 1鈥? 妯″潡璁剧疆鏀舵嫝寮曞銆?/li>
 
 
+
+
+
+
+
+
         <li>鈥滀腑娈靛お绱€濓細鍦ㄩ珮璐熻嵎缁勫悎鍚庢彃鍏?2鈥? 绉掓仮澶嶇洿璺紝璁╂墜鑵曞浣嶃€?/li>
+
+
+
+
+
+
 
 
         <li>鈥滄€ц兘涓嶇ǔ鈥濓細鍑忓皯楂橀潰鏁拌楗帮紝浼樺厛淇濋殰璇荤嚎鐏厜涓庤禌閬撹竟缂樺姣斻€?/li>
 
 
+
+
+
+
+
+
       </ul>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -304,22 +946,64 @@
       <h2>07 杞绘竻鍗曪細涓€閿洖鐪嬫暣鍥捐川閲?/h2>
 
 
+
+
+
+
+
+
       <ul>
+
+
+
+
+
+
 
 
         <li>鐩爣鍗曞湀鏃堕棿涓庝富棰樺凡纭畾锛涙ā鍧楀寲鑺傚闂幆鎴愮珛銆?/li>
 
 
+
+
+
+
+
+
         <li>鍏抽敭杞悜鐐规湁鈥滆繙鎻愮ず + 杩戞彁绀衡€濅袱灞傚湴鏍囷紱鍙涓嶉伄鎸°€?/li>
+
+
+
+
+
+
 
 
         <li>瀹夊叏绾夸笌杩涙敾绾垮悓鏃舵垚绔嬶紱澶辫鍚?2 绉掑唴鍙洖鍒版杞ㄣ€?/li>
 
 
+
+
+
+
+
+
         <li>浣跨敤 polytrack show last test path 楠岃瘉璇荤嚎涓庤惤鐐癸紱鍗佸湀璁℃椂鍚庤妭濂忓悎鐞嗐€?/li>
 
 
+
+
+
+
+
+
         <li>鍑嗗濂界缉鐣ュ浘涓庝竴鍙ヨ瘽楠ㄦ灦锛涘彂甯冨埌 polytrack custom tracks銆?/li>
+
+
+
+
+
+
 
 
       </ul>
@@ -328,13 +1012,43 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <figure>
+
+
+
+
+
+
 
 
         <img src="/assets/logo.svg" width="64" height="64" alt="polytrack track builder 璇荤嚎涓庡湴鏍囩ず鎰? />
 
 
+
+
+
+
+
+
         <figcaption>鐢ㄥ姣斿己鐨勫湴鏍囨寚寮曡浆鍚戯紝姣斿爢鐮岃楗版洿鏈夋晥銆?/figcaption>
+
+
+
+
+
+
 
 
       </figure>
@@ -343,58 +1057,178 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       <p>褰撲綘鎶娾€滆鍒掆啋缂栬緫鈫掑鍏モ啋璋冭瘯鈫掑彂甯冣€濊繖鏉￠摼璺蛋椤猴紝polytrack track builder 浼氬彉鎴愬瘜鏈夎妭濂忔劅鐨勫垱浣滄祦绋嬨€傜浣犳棭鏃ユ妸绗竴鏉￠珮璇勫垎璧涢亾閫佷笂 polytrack custom tracks 姒滃崟锛?/p>
+
+
+
+
+
+
 
 
     </article>
 
 
+
+
+
+
+
+
   </main>
+
+
+
+
+
+
 
 
   <!-- Cookie Consent global include -->
 
 
+
+
+
+
+
+
   <link rel="stylesheet" href="/assets/cookieconsent.css">
+
+
+
+
+
+
 
 
   <script src="/assets/cookieconsent.umd.js"></script>
 
 
+
+
+
+
+
+
   <script>
+
+
+
+
+
+
 
 
   CookieConsent.run({
 
 
+
+
+
+
+
+
     categories: { necessary: true, analytics: false },
+
+
+
+
+
+
 
 
     language: { en: { consentModal: { title: 'We use cookies', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all' }, preferencesModal: { title: 'Cookie settings', acceptAllBtn: 'Accept all', savePreferencesBtn: 'Save settings' } } },
 
 
+
+
+
+
+
+
     onAccept: ({categories}) => {
+
+
+
+
+
+
 
 
       if (categories.includes('analytics')) {
 
 
+
+
+
+
+
+
         const ga = document.createElement('script'); ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y841F5N4SD'; document.head.appendChild(ga);
+
+
+
+
+
+
 
 
         const gtagInit = document.createElement('script'); gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','G-Y841F5N4SD');"; document.head.appendChild(gtagInit);
 
 
+
+
+
+
+
+
         const ads = document.createElement('script'); ads.async=1; ads.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446'; ads.setAttribute('crossorigin','anonymous'); document.head.appendChild(ads);
+
+
+
+
+
+
 
 
       }
 
 
+
+
+
+
+
+
     }
 
 
+
+
+
+
+
+
   });
+
+
+
+
+
+
 
 
   </script>
@@ -403,52 +1237,159 @@
 
 
 
-<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ﻿&lt;footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc"&gt;
 
 
+
+
+
+
+
+
   &lt;div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px"&gt;
+
+
+
+
+
+
 
 
     &lt;p class="text-xs text-slate-500"&gt; &lt;span id="y"&gt;&lt;/span&gt; Polytrack. All rights reserved.&lt;/p&gt;
 
 
+
+
+
+
+
+
     &lt;nav style="display:flex;gap:16px;font-size:14px"&gt;
+
+
+
+
+
+
 
 
       &lt;a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Legal&lt;/a&gt;
 
 
+
+
+
+
+
+
       &lt;a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Privacy&lt;/a&gt;
+
+
+
+
+
+
 
 
       &lt;a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none"&gt;Terms&lt;/a&gt;
 
 
+
+
+
+
+
+
     &lt;/nav&gt;
+
+
+
+
+
+
 
 
   &lt;/div&gt;
 
 
+
+
+
+
+
+
 &lt;/footer&gt;
+
+
+
+
+
+
 
 
 &lt;script&gt;
 
 
+
+
+
+
+
+
   (function() {
+
+
+
+
+
+
 
 
     const el = document.getElementById('y');
 
 
+
+
+
+
+
+
     if (el) el.textContent = new Date().getFullYear().toString();
 
 
+
+
+
+
+
+
   })();
+
+
+
+
+
+
 
 
 &lt;/script&gt;
@@ -460,49 +1401,19 @@
 
 
 
-<script>
 
 
-  (function() {
 
 
-    const el = document.getElementById('y');
 
 
-    if (el) el.textContent = new Date().getFullYear().toString();
 
 
-  })();
 
 
-</script>
 
 
-<script>
 
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-<<<<<<< HEAD
-
-
-</script>
-
-
-</script>
-
-
->>>>>>> ad0b69c (fix(footer): dedupe year script; re-inject snippets)
 
 
 
@@ -511,43 +1422,317 @@
 <script>
 
 
+
+
+
+
+
+
   (function() {
+
+
+
+
+
+
 
 
     const el = document.getElementById('y');
 
 
+
+
+
+
+
+
     if (el) el.textContent = new Date().getFullYear().toString();
 
 
+
+
+
+
+
+
   })();
+
+
+
+
+
+
 
 
 </script>
 
 
 
-﻿<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
+
+
+
+
+
+<script>
+
+
+
+
+
+
+
+
+  (function() {
+
+
+
+
+
+
+
+
+    const el = document.getElementById('y');
+
+
+
+
+
+
+
+
+    if (el) el.textContent = new Date().getFullYear().toString();
+
+
+
+
+
+
+
+
+  })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+
+
+  (function() {
+
+
+
+
+
+
+
+
+    const el = document.getElementById('y');
+
+
+
+
+
+
+
+
+    if (el) el.textContent = new Date().getFullYear().toString();
+
+
+
+
+
+
+
+
+  })();
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+﻿﻿﻿<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
+
+
   <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+
+
     <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved.</p>
+
+
     <nav style="display:flex;gap:16px;font-size:14px">
+
+
       <a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
+
+
       <a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
+
+
       <a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
+
+
     </nav>
+
+
   </div>
+
+
 </footer>
+
+
 <script>
+
+
   (function() {
+
+
     const el = document.getElementById('y');
+
+
     if (el) el.textContent = new Date().getFullYear().toString();
+
+
   })();
+
+
 </script>
+
+
+
+
+
+<script>
+
+
+  (function() {
+
+
+    const el = document.getElementById('y');
+
+
+    if (el) el.textContent = new Date().getFullYear().toString();
+
+
+  })();
+
+
+</script>
+
+
+
+
+
+<script>
+
+
+  (function() {
+
+
+    const el = document.getElementById('y');
+
+
+    if (el) el.textContent = new Date().getFullYear().toString();
+
+
+  })();
+
+
+</script>
+
+
+
+
 
 </body>
 
 
+
+
+
+
+
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
