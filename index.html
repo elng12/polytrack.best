@@ -371,44 +371,37 @@
 <body class="bg-white text-slate-800 antialiased">
   <!-- Header -->
   <header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
-  <style>
-    @media (max-width: 767.98px) {
-      .main-nav { display: none; }
-      .menu-btn { display: inline-block; }
-    }
-    @media (min-width: 768px) {
-      .main-nav { display: flex; }
-      .menu-btn { display: none; }
-      #nav-mobile { display: none !important; }
-    }
-  </style>
   <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
     <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
       <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px" />
       <span style="font-weight:600">Polytrack</span>
     </a>
-    <nav class="main-nav items-center gap-6 text-sm" style="gap:16px;font-size:14px">
-      <a href="/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Home</a>
-      <a href="/features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Features</a>
-      <a href="/what-is-polytrack" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">What is</a>
-      <a href="/how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">How to Play</a>
-      <a href="/why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why Play</a>
-      <a href="/faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
-      <a href="/blog/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
-    </nav>
-    <button id="nav-toggle" class="menu-btn" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <nav class="hidden md:flex items-center gap-6 text-sm" style="gap:16px;font-size:14px">
+        <a href="/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Home</a>
+        <a href="/features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Features</a>
+        <a href="/what-is-polytrack" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">What is</a>
+        <a href="/how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">How to Play</a>
+        <a href="/why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why Play</a>
+        <a href="/faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
+        <a href="/blog/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
+      </nav>
+      <a href="/play" class="hidden md:inline-flex" style="background-color:#0284c7; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play Now</a>
+      <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
+    </div>
   </div>
   <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
     <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
       <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
       <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
+      <a href="/play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
     </div>
   </div>
 </header>
 
   <!-- Hero: Game-first layout -->
   <section id="play" class="py-4 md:py-6">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6">
       <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4 text-center">
         <span style="display:block">Play Polytrack Online</span>
         <span style="display:block">Build Custom Racing Tracks</span>
@@ -447,7 +440,7 @@
       </div>
 
       <!-- Content below game - optimized typography -->
-      <div class="max-w-4xl mx-auto text-center space-y-8 content-section">
+      <div style="max-width:960px" class="mx-auto text-center space-y-8 content-section">
         <!-- Main heading and description -->
         <div class="space-y-4">
           <p class="text-xs uppercase tracking-wider text-sky-600 font-semibold">Build & Race</p>
@@ -494,7 +487,7 @@
 
   <!-- Features -->
   <section id="features" class="py-12 md:py-16 bg-slate-50">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6 text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-6">Polytrack Game Features</h2>
       <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
         Discover what makes Polytrack the ultimate racing and building experience. Polytrack combines creative track design with high-speed racing action, offering players unlimited possibilities to create, share, and compete. Whether you're building complex racing circuits or challenging community records, Polytrack delivers an engaging gaming experience that keeps players coming back for more thrilling races and creative challenges.
@@ -554,7 +547,7 @@
 
   <!-- What is -->
   <section id="what-is" class="py-12 md:py-16 bg-slate-50">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6 text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-6">What is Polytrack?</h2>
       <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
         Polytrack is a revolutionary browser-based racing game that combines creative track building with high-speed competition. This innovative polytrack platform allows players to design custom racing circuits and challenge themselves on unique courses.
@@ -590,7 +583,7 @@
 
   <!-- How to play -->
   <section id="how-to-play" class="py-12 md:py-16">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6 text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-6">How to Play Polytrack</h2>
       <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
         Begin your polytrack journey by selecting from existing community tracks or creating your own masterpiece. The polytrack interface is designed for immediate accessibility and advanced building capabilities.
@@ -626,7 +619,7 @@
 
   <!-- Why play -->
   <section id="why-play" class="py-12 md:py-16 bg-slate-50">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6 text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-6">Why Play Polytrack</h2>
       <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
         Polytrack offers unparalleled creative freedom through its comprehensive track editor. Experience intense competition through polytrack's ghost racing system and community leaderboards.
@@ -662,7 +655,7 @@
 
   <!-- Middle Content Ad -->
   <section class="py-8 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6 text-center">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-3219924658522446"
@@ -677,7 +670,7 @@
 
   <!-- FAQ -->
   <section id="faq" class="py-12 md:py-16">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6 text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions About Polytrack</h2>
       <p class="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
         Get answers to common questions about polytrack gameplay, features, and technical requirements. Learn everything you need to know about this exciting racing and building experience.
@@ -749,7 +742,7 @@
 
   <!-- Bottom Banner Ad -->
   <section class="py-8 bg-white">
-    <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+    <div style="max-width:960px" class="mx-auto px-4 md:px-6 text-center">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-3219924658522446"
@@ -773,25 +766,13 @@
     </nav>
   </div>
 </footer>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-
+>>>>>>> e090f6f (feat: unify site width and header/footer)
+=======
+=======
+>>>>>>> e090f6f (feat: unify site width and header/footer)
   <script>
     // Set current year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('y')?.textContent = new Date().getFullYear();
     
     // Service Worker registration
     if ('serviceWorker' in navigator) {
