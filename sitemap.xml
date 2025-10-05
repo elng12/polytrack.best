@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://polytrack.best/</loc>
-    <lastmod>2025-01-12</lastmod>
+    <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -17,28 +17,28 @@
   
   <!-- Canonical pages -->
   <url>
-    <loc>https://polytrack.best/about-us.html</loc>
+    <loc>https://polytrack.best/about-us</loc>
     <lastmod>2025-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://polytrack.best/legal-documents.html</loc>
+    <loc>https://polytrack.best/legal-documents</loc>
     <lastmod>2025-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://polytrack.best/privacy-policy.html</loc>
+    <loc>https://polytrack.best/privacy-policy</loc>
     <lastmod>2025-09-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://polytrack.best/terms-of-service.html</loc>
+    <loc>https://polytrack.best/terms-of-service</loc>
     <lastmod>2025-09-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -54,31 +54,31 @@
 
   <!-- Blog posts -->
   <url>
-    <loc>https://polytrack.best/blog/track-builder-guide.html</loc>
+    <loc>https://polytrack.best/blog/track-builder-guide</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://polytrack.best/blog/ghost-racing-strategies.html</loc>
+    <loc>https://polytrack.best/blog/ghost-racing-strategies</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://polytrack.best/blog/mobile-controls-setup.html</loc>
+    <loc>https://polytrack.best/blog/mobile-controls-setup</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://polytrack.best/blog/community-tracks-showcase.html</loc>
+    <loc>https://polytrack.best/blog/community-tracks-showcase</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://polytrack.best/blog/performance-optimization-tips.html</loc>
+    <loc>https://polytrack.best/blog/performance-optimization-tips</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
