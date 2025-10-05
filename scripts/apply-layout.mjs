@@ -49,29 +49,81 @@ async function backupFile(p) {
 }
 
 async function loadFragment(html) {
-  // 使用 JSDOM.fragment 解析片段
   return JSDOM.fragment(html);
 }
 
+function selectOnly(elFrag, selector) {
+  // 从片段中选取第一个匹配节点并深拷贝；忽略其他兄弟
+  const found = elFrag.querySelector(selector);
+  return found ? found.cloneNode(true) : null;
+}
+
+function collectResourceNodes(elFrag) {
+  // 收集片段中除 header/footer 外的 link/script 节点（保持顺序）
+  const nodes = [];
+  elFrag.childNodes.forEach((n) => {
+    if (n.nodeType === 1) {
+      const tag = n.tagName.toLowerCase();
+      if (tag === 'script' || tag === 'link') {
+        nodes.push(n.cloneNode(true));
+      }
+    }
+  });
+  return nodes;
+}
+
+function removeExistingResources(doc, resNodes) {
+  const keys = resNodes.map((n) => {
+    const tag = n.tagName.toLowerCase();
+    if (tag === 'script') return `script::${n.getAttribute('src') || ''}`;
+    if (tag === 'link') return `link::${n.getAttribute('href') || ''}`;
+    return '';
+  }).filter(Boolean);
+  const selector = keys.map((k) => {
+    const [tag, attr] = k.split('::');
+    if (tag === 'script') return `script[src='${attr}']`;
+    if (tag === 'link') return `link[href='${attr}']`;
+  }).filter(Boolean).join(',');
+  if (!selector) return;
+  doc.querySelectorAll(selector).forEach((el) => el.remove());
+}
+
+function insertAfter(node, newNodes) {
+  let ref = node;
+  newNodes.forEach((n) => {
+    ref.parentNode.insertBefore(n, ref.nextSibling);
+    ref = n;
+  });
+}
+
 function replaceFirstHeader(doc, headerFrag) {
+  const desiredHeader = selectOnly(headerFrag, 'header');
+  if (!desiredHeader) return;
   const h = doc.querySelector('header');
-  const frag = headerFrag.cloneNode(true);
   if (h) {
-    h.replaceWith(frag);
+    h.replaceWith(desiredHeader);
   } else {
     const body = doc.body || doc.documentElement;
-    if (body) body.insertBefore(frag, body.firstChild);
+    if (body) body.insertBefore(desiredHeader, body.firstChild);
+  }
+  // 处理 header 片段中附带的资源节点：去重后插入 header 之后
+  const resNodes = collectResourceNodes(headerFrag);
+  if (resNodes.length) {
+    removeExistingResources(doc, resNodes);
+    const headerNow = doc.querySelector('header');
+    if (headerNow) insertAfter(headerNow, resNodes.map((n) => n.cloneNode(true)));
   }
 }
 
 function replaceLastFooter(doc, footerFrag) {
+  const desiredFooter = selectOnly(footerFrag, 'footer');
+  if (!desiredFooter) return;
   const footers = Array.from(doc.querySelectorAll('footer'));
-  const frag = footerFrag.cloneNode(true);
   if (footers.length > 0) {
-    footers[footers.length - 1].replaceWith(frag);
+    footers[footers.length - 1].replaceWith(desiredFooter);
   } else {
     const body = doc.body || doc.documentElement;
-    if (body) body.appendChild(frag);
+    if (body) body.appendChild(desiredFooter);
   }
 }
 
