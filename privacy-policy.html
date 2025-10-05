@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<![CDATA[<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -32,56 +32,8 @@
             margin-top: 30px;
         }
     </style>
-    <style>
-      .mobile-only{display:none}@media(max-width:768px){.mobile-only{display:inline-block}}
-    </style>
 </head>
 <body>
-<header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
-  <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
-    <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
-      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px" />
-      <span style="font-weight:600">Polytrack</span>
-    </a>
-    <div style="display: flex; align-items: center; gap: 16px;">
-      <nav class="hidden md:flex items-center gap-6 text-sm" style="gap:16px;font-size:14px">
-        <a href="/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Home</a>
-        <a href="/features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Features</a>
-        <a href="/what-is-polytrack" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">What is</a>
-        <a href="/how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">How to Play</a>
-        <a href="/why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why Play</a>
-        <a href="/faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
-        <a href="/blog/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
-      </nav>
-      <a href="/play" class="hidden md:inline-flex" style="background-color:#0284c7; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play Now</a>
-      <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
-    </div>
-  </div>
-  <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
-    <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
-      <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
-      <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
-      <a href="/play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
-    </div>
-  </div>
-</header>
-
-  <div style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:10;">
-    <div style="max-width:800px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
-      <a href="/" style="font-weight:600;color:#1f2937;text-decoration:none;">Polytrack</a>
-      <nav style="display:flex;gap:16px;font-size:14px;">
-        <a href="/" style="color:#334155;text-decoration:none;">Home</a>
-        <a href="/blog/" style="color:#334155;text-decoration:none;">Blog</a>
-      </nav>
-      <button class="mobile-only" style="margin-left:12px;padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('mobile-nav'))">Menu</button>
-    </div>
-  </div>
-  <div id="mobile-nav" class="mobile-only" style="display:none;border-top:1px solid #e5e7eb;background:#ffffff;">
-    <div style="max-width:800px;margin:0 auto;padding:8px 20px;">
-      <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none;">Home</a>
-      <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none;">Blog</a>
-    </div>
-  </div>
     <h1>隐私政策</h1>
     
     <div class="last-updated">
@@ -210,111 +162,7 @@
         <p>如果您对本隐私政策有任何疑问或需要行使您的权利，请通过以下方式联系我们：</p>
         <ul>
             <li><strong>电子邮箱：</strong>paly@polytrack.best</li>
-            <li><strong>网站：</strong>https://polytrack.best</li>
         </ul>
-        <p>我们将在收到您的请求后30天内回复。</p>
     </div>
-
-    <!-- Cookie Consent global include -->
-    <link rel="stylesheet" href="/assets/cookieconsent.css">
-    <script src="/assets/cookieconsent.umd.js"></script>
-    <script>
-    CookieConsent.run({
-      categories: { necessary: true, analytics: false, ads: false },
-      language: {
-        en: {
-          consentModal: { title: 'We use cookies', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all' },
-          preferencesModal: { title: 'Cookie settings', acceptAllBtn: 'Accept all', savePreferencesBtn: 'Save settings' }
-        }
-      },
-      onAccept: ({categories}) => {
-        if (categories.includes('analytics')) {
-          const ga = document.createElement('script'); ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y841F5N4SD';
-          document.head.appendChild(ga);
-          const gtagInit = document.createElement('script');
-          gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','G-Y841F5N4SD');";
-          document.head.appendChild(gtagInit);
-        }
-        if (categories.includes('ads')) {
-          const ads = document.createElement('script'); ads.async=1; ads.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446'; ads.setAttribute('crossorigin','anonymous');
-          document.head.appendChild(ads);
-        }
-      }
-    });
-    </script>
-
-<![CDATA[<![CDATA[<![CDATA[<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
-  <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-    <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved.</p>
-    <nav style="display:flex;gap:16px;font-size:14px">
-      <a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
-      <a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
-      <a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
-    </nav>
-  </div>
-</footer>
-<script>
-  (function() {
-    const yearEl = document.getElementById('y');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  })();
-</script>]]>
-<script>
-  (function() {
-    const yearEl = document.getElementById('y');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  })();
-</script>]]>
-<script>
-  (function() {
-    const yearEl = document.getElementById('y');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  })();
-</script>]]>
-<script>
-  (function() {
-    const yearEl = document.getElementById('y');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  })();
-</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
-<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
 </body>
-</html>
+</html>]]>
