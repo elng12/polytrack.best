@@ -34,26 +34,25 @@
   </script>
 </head>
 <body class="bg-white text-slate-800 antialiased">
-  <header class="border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2" aria-label="Polytrack Home">
-        <img src="/assets/logo.svg" alt="Polytrack logo" class="h-5 w-5" />
-        <span class="font-semibold">Polytrack</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
-        <a href="/blog/" class="hover:text-slate-900 transition-colors">Blog</a>
-      </nav>
-      <button id="nav-toggle" class="md:hidden text-sm px-3 py-2 border border-slate-200 rounded-md"
-              onclick="document.getElementById('nav-mobile')?.classList.toggle('hidden')">
-        Menu
-      </button>
-      <div id="nav-mobile" class="md:hidden hidden border-t border-slate-200 px-4 py-3">
-        <a href="/" class="block py-2 hover:text-slate-900 transition-colors">Home</a>
-        <a href="/blog/" class="block py-2 hover:text-sky-700 transition-colors">Blog</a>
-      </div>
+  <header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
+  <div style="max-width:1024px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+    <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
+      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px" />
+      <span style="font-weight:600">Polytrack</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm" style="display:flex;gap:16px;font-size:14px">
+      <a href="/" class="hover:text-slate-900 transition-colors" style="color:#334155;text-decoration:none">Home</a>
+      <a href="/blog/" class="hover:text-slate-900 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
+    </nav>
+    <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
+  </div>
+  <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
+    <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
+      <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
+      <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <main class="py-10">
     <article class="max-w-4xl mx-auto px-4 md:px-6 prose prose-slate">
@@ -105,5 +104,17 @@
     }
   });
   </script>
+
+<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
+  <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved.</p>
+    <nav style="display:flex;gap:16px;font-size:14px">
+      <a href="/legal-documents" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
+      <a href="/privacy-policy" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
+      <a href="/terms-of-service" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
+    </nav>
+  </div>
+</footer>
+<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
 </body>
 </html>

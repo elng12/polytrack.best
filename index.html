@@ -370,37 +370,25 @@
 </head>
 <body class="bg-white text-slate-800 antialiased">
   <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="flex items-center justify-between h-14">
-        <a href="/" class="flex items-center gap-2" aria-label="Polytrack Home">
-          <img src="assets/logo.svg" alt="Polytrack racing game logo - low-poly track design" class="h-6 w-6" />
-          <span class="font-semibold">Polytrack</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
-          <a href="#features" class="hover:text-slate-900 transition-colors">Features</a>
-          <a href="#what-is" class="hover:text-slate-900 transition-colors">What is</a>
-          <a href="#how-to-play" class="hover:text-slate-900 transition-colors">How to Play</a>
-          <a href="#why-play" class="hover:text-slate-900 transition-colors">Why Play</a>
-          <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
-          <a href="/blog/" class="hover:text-slate-900 transition-colors">Blog</a>
-        </nav>
-        <button id="nav-toggle" class="md:hidden text-sm px-3 py-2 border border-slate-200 rounded-md"
-                onclick="document.getElementById('nav-mobile')?.classList.toggle('hidden')">
-          Menu
-        </button>
-        <div id="nav-mobile" class="md:hidden hidden border-t border-slate-200 px-4 py-3">
-          <a href="/" class="block py-2 hover:text-slate-900 transition-colors">Home</a>
-          <a href="/blog/" class="block py-2 hover:text-sky-700 transition-colors">Blog</a>
-        </div>
-
-        <a href="#play" class="inline-flex items-center justify-center rounded-md bg-sky-600 text-white px-4 py-2 text-sm font-medium hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-colors">
-          Play Now
-        </a>
-      </div>
+  <header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
+  <div style="max-width:1024px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+    <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
+      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px" />
+      <span style="font-weight:600">Polytrack</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm" style="display:flex;gap:16px;font-size:14px">
+      <a href="/" class="hover:text-slate-900 transition-colors" style="color:#334155;text-decoration:none">Home</a>
+      <a href="/blog/" class="hover:text-slate-900 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
+    </nav>
+    <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
+  </div>
+  <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
+    <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
+      <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
+      <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Hero: Game-first layout -->
   <section id="play" class="py-4 md:py-6">
@@ -756,85 +744,17 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-200 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 py-12">
-      <!-- Three Column Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        
-        <!-- Left Column: Brand -->
-        <div class="space-y-4">
-          <div class="flex items-center space-x-3">
-            <img src="assets/logo.svg" alt="Polytrack racing game logo" class="w-8 h-8">
-            <h3 class="text-xl font-bold text-slate-800">Polytrack</h3>
-          </div>
-          <p class="text-sm text-slate-600 leading-relaxed max-w-xs">
-            The ultimate browser-based racing game where creativity meets speed. Build custom tracks, race cars, and compete with players worldwide.
-          </p>
-        </div>
-        
-        <!-- Middle Column: Navigation -->
-        <div class="space-y-4">
-          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider">Game</h4>
-          <nav class="space-y-2">
-            <a href="#play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Play Now</a>
-            <a href="#features" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Features</a>
-            <a href="#how-to-play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">How to Play</a>
-            <a href="#faq" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">FAQ</a>
-          </nav>
-          
-          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider pt-4">About</h4>
-          <nav class="space-y-2">
-            <a href="#what-is" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">What is Polytrack</a>
-            <a href="#why-play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Why Play</a>
-            <a href="/blog/" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Blog</a>
-          </nav>
-
-          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider pt-4">Legal</h4>
-          <nav class="space-y-2">
-            <a href="/about-us" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">About Us</a>
-            <a href="/legal-documents" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Legal Documents</a>
-            <a href="/privacy-policy" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Privacy Policy</a>
-            <a href="/terms-of-service" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Terms of Service</a>
-          </nav>
-        </div>
-        
-        <!-- Right Column: Info -->
-        <div class="space-y-4">
-          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider">Info</h4>
-          <div class="space-y-3">
-            <p class="text-sm text-slate-600">
-              <span class="font-medium">Game Version:</span> 0.5.1
-            </p>
-            <p class="text-sm text-slate-600">
-              <span class="font-medium">Developer:</span> Kodub
-            </p>
-            <p class="text-sm text-slate-600">
-              <span class="font-medium">Platform:</span> Browser-based
-            </p>
-          </div>
-          
-          <div class="pt-4">
-            <p class="text-xs text-slate-500 leading-relaxed">
-              Free to play racing game with no downloads required. Compatible with all modern browsers.
-            </p>
-          </div>
-        </div>
-        
-      </div>
-      
-      <!-- Bottom Border and Copyright -->
-      <div class="border-t border-slate-200 pt-6">
-        <div class="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-          <p class="text-xs text-slate-500">
-            © <span id="y"></span> Polytrack. All rights reserved.
-          </p>
-          <p class="text-xs text-slate-500">
-            Game powered by <a href="https://www.kodub.com" class="hover:text-slate-700 transition-colors">Kodub</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
+  <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved.</p>
+    <nav style="display:flex;gap:16px;font-size:14px">
+      <a href="/legal-documents" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
+      <a href="/privacy-policy" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
+      <a href="/terms-of-service" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
+    </nav>
+  </div>
+</footer>
+<script>document.getElementById('y')?.textContent=new Date().getFullYear();</script>
 
   <script>
     // Set current year
