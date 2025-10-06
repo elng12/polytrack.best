@@ -4,16 +4,20 @@
   "description": "Polytrack - Play Online Racing Game | Build Custom Tracks",
   "main": "index.html",
   "scripts": {
+    "prebuild": "node scripts/gen-cache-manifest.mjs",
     "build-css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch",
     "build-css-prod": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
     "dev": "npm run build-css",
-    "build": "npm run build-css-prod",
-    "serve": "python -m http.server 8000",
+    "build": "npm run prebuild && npm run build-css-prod",
+    "typecheck": "npm run check:layout && node scripts/sanitize-files.mjs --fail-on-change",
+    "serve": "node scripts/serve.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "sanitize:files": "node scripts/sanitize-files.mjs",
     "sanitize:files:write": "node scripts/sanitize-files.mjs --write",
     "apply:layout": "node scripts/apply-layout.mjs",
-    "apply:layout:write": "node scripts/apply-layout.mjs --write --backup"
+    "apply:layout:write": "node scripts/apply-layout.mjs --write --backup",
+    "check:layout": "node scripts/apply-layout.mjs --fail-on-change",
+    "scan:garble": "rg -n -S \"<<<<<<<|&lt;footer|鈥|锟|锔|/div&gt;\" --glob=*.html --glob=blog/*.html --glob=assets/*.html --color=never"
   },
   "keywords": [
     "polytrack",
@@ -29,13 +33,12 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "globby": "^15.0.0",
-    "tailwindcss": "^3.4.0",
-    "jsdom": "24.0.0"
+    "jsdom": "24.0.0",
+    "tailwindcss": "^3.4.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/polytrack-best/polytrack.best.git"
   },
-  "homepage": "https://polytrack.best",
-  "dependencies": {}
+  "homepage": "https://polytrack.best"
 }
