@@ -99,13 +99,10 @@ function insertAfter(node, newNodes) {
 function replaceFirstHeader(doc, headerFrag) {
   const desiredHeader = selectOnly(headerFrag, 'header');
   if (!desiredHeader) return;
-  const h = doc.querySelector('header');
-  if (h) {
-    h.replaceWith(desiredHeader);
-  } else {
-    const body = doc.body || doc.documentElement;
-    if (body) body.insertBefore(desiredHeader, body.firstChild);
-  }
+  // 移除页面内所有 header，统一插入一处
+  Array.from(doc.querySelectorAll('header')).forEach((el) => el.remove());
+  const body = doc.body || doc.documentElement;
+  if (body) body.insertBefore(desiredHeader, body.firstChild);
   // 处理 header 片段中附带的资源节点：去重后插入 header 之后
   const resNodes = collectResourceNodes(headerFrag);
   if (resNodes.length) {
@@ -118,13 +115,68 @@ function replaceFirstHeader(doc, headerFrag) {
 function replaceLastFooter(doc, footerFrag) {
   const desiredFooter = selectOnly(footerFrag, 'footer');
   if (!desiredFooter) return;
-  const footers = Array.from(doc.querySelectorAll('footer'));
-  if (footers.length > 0) {
-    footers[footers.length - 1].replaceWith(desiredFooter);
-  } else {
-    const body = doc.body || doc.documentElement;
-    if (body) body.appendChild(desiredFooter);
+  // 统一仅保留一处 footer：删除全部后插入
+  Array.from(doc.querySelectorAll('footer')).forEach((el) => el.remove());
+  const body = doc.body || doc.documentElement;
+  if (body) body.appendChild(desiredFooter);
+  // 处理 footer 片段中附带的资源节点（如年份脚本）：去重后插入 footer 之后
+  const resNodes = collectResourceNodes(footerFrag);
+  if (resNodes.length) {
+    removeExistingResources(doc, resNodes);
+    const footerNow = doc.querySelector('footer');
+    if (footerNow) insertAfter(footerNow, resNodes.map((n) => n.cloneNode(true)));
   }
+}
+
+// 删除页面内所有“设置年份”相关的内联脚本，交由 footer 片段统一注入
+function removeYearScripts(doc) {
+  const scripts = Array.from(doc.querySelectorAll('script'));
+  scripts.forEach((s) => {
+    // 仅处理内联脚本
+    if (s.src) return;
+    const code = (s.textContent || '').replace(/\s+/g, ' ').toLowerCase();
+    if (
+      code.includes("getelementbyid('y')") ||
+      code.includes('getelementbyid("y")')
+    ) {
+      // 常见实现均包含 getFullYear 或 new Date()
+      if (code.includes('getfullyear') || code.includes('new date()')) {
+        s.remove();
+      }
+    }
+  });
+}
+
+// 若 <head> 为空但相关标签误入 <body>，尝试回填到 <head>
+function repairHeadIfNeeded(doc) {
+  const head = doc.head || doc.querySelector('head');
+  const body = doc.body || doc.querySelector('body');
+  if (!head || !body) return;
+  const headHasContent = head.children && head.children.length > 0;
+  if (headHasContent) return;
+  const selectors = ['meta', 'title', 'link[rel]', 'style'];
+  const nodes = Array.from(body.querySelectorAll(selectors.join(',')));
+  if (nodes.length === 0) return;
+  nodes.forEach((n) => head.appendChild(n));
+}
+
+// 移除 Git 合并冲突标记与被转义的 footer 文本块
+function stripMarkersAndEscapedFooter(htmlText) {
+  let out = htmlText;
+  // 移除冲突标记行
+  out = out.replace(/^<<<<<<<.*$/gm, '');
+  out = out.replace(/^=======$/gm, '');
+  out = out.replace(/^>>>>>>>.*$/gm, '');
+  // 移除被 HTML 转义的 footer 片段（&lt;footer ... &lt;/footer&gt;）
+  out = out.replace(/&lt;footer[\s\S]*?&lt;\/footer&gt;/gi, '');
+  // 移除被 HTML 转义的合并冲突块（从 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD 到 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 行）
+  out = out.replace(/(?:&lt;){7}\s*HEAD[\s\S]*?(?:&gt;){7}[^\n]*\n?/gi, '');
+  // 补充：移除孤立的被转义标记行
+  out = out.replace(/^(?:&lt;){7}.*$/gmi, '');
+  out = out.replace(/^(?:&gt;){7}.*$/gmi, '');
+  // 清理被转义的内联年份脚本片段
+  out = out.replace(/&lt;script[\s\S]*?getelementbyid\(['\"]y['\"][\s\S]*?&lt;\/script&gt;/gi, '');
+  return out;
 }
 
 async function main() {
@@ -142,10 +194,18 @@ async function main() {
     const dom = new JSDOM(html);
     const { document } = dom.window;
 
+    // 先移除页面内所有年份脚本，由 footer 统一注入
+    removeYearScripts(document);
     replaceFirstHeader(document, headerFrag);
     replaceLastFooter(document, footerFrag);
+    repairHeadIfNeeded(document);
 
-    const out = dom.serialize();
+    let out = dom.serialize();
+    out = stripMarkersAndEscapedFooter(out);
+    // 确保 DOCTYPE 存在
+    if (!/^<!DOCTYPE html>/i.test(out.trimStart())) {
+      out = '<!DOCTYPE html>' + out;
+    }
     if (out !== html) {
       changed++;
       if (WRITE) {
