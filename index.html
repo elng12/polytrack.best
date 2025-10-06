@@ -41,7 +41,7 @@
       <!-- Game container - takes 75% of screen height -->
       <div class="mb-8">
         <div class="game-container rounded-xl overflow-hidden border border-slate-200 shadow-xl" id="game-shell" onclick="enterFullscreen(this.querySelector('iframe'))" aria-label="Polytrack Racing Game">
-          <iframe title="Polytrack Online Racing Game" src="https://app-polytrack.kodub.com/0.5.1/?" loading="eager" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" onload="document.getElementById('game-shell')?.classList.remove('skeleton')" class="w-full h-full"></iframe>
+          <iframe title="Polytrack Online Racing Game" src="https://app-polytrack.kodub.com/0.5.1/?" loading="eager" sandbox="allow-scripts allow-pointer-lock allow-popups" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" onload="document.getElementById('game-shell')?.classList.remove('skeleton')" class="w-full h-full"></iframe>
         </div>
         <p class="mt-3 text-center text-sm text-slate-500">馃挕 Use WASD or arrow keys to drive. Press R to restart. Click game to enter fullscreen.</p>
       </div>
