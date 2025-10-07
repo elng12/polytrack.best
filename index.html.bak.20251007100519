@@ -1,11 +1,13 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
   <title>Polytrack - Play Online Racing Game | Build Custom Tracks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Play Polytrack online - the ultimate racing game where you build custom tracks and race against time. Fast-paced, low-poly driving with loops, jumps.">
-  <link rel="canonical" href="https://polytrack.best/">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0ea5e9">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Play Polytrack online - the ultimate racing game where you build custom tracks and race against time. Fast-paced, low-poly driving with loops, jumps." />
+  <link rel="canonical" href="https://polytrack.best/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -13,21 +15,21 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.svg">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://polytrack.best/">
-  <meta property="og:title" content="Polytrack - Play Online Racing Game | Build Custom Tracks">
-  <meta property="og:description" content="Race custom cars on tracks you design yourself. Play Polytrack online with thrilling loops, jumps, and community challenges.">
-  <meta property="og:image" content="https://polytrack.best/assets/og-cover.jpg">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://polytrack.best/" />
+  <meta property="og:title" content="Polytrack - Play Online Racing Game | Build Custom Tracks" />
+  <meta property="og:description" content="Race custom cars on tracks you design yourself. Play Polytrack online with thrilling loops, jumps, and community challenges." />
+  <meta property="og:image" content="https://polytrack.best/assets/og-cover.jpg" />
 
   <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Polytrack - Play Online Racing Game | Build Custom Tracks">
-  <meta name="twitter:description" content="Build tracks, customize cars, race against time in this TrackMania-inspired browser game.">
-  <meta name="twitter:image" content="https://polytrack.best/assets/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Polytrack - Play Online Racing Game | Build Custom Tracks" />
+  <meta name="twitter:description" content="Build tracks, customize cars, race against time in this TrackMania-inspired browser game." />
+  <meta name="twitter:image" content="https://polytrack.best/assets/og-cover.jpg" />
 
   <!-- Preconnect to speed up iframe load -->
-  <link rel="preconnect" href="https://app-polytrack.kodub.com" crossorigin="">
-  <link rel="dns-prefetch" href="//app-polytrack.kodub.com">
+  <link rel="preconnect" href="https://app-polytrack.kodub.com" crossorigin />
+  <link rel="dns-prefetch" href="//app-polytrack.kodub.com" />
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
@@ -147,7 +149,7 @@
   <link rel="preload" href="assets/logo.svg" as="image">
 
   <!-- Google Analytics 4 -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -167,10 +169,11 @@
   </script>
 
   <!-- Google AdSense -->
-  <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446"
+       crossorigin="anonymous"></script>
 
   <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_CODE">
+  <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_CODE" />
 
   <!-- JSON-LD: WebSite -->
   <script type="application/ld+json">
@@ -387,252 +390,28 @@
   }
   </script>
 </head>
-<body class="bg-white text-slate-800 antialiased"><header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
-
-
-
-
-
-
-
-
-  <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
-
-
-
-
-
-
-
-
-    <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
-
-
-
-
-
-
-
-
-      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px">
-
-
-
-
-
-
-
-
-      <span style="font-weight:600">Polytrack</span>
-
-
-
-
-
-
-
-
-    </a>
-
-
-
-
-
-
-
-
-    <div style="display: flex; align-items: center; gap: 16px;">
-
-
-
-
-
-
-
-
-      <nav class="hidden md:flex items-center gap-6 text-sm" style="gap:16px;font-size:14px">
-
-
-
-
-
-
-
-
-        <a href="/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Home</a>
-
-
-
-
-
-
-
-
-        <a href="/features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Features</a>
-
-
-
-
-
-
-
-
-        <a href="/what-is-polytrack" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">What is</a>
-
-
-
-
-
-
-
-
-        <a href="/how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">How to Play</a>
-
-
-
-
-
-
-
-
-        <a href="/why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why Play</a>
-
-
-
-
-
-
-
-
-        <a href="/faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
-
-
-
-
-
-
-
-
-        <a href="/blog/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
-
-
-
-
-
-
-
-
-      </nav>
-
-
-
-
-
-
-
-
-      <a href="/play" class="hidden md:inline-flex" style="background-color:#0284c7; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play Now</a>
-
-
-
-
-
-
-
-
-      <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-  </div>
-
-
-
-
-
-
-
-
-  <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
-
-
-
-
-
-
-
-
-    <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
-
-
-
-
-
-
-
-
-      <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
-
-
-
-
-
-
-
-
-      <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
-
-
-
-
-
-
-
-
-      <a href="/play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-  </div>
-
-
-
-
-
-
-
-
-</header>
+<body class="bg-white text-slate-800 antialiased">
   <!-- Header -->
-  
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between h-14">
+        <a href="/" class="flex items-center gap-2" aria-label="Polytrack Home">
+          <img src="assets/logo.svg" alt="Polytrack racing game logo - low-poly track design" class="h-6 w-6" />
+          <span class="font-semibold">Polytrack</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" class="hover:text-slate-900 transition-colors">Features</a>
+          <a href="#what-is" class="hover:text-slate-900 transition-colors">What is</a>
+          <a href="#how-to-play" class="hover:text-slate-900 transition-colors">How to Play</a>
+          <a href="#why-play" class="hover:text-slate-900 transition-colors">Why Play</a>
+          <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
+        </nav>
+        <a href="#play" class="inline-flex items-center justify-center rounded-md bg-sky-600 text-white px-4 py-2 text-sm font-medium hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-colors">
+          Play Now
+        </a>
+      </div>
+    </div>
+  </header>
 
   <!-- Hero: Game-first layout -->
   <section id="play" class="py-4 md:py-6">
@@ -641,15 +420,31 @@
       
       <!-- Game container - takes 75% of screen height -->
       <div class="mb-8">
-        <div class="game-container rounded-xl overflow-hidden border border-slate-200 shadow-xl" id="game-shell" onclick="enterFullscreen(this.querySelector('iframe'))" aria-label="Polytrack Racing Game">
-          <iframe title="Polytrack Online Racing Game" src="https://app-polytrack.kodub.com/0.5.1/?" loading="eager" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" onload="document.getElementById('game-shell')?.classList.remove('skeleton')" class="w-full h-full"></iframe>
+        <div class="game-container rounded-xl overflow-hidden border border-slate-200 shadow-xl" 
+             id="game-shell" 
+             onclick="enterFullscreen(this.querySelector('iframe'))"
+             aria-label="Polytrack Racing Game">
+          <iframe
+            title="Polytrack Online Racing Game"
+            src="https://app-polytrack.kodub.com/0.5.1/?"
+            loading="eager"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            referrerpolicy="strict-origin-when-cross-origin"
+            onload="document.getElementById('game-shell')?.classList.remove('skeleton')"
+            class="w-full h-full"
+          ></iframe>
         </div>
         <p class="mt-3 text-center text-sm text-slate-500">💡 Use WASD or arrow keys to drive. Press R to restart. Click game to enter fullscreen.</p>
       </div>
 
       <!-- Top Banner Ad -->
       <div class="my-8 text-center">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3219924658522446" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3219924658522446"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -659,7 +454,7 @@
       <div class="max-w-4xl mx-auto text-center space-y-8 content-section">
         <!-- Main heading and description -->
         <div class="space-y-4">
-          <p class="text-xs uppercase tracking-wider text-sky-600 font-semibold">Build &amp; Race</p>
+          <p class="text-xs uppercase tracking-wider text-sky-600 font-semibold">Build & Race</p>
           <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
             Design tracks. Race cars. Beat records.
           </h2>
@@ -872,7 +667,12 @@
   <!-- Middle Content Ad -->
   <section class="py-8 bg-slate-50">
     <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3219924658522446" data-ad-slot="9876543210" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3219924658522446"
+           data-ad-slot="9876543210"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
       <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
@@ -954,7 +754,12 @@
   <!-- Bottom Banner Ad -->
   <section class="py-8 bg-white">
     <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3219924658522446" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3219924658522446"
+           data-ad-slot="5555555555"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
       <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
@@ -962,9 +767,325 @@
   </section>
 
   <!-- Footer -->
-  
+  <footer class="border-t border-slate-200 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-12">
+      <!-- Three Column Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        
+        <!-- Left Column: Brand -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <img src="assets/logo.svg" alt="Polytrack racing game logo" class="w-8 h-8">
+            <h3 class="text-xl font-bold text-slate-800">Polytrack</h3>
+          </div>
+          <p class="text-sm text-slate-600 leading-relaxed max-w-xs">
+            The ultimate browser-based racing game where creativity meets speed. Build custom tracks, race cars, and compete with players worldwide.
+          </p>
+        </div>
+        
+        <!-- Middle Column: Navigation -->
+        <div class="space-y-4">
+          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider">Game</h4>
+          <nav class="space-y-2">
+            <a href="#play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Play Now</a>
+            <a href="#features" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Features</a>
+            <a href="#how-to-play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">How to Play</a>
+            <a href="#faq" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">FAQ</a>
+          </nav>
+          
+          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider pt-4">About</h4>
+          <nav class="space-y-2">
+            <a href="#what-is" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">What is Polytrack</a>
+            <a href="#why-play" class="block text-sm text-slate-600 hover:text-sky-600 transition-colors">Why Play</a>
+          </nav>
+        </div>
+        
+        <!-- Right Column: Info -->
+        <div class="space-y-4">
+          <h4 class="text-sm font-semibold text-slate-800 uppercase tracking-wider">Info</h4>
+          <div class="space-y-3">
+            <p class="text-sm text-slate-600">
+              <span class="font-medium">Game Version:</span> 0.5.1
+            </p>
+            <p class="text-sm text-slate-600">
+              <span class="font-medium">Developer:</span> Kodub
+            </p>
+            <p class="text-sm text-slate-600">
+              <span class="font-medium">Platform:</span> Browser-based
+            </p>
+          </div>
+          
+          <div class="pt-4">
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Free to play racing game with no downloads required. Compatible with all modern browsers.
+            </p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Bottom Border and Copyright -->
+      <div class="border-t border-slate-200 pt-6">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+          <p class="text-xs text-slate-500">
+            © <span id="y"></span> Polytrack. All rights reserved.
+          </p>
+          <p class="text-xs text-slate-500">
+            Game powered by <a href="https://www.kodub.com" class="hover:text-slate-700 transition-colors">Kodub</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try {
+          const registration = await navigator.serviceWorker.register('sw.js');
+          console.log('SW registered: ', registration);
+          
+          // Check for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // Show update notification
+                showUpdateNotification();
+              }
+            });
+          });
+        } catch (error) {
+          console.log('SW registration failed: ', error);
+        }
+      });
+    }
+    
+    // PWA install prompt removed by request: do not show install UI or call prompt
+    
+    function showUpdateNotification() {
+      const notification = document.createElement('div');
+      notification.className = 'fixed top-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg z-50 max-w-sm';
+      notification.innerHTML = `
+        <p class="mb-2">新版本可用！</p>
+        <button onclick="window.location.reload()" class="bg-white text-blue-600 px-3 py-1 rounded text-sm hover:bg-gray-100">
+          更新
+        </button>
+        <button onclick="this.parentElement.remove()" class="ml-2 text-white/80 hover:text-white">
+          ✕
+        </button>
+      `;
+      document.body.appendChild(notification);
+      
+      // Auto remove after 10 seconds
+      setTimeout(() => {
+        if (notification.parentElement) {
+          notification.remove();
+        }
+      }, 10000);
+    }
+    
+    // Performance monitoring
+    function measureWebVitals() {
+      // Largest Contentful Paint
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('LCP:', entry.startTime);
+          // Send to analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              name: 'LCP',
+              value: Math.round(entry.startTime),
+              event_category: 'Performance'
+            });
+          }
+        }
+      }).observe({entryTypes: ['largest-contentful-paint']});
+      
+      // First Input Delay
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('FID:', entry.processingStart - entry.startTime);
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              name: 'FID',
+              value: Math.round(entry.processingStart - entry.startTime),
+              event_category: 'Performance'
+            });
+          }
+        }
+      }).observe({entryTypes: ['first-input']});
+      
+      // Cumulative Layout Shift
+      let clsValue = 0;
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
+          }
+        }
+        console.log('CLS:', clsValue);
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'web_vitals', {
+            name: 'CLS',
+            value: Math.round(clsValue * 1000),
+            event_category: 'Performance'
+          });
+        }
+      }).observe({entryTypes: ['layout-shift']});
+    }
+    
+    // 全屏游戏功能
+    function enterFullscreenGame() {
+      const gameContainer = document.getElementById('game-shell');
+      const iframe = gameContainer.querySelector('iframe');
+      
+      if (gameContainer && iframe) {
+        // 创建全屏覆盖层
+        const fullscreenOverlay = document.createElement('div');
+        fullscreenOverlay.id = 'fullscreen-overlay';
+        fullscreenOverlay.className = 'fixed inset-0 z-50 bg-black flex items-center justify-center';
+        fullscreenOverlay.innerHTML = `
+          <div class="relative w-full h-full">
+            <button 
+              onclick="exitFullscreenGame()" 
+              class="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
+              title="退出全屏"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+            <iframe
+              title="Polytrack Online Racing Game - Fullscreen"
+              src="${iframe.src}"
+              class="w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        `;
+        
+        document.body.appendChild(fullscreenOverlay);
+        document.body.style.overflow = 'hidden';
+        
+        // 尝试进入浏览器全屏模式
+        if (fullscreenOverlay.requestFullscreen) {
+          fullscreenOverlay.requestFullscreen();
+        } else if (fullscreenOverlay.webkitRequestFullscreen) {
+          fullscreenOverlay.webkitRequestFullscreen();
+        } else if (fullscreenOverlay.msRequestFullscreen) {
+          fullscreenOverlay.msRequestFullscreen();
+        }
+      }
+    }
+    
+    function exitFullscreenGame() {
+      const overlay = document.getElementById('fullscreen-overlay');
+      if (overlay) {
+        overlay.remove();
+        document.body.style.overflow = '';
+        
+        // 退出浏览器全屏模式
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    }
+    
+    // 监听ESC键退出全屏
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        exitFullscreenGame();
+      }
+    });
+    
+    // 监听全屏状态变化
+    document.addEventListener('fullscreenchange', function() {
+      if (!document.fullscreenElement) {
+        exitFullscreenGame();
+      }
+    });
+    
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Start performance monitoring
+      measureWebVitals();
+      
+      // Setup fullscreen functionality
+      const playButtons = document.querySelectorAll('a[href="#play"]');
+      playButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // 先滚动到游戏区域
+          const gameSection = document.getElementById('play');
+          if (gameSection) {
+            gameSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // 延迟一下再进入全屏，让滚动完成
+            setTimeout(() => {
+              enterFullscreenGame();
+            }, 500);
+          }
+        });
+      });
+      
+      // 为游戏容器添加点击全屏功能
+      const gameContainer = document.getElementById('game-shell');
+      if (gameContainer) {
+        gameContainer.style.cursor = 'pointer';
+        gameContainer.addEventListener('click', enterFullscreenGame);
+        
+        // 添加全屏提示
+        const fullscreenHint = document.createElement('div');
+        fullscreenHint.className = 'absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity pointer-events-none';
+        fullscreenHint.textContent = '点击进入全屏';
+        gameContainer.style.position = 'relative';
+        gameContainer.appendChild(fullscreenHint);
+      }
+      
+      // Game loading optimization
+      const gameIframe = document.querySelector('#game-shell iframe');
+      if (gameIframe) {
+        gameIframe.addEventListener('load', () => {
+          console.log('Game loaded successfully');
+          // Remove skeleton loading
+          const gameShell = document.getElementById('game-shell');
+          if (gameShell) {
+            gameShell.classList.remove('skeleton');
+          }
+        });
+        
+        gameIframe.addEventListener('error', () => {
+          console.error('Game failed to load');
+          // Show error message
+          const gameShell = document.getElementById('game-shell');
+          if (gameShell) {
+            gameShell.innerHTML = `
+              <div class="flex items-center justify-center h-full bg-gray-100 rounded-xl">
+                <div class="text-center">
+                  <p class="text-gray-600 mb-4">游戏加载失败</p>
+                  <button onclick="window.location.reload()" class="btn-primary">
+                    重新加载
+                  </button>
+                </div>
+              </div>
+            `;
+          }
+        });
+      }
+    });
+  </script>
   <!-- Fullscreen functionality -->
   <script>
     function enterFullscreen(element) {
@@ -1013,152 +1134,5 @@
       }
     });
   </script>
-
-<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
-
-
-  <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-
-
-    <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved.</p>
-
-
-    <nav style="display:flex;gap:16px;font-size:14px">
-
-
-      <a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
-
-
-      <a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
-
-
-      <a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
-
-
-    </nav>
-
-
-  </div>
-
-
-</footer><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script><script>
-
-
-  (function() {
-
-
-    const el = document.getElementById('y');
-
-
-    if (el) el.textContent = new Date().getFullYear().toString();
-
-
-  })();
-
-
-</script></body></html>
+</body>
+</html>
