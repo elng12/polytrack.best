@@ -1,19 +1,21 @@
 // Service Worker for Polytrack.best
-// Version 1.0.0
+// Version derived from assets/cache-manifest.json
 
-const CACHE_NAME = 'polytrack-v1.0.0';
-const STATIC_CACHE = 'polytrack-static-v1.0.0';
-const DYNAMIC_CACHE = 'polytrack-dynamic-v1.0.0';
-
-// Files to cache immediately
-const STATIC_FILES = [
+const CACHE_PREFIX = 'polytrack';
+const FALLBACK_STATIC_FILES = [
   '/',
-  'index.html',
-  'assets/styles.css',
-  'assets/logo.svg',
-  'manifest.json',
-  'sw.js'
+  '/index.html',
+  '/offline.html',
+  '/assets/styles.css',
+  '/assets/logo.svg',
+  '/manifest.json',
+  '/sw.js'
 ];
+
+let cacheVersion = 'v1.0.0';
+let staticCacheName = `${CACHE_PREFIX}-static-${cacheVersion}`;
+let dynamicCacheName = `${CACHE_PREFIX}-dynamic-${cacheVersion}`;
+let precachePaths = new Set(FALLBACK_STATIC_FILES);
 
 // External resources to cache dynamically
 const EXTERNAL_RESOURCES = [
@@ -22,15 +24,58 @@ const EXTERNAL_RESOURCES = [
   'https://fonts.gstatic.com/'
 ];
 
+function normalizePath(p) {
+  if (typeof p !== 'string') return null;
+  const trimmed = p.trim();
+  if (!trimmed) return null;
+  if (trimmed === '/') return '/';
+  return trimmed.startsWith('/') ? trimmed.replace(/\/{2,}/g, '/')
+    : `/${trimmed.replace(/^\/+/, '')}`;
+}
+
+function mergePrecachePaths(paths) {
+  const next = new Set(FALLBACK_STATIC_FILES);
+  if (Array.isArray(paths)) {
+    paths.forEach((item) => {
+      const normalized = normalizePath(item);
+      if (normalized) next.add(normalized);
+    });
+  }
+  precachePaths = next;
+}
+
+async function loadCacheManifest() {
+  try {
+    const res = await fetch('/assets/cache-manifest.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    const manifest = await res.json();
+    if (manifest && manifest.version) {
+      cacheVersion = manifest.version;
+      staticCacheName = `${CACHE_PREFIX}-static-${cacheVersion}`;
+      dynamicCacheName = `${CACHE_PREFIX}-dynamic-${cacheVersion}`;
+    }
+    if (manifest && Array.isArray(manifest.staticFiles)) {
+      mergePrecachePaths(manifest.staticFiles);
+    } else {
+      mergePrecachePaths([]);
+    }
+  } catch (error) {
+    console.warn('[SW] Failed to load cache-manifest.json:', error?.message || error);
+    mergePrecachePaths([]);
+  }
+}
+
 // Install event - cache static files
 self.addEventListener('install', event => {
   console.log('[SW] Installing Service Worker...');
   
   event.waitUntil((async () => {
     try {
-      const cache = await caches.open(STATIC_CACHE);
-      console.log('[SW] Caching static files individually');
-      for (const url of STATIC_FILES) {
+      await loadCacheManifest();
+      const cache = await caches.open(staticCacheName);
+      const targets = Array.from(precachePaths);
+      console.log('[SW] Caching static files:', staticCacheName, 'items:', targets.length);
+      for (const url of targets) {
         try {
           const res = await fetch(url, { cache: 'no-cache' });
           if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
@@ -39,7 +84,7 @@ self.addEventListener('install', event => {
           console.warn('[SW] Failed to cache:', url, e?.message || e);
         }
       }
-      console.log('[SW] Static files caching step completed');
+      console.log('[SW] Static cache prepared:', staticCacheName);
       await self.skipWaiting();
     } catch (error) {
       console.error('[SW] Failed during install:', error);
@@ -51,29 +96,33 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   console.log('[SW] Activating Service Worker...');
   
-  event.waitUntil(
-    caches.keys()
-      .then(cacheNames => {
-        return Promise.all(
-          cacheNames.map(cacheName => {
-            if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
-              console.log('[SW] Deleting old cache:', cacheName);
-              return caches.delete(cacheName);
-            }
-          })
-        );
-      })
-      .then(() => {
-        console.log('[SW] Service Worker activated');
-        return self.clients.claim();
-      })
-  );
+  event.waitUntil((async () => {
+    try {
+      await loadCacheManifest();
+      const keys = await caches.keys();
+      const deletions = keys.map((cacheName) => {
+        const isPolytrackCache = cacheName.startsWith(`${CACHE_PREFIX}-static-`) || cacheName.startsWith(`${CACHE_PREFIX}-dynamic-`);
+        const isCurrent = cacheName === staticCacheName || cacheName === dynamicCacheName;
+        if (isPolytrackCache && !isCurrent) {
+          console.log('[SW] Deleting old cache:', cacheName);
+          return caches.delete(cacheName);
+        }
+        return Promise.resolve(false);
+      });
+      await Promise.all(deletions);
+      await self.clients.claim();
+      console.log('[SW] Service Worker activated with cache version:', cacheVersion);
+    } catch (error) {
+      console.error('[SW] Activation failed:', error);
+    }
+  })());
 });
 
 // Fetch event - serve from cache with network fallback
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
+  const normalizedPath = normalizePath(url.pathname);
   
   // Skip non-GET requests
   if (request.method !== 'GET') {
@@ -81,8 +130,10 @@ self.addEventListener('fetch', event => {
   }
   
   // Handle different types of requests
-  if (STATIC_FILES.includes(url.pathname)) {
-    // Static files - cache first
+  if (request.mode === 'navigate' || (normalizedPath && normalizedPath.endsWith('.html'))) {
+    event.respondWith(networkFirst(request));
+  } else if (normalizedPath && precachePaths.has(normalizedPath)) {
+    // Static assets from precache - cache first
     event.respondWith(cacheFirst(request));
   } else if (url.origin === location.origin) {
     // Same origin - network first with cache fallback
@@ -106,7 +157,7 @@ async function cacheFirst(request) {
     
     const networkResponse = await fetch(request);
     if (networkResponse.ok) {
-      const cache = await caches.open(STATIC_CACHE);
+      const cache = await caches.open(staticCacheName);
       cache.put(request, networkResponse.clone());
     }
     return networkResponse;
@@ -120,7 +171,7 @@ async function networkFirst(request) {
   try {
     const networkResponse = await fetch(request);
     if (networkResponse.ok) {
-      const cache = await caches.open(DYNAMIC_CACHE);
+      const cache = await caches.open(dynamicCacheName);
       cache.put(request, networkResponse.clone());
     }
     return networkResponse;
@@ -133,6 +184,8 @@ async function networkFirst(request) {
     
     // Return offline page for navigation requests
     if (request.mode === 'navigate') {
+      const offline = await caches.match('/offline.html');
+      if (offline) return offline;
       return caches.match('/index.html');
     }
     
@@ -141,7 +194,7 @@ async function networkFirst(request) {
 }
 
 async function staleWhileRevalidate(request) {
-  const cache = await caches.open(DYNAMIC_CACHE);
+  const cache = await caches.open(dynamicCacheName);
   const cachedResponse = await cache.match(request);
   
   const fetchPromise = fetch(request).then(networkResponse => {
