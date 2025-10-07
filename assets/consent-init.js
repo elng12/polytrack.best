@@ -1,20 +1,32 @@
 // Unified Cookie Consent initialization
 (function () {
+  var CONFIG = {
+    gaMeasurementId: '',
+    adsClientId: ''
+  };
+
   function loadAnalytics() {
-    // GA4
-    var ga = document.createElement('script');
-    ga.async = true;
-    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y841F5N4SD';
-    document.head.appendChild(ga);
-    var gtagInit = document.createElement('script');
-    gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','G-Y841F5N4SD');";
-    document.head.appendChild(gtagInit);
-    // AdSense
-    var ads = document.createElement('script');
-    ads.async = true;
-    ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3219924658522446';
-    ads.setAttribute('crossorigin','anonymous');
-    document.head.appendChild(ads);
+    if (CONFIG.gaMeasurementId) {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(CONFIG.gaMeasurementId);
+      document.head.appendChild(ga);
+      var gtagInit = document.createElement('script');
+      gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','" + CONFIG.gaMeasurementId + "');";
+      document.head.appendChild(gtagInit);
+    }
+
+    if (CONFIG.adsClientId) {
+      var ads = document.createElement('script');
+      ads.async = true;
+      ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CONFIG.adsClientId);
+      ads.setAttribute('crossorigin', 'anonymous');
+      document.head.appendChild(ads);
+    }
+
+    if (!CONFIG.gaMeasurementId && !CONFIG.adsClientId) {
+      console.info('[consent-init] No analytics IDs configured; skipping loaders.');
+    }
   }
 
   function runConsent() {
@@ -54,4 +66,3 @@
     document.addEventListener('DOMContentLoaded', runConsent);
   }
 })();
-
