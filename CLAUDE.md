@@ -140,7 +140,7 @@ Modern dark mode style like vercel, linear
 2. For icons, we should use lucid icons or other public icons, import like <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
 ## Script
-1. When importing tailwind css, just use <script src="https://cdn.tailwindcss.com"></script>, don't load CSS directly as a stylesheet resource like <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+1. Use local Tailwind CSS build. Run 'npm run dev' to watch for changes, or 'npm run build' for production build. Do not use CDN links.
 2. When using flowbite, import like <script src="https://cdn.jsdelivr.net/npm/flowbite@2.0.0/dist/flowbite.min.js"></script>
 
 ## Workflow
@@ -524,7 +524,7 @@ Modern dark mode style like vercel, linear
 2. For icons, we should use lucid icons or other public icons, import like <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
 ## Script
-1. When importing tailwind css, just use <script src="https://cdn.tailwindcss.com"></script>, don't load CSS directly as a stylesheet resource like <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+1. Use local Tailwind CSS build. Run 'npm run dev' to watch for changes, or 'npm run build' for production build. Do not use CDN links.
 2. When using flowbite, import like <script src="https://cdn.jsdelivr.net/npm/flowbite@2.0.0/dist/flowbite.min.js"></script>
 
 ## Workflow

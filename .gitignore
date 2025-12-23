@@ -101,6 +101,8 @@ jspm_packages/
 
 # Generated assets (keep source files)
 assets/styles.css
+assets/cache-manifest.json
+*.bak.*
 assets/icon-*.png
 assets/og-cover.jpg
 assets/screenshot-*.jpg

@@ -29,3 +29,6 @@ jobs:
       - name: Apply layout (dry-run)
         run: node scripts/apply-layout.mjs --fail-on-change
 
+      - name: Build
+        run: npm run build
+

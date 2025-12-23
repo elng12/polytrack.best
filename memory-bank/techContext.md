@@ -4,13 +4,13 @@
 
 ### 前端技术
 - **HTML5**: 语义化标记，SEO友好结构
-- **CSS**: TailwindCSS框架 (当前使用CDN)
+- **CSS**: TailwindCSS框架 (本地构建)
 - **JavaScript**: 原生JS，最小化使用
 - **响应式**: 移动端优先设计
 
 ### 外部依赖
 - **游戏引擎**: Kodub的Polytrack游戏 (iframe嵌入)
-- **样式框架**: TailwindCSS CDN
+- **样式框架**: TailwindCSS (本地构建)
 - **字体**: 系统默认字体栈
 - **图标**: 暂无图标库依赖
 
@@ -62,8 +62,8 @@ polytrack.best/
 
 #### 当前实现
 ```html
-<!-- CDN方式引入 (开发阶段) -->
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- 本地构建引用 (生产环境) -->
+<link rel="stylesheet" href="assets/styles.css">
 ```
 
 #### 升级计划
@@ -263,7 +263,7 @@ jobs:
 ## 技术债务与升级计划
 
 ### 当前技术债务
-1. **TailwindCSS CDN**: 影响性能，需要本地构建
+1. **TailwindCSS CDN**: 已完成迁移至本地构建 ✅
 2. **缺少图像资源**: logo.svg和og-cover.jpg待创建
 3. **无构建流程**: 需要建立自动化构建
 4. **无监控系统**: 需要集成性能和错误监控

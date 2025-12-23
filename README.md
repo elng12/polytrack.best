@@ -26,10 +26,11 @@
    npm install
    ```
 
-3. **Start development server**
+3. **Start development (CSS Watch)**
    ```bash
    npm run dev
    ```
+   *Note: This only watches for CSS changes. To view the site, use the serve command below.*
 
 4. **Build for production**
    ```bash
@@ -104,17 +105,14 @@ polytrack.best/
 ## 🔧 Configuration
 
 ### Environment Variables
-Create a `.env` file for local development:
+(Optional) Create a `.env` file for local development or CI/CD pipelines. Currently used for future analytics integration.
 
 ```env
-# Analytics (optional)
+# Analytics (Placeholder)
 GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
-# Performance monitoring
+# Performance monitoring (Placeholder)
 ENABLE_WEB_VITALS=true
-
-# Development settings
-NODE_ENV=development
 ```
 
 ### Tailwind Configuration
