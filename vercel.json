@@ -1,0 +1,39 @@
+{
+    "redirects": [
+        {
+            "source": "/faq",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/features",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/what-is-polytrack",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/how-to-play",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/why-play",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/records",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/downloads",
+            "destination": "/",
+            "permanent": true
+        }
+    ]
+}

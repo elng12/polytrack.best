@@ -160,6 +160,43 @@ function repairHeadIfNeeded(doc) {
   nodes.forEach((n) => head.appendChild(n));
 }
 
+// 强制实施 SEO 规范化 URL (Canonical)
+// 规则: 始终为 self-referencing, absolute https URL, 移除 index.html
+function enforceCanonical(doc, filepath) {
+  const head = doc.head || doc.querySelector('head');
+  if (!head) return;
+
+  // 1. 移除旧的 canonical
+  const oldLinks = head.querySelectorAll('link[rel="canonical"]');
+  oldLinks.forEach(el => el.remove());
+
+  // 2. 计算新的 canonical URL
+  // 假设文件路径相对于根目录，例如 "blog/my-post.html" -> "https://polytrack.best/blog/my-post"
+  // root "index.html" -> "https://polytrack.best/"
+  let relPath = filepath;
+  // 如果路径以 .html 结尾，去掉它 (除非是 index.html 特殊处理)
+  if (relPath.endsWith('index.html')) {
+    relPath = relPath.slice(0, -10); // remove "index.html"
+  } else if (relPath.endsWith('.html')) {
+    relPath = relPath.slice(0, -5); // remove ".html"
+  }
+
+  // 确保路径以 / 开头如果不为空
+  if (relPath && !relPath.startsWith('/')) {
+    relPath = '/' + relPath;
+  }
+  // 根目录如果是空字符串或仅有/，标准化为 /
+  if (!relPath) relPath = '/';
+
+  const canonicalUrl = `https://polytrack.best${relPath}`;
+
+  // 3. 插入新标签
+  const link = doc.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', canonicalUrl);
+  head.appendChild(link);
+}
+
 // 移除 Git 合并冲突标记与被转义的 footer 文本块
 function stripMarkersAndEscapedFooter(htmlText) {
   let out = htmlText;
@@ -199,6 +236,7 @@ async function main() {
     replaceFirstHeader(document, headerFrag);
     replaceLastFooter(document, footerFrag);
     repairHeadIfNeeded(document);
+    enforceCanonical(document, file);
 
     let out = dom.serialize();
     out = stripMarkersAndEscapedFooter(out);

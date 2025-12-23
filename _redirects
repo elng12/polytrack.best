@@ -1,0 +1,16 @@
+# SEO 301 Redirects for Polytrack.best
+# Source: Migration Matrix 2025-12-23
+
+# Consolidate content to Home anchors (High Value)
+/faq              /           301
+/features         /           301
+/what-is-polytrack /          301
+/how-to-play      /           301
+/why-play         /           301
+
+# Legacy Pages (Low Value)
+/records          /           301
+/downloads        /           301
+
+# Force HTTPS & Canonical (Defensive)
+http://polytrack.best/*  https://polytrack.best/:splat  301!

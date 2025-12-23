@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://polytrack.best/</loc>
-    <lastmod>2025-10-07</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,7 +15,7 @@
     </image:image>
   </url>
   
-  <!-- Canonical pages -->
+  <!-- Canonical pages (Must exist & No-redirect) -->
   <url>
     <loc>https://polytrack.best/about-us</loc>
     <lastmod>2025-10-07</lastmod>
@@ -47,12 +47,12 @@
   <!-- Blog index -->
   <url>
     <loc>https://polytrack.best/blog/</loc>
-    <lastmod>2025-10-14</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Blog posts -->
+  <!-- Blog posts (Verified files) -->
   <url>
     <loc>https://polytrack.best/blog/custom-polytrack-tracks</loc>
     <lastmod>2025-10-14</lastmod>
@@ -66,27 +66,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://polytrack.best/blog/ghost-racing-strategies</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://polytrack.best/blog/mobile-controls-setup</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://polytrack.best/blog/community-tracks-showcase</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://polytrack.best/blog/performance-optimization-tips</loc>
     <lastmod>2025-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://polytrack.best/blog/polytrack-gameplay-tips</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://polytrack.best/blog/polytrack-unblocked-guide</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://polytrack.best/blog/polytrack-world-records-guide</loc>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
