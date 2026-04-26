@@ -4,11 +4,10 @@
   "description": "Polytrack - Play Online Racing Game | Build Custom Tracks",
   "main": "index.html",
   "scripts": {
-    "prebuild": "node scripts/gen-cache-manifest.mjs",
     "build-css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch",
     "build-css-prod": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
     "dev": "npm run build-css",
-    "build": "npm run prebuild && npm run build-css-prod",
+    "build": "npm run build-css-prod && node scripts/gen-cache-manifest.mjs",
     "typecheck": "npm run check:layout && node scripts/sanitize-files.mjs --fail-on-change",
     "serve": "node scripts/serve.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",

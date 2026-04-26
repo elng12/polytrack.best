@@ -25,8 +25,7 @@
       "logo": "https://polytrack.best/assets/logo.svg",
       "description": "Polytrack is a browser-based racing platform with a creative track builder and live community competitions.",
       "sameAs": [
-        "https://polytrack.best/blog/",
-        "https://discord.gg/"
+        "https://polytrack.best/blog/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -146,7 +145,7 @@
 
 
 
-        <a href="/#features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why
+        <a href="/#why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why
           Play</a>
 
 
@@ -183,7 +182,7 @@
 
 
 
-      <a href="/play" class="hidden md:inline-flex" style="background-color:#0284c7; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play
+      <a href="/#play" class="hidden md:inline-flex focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300" style="background-color:#0369a1; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play
         Now</a>
 
 
@@ -193,7 +192,7 @@
 
 
 
-      <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
+      <button id="nav-toggle" class="md:hidden" aria-controls="nav-mobile" aria-expanded="false" aria-label="Toggle navigation menu" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(btn,m){var open=m.style.display!=='block';m.style.display=open?'block':'none';btn.setAttribute('aria-expanded',open?'true':'false')})(this,document.getElementById('nav-mobile'))">Menu</button>
 
 
 
@@ -240,9 +239,12 @@
 
       <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
       <a href="/#features" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Features</a>
+      <a href="/#what-is" style="display:block;padding:8px 0;color:#334155;text-decoration:none">What is</a>
       <a href="/#how-to-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">How to Play</a>
+      <a href="/#why-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Why Play</a>
+      <a href="/#faq" style="display:block;padding:8px 0;color:#334155;text-decoration:none">FAQ</a>
       <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
-      <a href="/play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
+      <a href="/#play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
 
 
 
@@ -282,11 +284,11 @@
             and learn together.
           </p>
           <div class="flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <a class="inline-flex items-center justify-center rounded-lg bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-600" href="/play">
+            <a class="inline-flex items-center justify-center rounded-lg bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-600" href="/#play">
               Launch the game
             </a>
-            <a class="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href="https://discord.gg/" rel="nofollow noopener" target="_blank">
-              Join the Discord
+            <a class="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href="mailto:play@polytrack.best">
+              Contact the team
             </a>
           </div>
         </div>
@@ -393,8 +395,8 @@
               <dd><a class="text-sky-600 hover:text-sky-700" href="mailto:play@polytrack.best">play@polytrack.best</a></dd>
             </div>
             <div>
-              <dt class="font-semibold text-slate-900">Discord</dt>
-              <dd><a class="text-sky-600 hover:text-sky-700" href="https://discord.gg/" rel="nofollow noopener" target="_blank">Join #support</a></dd>
+              <dt class="font-semibold text-slate-900">Support</dt>
+              <dd><a class="text-sky-600 hover:text-sky-700" href="mailto:play@polytrack.best">Email support</a></dd>
             </div>
             <div>
               <dt class="font-semibold text-slate-900">Office hours</dt>
@@ -402,7 +404,7 @@
             </div>
             <div>
               <dt class="font-semibold text-slate-900">Media kit</dt>
-              <dd><a class="text-sky-600 hover:text-sky-700" href="/progress-preview.html">Download brand assets</a></dd>
+              <dd><a class="text-sky-600 hover:text-sky-700" href="/progress-preview">Download brand assets</a></dd>
             </div>
           </dl>
         </div>
@@ -412,13 +414,15 @@
     
   
 
+
+
 <footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
   <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
     <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved.</p>
     <nav style="display:flex;gap:16px;font-size:14px">
-      <a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
-      <a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
-      <a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
+      <a href="/legal-documents" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
+      <a href="/privacy-policy" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
+      <a href="/terms-of-service" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
     </nav>
   </div>
 </footer><script>
@@ -426,4 +430,4 @@
     const el = document.getElementById('y');
     if (el) el.textContent = new Date().getFullYear().toString();
   })();
-</script></body></html>
+</script><script src="/assets/web-vitals.iife.js" defer=""></script><script src="/assets/perf-init.js" defer=""></script></body></html>

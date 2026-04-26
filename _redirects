@@ -2,15 +2,24 @@
 # Source: Migration Matrix 2025-12-23
 
 # Consolidate content to Home anchors (High Value)
-/faq              /           301
-/features         /           301
-/what-is-polytrack /          301
-/how-to-play      /           301
-/why-play         /           301
+/play             /#play      301
+/faq              /#faq       301
+/features         /#features  301
+/what-is-polytrack /#what-is  301
+/how-to-play      /#how-to-play 301
+/why-play         /#why-play  301
 
 # Legacy Pages (Low Value)
-/records          /           301
-/downloads        /           301
+/records          /blog/polytrack-world-records-guide 301
+/downloads        /#play      301
+/header           /           301
+/header.html      /           301
+/footer           /           301
+/footer.html      /           301
+/generate-icons   /           301
+/generate-icons.html /        301
+/assets/favicon-generator.html / 301
+/assets/og-cover-generator.html / 301
 
 # Force HTTPS & Canonical (Defensive)
 http://polytrack.best/*  https://polytrack.best/:splat  301!

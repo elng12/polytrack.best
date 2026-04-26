@@ -75,7 +75,7 @@
 - [x] og-cover-generator.html 已创建
 - [x] favicon-generator.html 已创建
 - [x] HTML文件已更新图像路径
-- [ ] og-cover.jpg 需要生成
+- [x] og-cover.jpg 已生成
 - [ ] favicon.ico 需要生成
 - [ ] 其他favicon尺寸需要生成
 

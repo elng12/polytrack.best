@@ -39,6 +39,25 @@ const MIME = new Map([
   ['.woff2', 'font/woff2'],
 ]);
 
+const REDIRECTS = new Map([
+  ['/play', '/#play'],
+  ['/faq', '/#faq'],
+  ['/features', '/#features'],
+  ['/what-is-polytrack', '/#what-is'],
+  ['/how-to-play', '/#how-to-play'],
+  ['/why-play', '/#why-play'],
+  ['/records', '/blog/polytrack-world-records-guide'],
+  ['/downloads', '/#play'],
+  ['/header', '/'],
+  ['/header.html', '/'],
+  ['/footer', '/'],
+  ['/footer.html', '/'],
+  ['/generate-icons', '/'],
+  ['/generate-icons.html', '/'],
+  ['/assets/favicon-generator.html', '/'],
+  ['/assets/og-cover-generator.html', '/'],
+]);
+
 function isPathInside(parent, child) {
   const rel = path.relative(parent, child);
   return !!rel && !rel.startsWith('..') && !path.isAbsolute(rel);
@@ -78,6 +97,15 @@ const server = http.createServer(async (req, res) => {
       return sendFile(res, path.join(PROJECT_ROOT, 'index.html'));
     }
 
+    if (REDIRECTS.has(pathname)) {
+      return redirect(res, REDIRECTS.get(pathname));
+    }
+
+    if (pathname.endsWith('.html')) {
+      const cleanPath = pathname.slice(0, -5) || '/';
+      return redirect(res, cleanPath);
+    }
+
     // map to filesystem path
     const fsPath = path.join(PROJECT_ROOT, pathname);
     const normalized = path.normalize(fsPath);
@@ -104,13 +132,19 @@ const server = http.createServer(async (req, res) => {
         return sendFile(res, normalized);
       }
     } catch {
-      // fallback: /path -> /path/index.html if exists
-      const alt = path.join(normalized, 'index.html');
+      // fallback: /path -> /path.html, then /path/index.html if either exists
+      const cleanUrlFile = `${normalized}.html`;
       try {
-        await fsp.access(alt);
-        return sendFile(res, alt);
+        await fsp.access(cleanUrlFile);
+        return sendFile(res, cleanUrlFile);
       } catch {
-        return send404(res);
+        const alt = path.join(normalized, 'index.html');
+        try {
+          await fsp.access(alt);
+          return sendFile(res, alt);
+        } catch {
+          return send404(res);
+        }
       }
     }
   } catch (e) {

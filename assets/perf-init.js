@@ -15,12 +15,13 @@
   function init() {
     if (!window.webVitals) return;
     try {
-      window.webVitals.getCLS(sendToGA);
-      window.webVitals.getFID(sendToGA);
-      window.webVitals.getLCP(sendToGA);
-      // Optional: FCP/TTFB
-      if (window.webVitals.getFCP) window.webVitals.getFCP(sendToGA);
-      if (window.webVitals.getTTFB) window.webVitals.getTTFB(sendToGA);
+      var vitals = window.webVitals;
+      (vitals.onCLS || vitals.getCLS)(sendToGA);
+      (vitals.onFID || vitals.getFID)(sendToGA);
+      (vitals.onLCP || vitals.getLCP)(sendToGA);
+      if (vitals.onINP || vitals.getINP) (vitals.onINP || vitals.getINP)(sendToGA);
+      if (vitals.onFCP || vitals.getFCP) (vitals.onFCP || vitals.getFCP)(sendToGA);
+      if (vitals.onTTFB || vitals.getTTFB) (vitals.onTTFB || vitals.getTTFB)(sendToGA);
     } catch (e) {
       console.warn('[perf-init] web-vitals failed:', e && e.message ? e.message : e);
     }
@@ -32,4 +33,3 @@
     document.addEventListener('DOMContentLoaded', init);
   }
 })();
-

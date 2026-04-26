@@ -100,11 +100,11 @@ jspm_packages/
 .tern-port
 
 # Generated assets (keep source files)
+AGENTS.md
 assets/styles.css
 assets/cache-manifest.json
 *.bak.*
 assets/icon-*.png
-assets/og-cover.jpg
 assets/screenshot-*.jpg
 
 # Temporary files

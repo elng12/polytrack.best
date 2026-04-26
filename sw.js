@@ -5,12 +5,26 @@ const CACHE_PREFIX = 'polytrack';
 const FALLBACK_STATIC_FILES = [
   '/',
   '/index.html',
-  '/offline.html',
+  '/offline',
   '/assets/styles.css',
   '/assets/logo.svg',
   '/manifest.json',
   '/sw.js'
 ];
+
+const DYNAMIC_CACHE_MAX_ENTRIES = 40;
+const RUNTIME_CACHE_EXTENSIONS = new Set([
+  '.css',
+  '.js',
+  '.json',
+  '.svg',
+  '.png',
+  '.jpg',
+  '.jpeg',
+  '.webmanifest',
+  '.woff2',
+  '.ico'
+]);
 
 let cacheVersion = 'v1.0.0';
 let staticCacheName = `${CACHE_PREFIX}-static-${cacheVersion}`;
@@ -42,6 +56,23 @@ function mergePrecachePaths(paths) {
     });
   }
   precachePaths = next;
+}
+
+function extensionFromPath(pathname) {
+  const match = pathname && pathname.match(/(\.[a-z0-9]+)$/i);
+  return match ? match[1].toLowerCase() : '';
+}
+
+function shouldRuntimeCache(url, normalizedPath) {
+  if (!normalizedPath || url.origin !== location.origin) return false;
+  return RUNTIME_CACHE_EXTENSIONS.has(extensionFromPath(normalizedPath));
+}
+
+async function trimCache(cacheName, maxEntries) {
+  const cache = await caches.open(cacheName);
+  const keys = await cache.keys();
+  if (keys.length <= maxEntries) return;
+  await Promise.all(keys.slice(0, keys.length - maxEntries).map((key) => cache.delete(key)));
 }
 
 async function loadCacheManifest() {
@@ -135,8 +166,8 @@ self.addEventListener('fetch', event => {
   } else if (normalizedPath && precachePaths.has(normalizedPath)) {
     // Static assets from precache - cache first
     event.respondWith(cacheFirst(request));
-  } else if (url.origin === location.origin) {
-    // Same origin - network first with cache fallback
+  } else if (shouldRuntimeCache(url, normalizedPath)) {
+    // Cache known static asset types at runtime with a size cap.
     event.respondWith(networkFirst(request));
   } else if (EXTERNAL_RESOURCES.some(resource => url.href.startsWith(resource))) {
     // External resources - stale while revalidate
@@ -172,7 +203,8 @@ async function networkFirst(request) {
     const networkResponse = await fetch(request);
     if (networkResponse.ok) {
       const cache = await caches.open(dynamicCacheName);
-      cache.put(request, networkResponse.clone());
+      await cache.put(request, networkResponse.clone());
+      await trimCache(dynamicCacheName, DYNAMIC_CACHE_MAX_ENTRIES);
     }
     return networkResponse;
   } catch (error) {
@@ -184,7 +216,7 @@ async function networkFirst(request) {
     
     // Return offline page for navigation requests
     if (request.mode === 'navigate') {
-      const offline = await caches.match('/offline.html');
+      const offline = await caches.match('/offline');
       if (offline) return offline;
       return caches.match('/index.html');
     }
@@ -197,9 +229,10 @@ async function staleWhileRevalidate(request) {
   const cache = await caches.open(dynamicCacheName);
   const cachedResponse = await cache.match(request);
   
-  const fetchPromise = fetch(request).then(networkResponse => {
+  const fetchPromise = fetch(request).then(async networkResponse => {
     if (networkResponse.ok) {
-      cache.put(request, networkResponse.clone());
+      await cache.put(request, networkResponse.clone());
+      await trimCache(dynamicCacheName, DYNAMIC_CACHE_MAX_ENTRIES);
     }
     return networkResponse;
   }).catch(error => {

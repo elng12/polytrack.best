@@ -1,37 +1,205 @@
 {
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+        {
+            "source": "/sw.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "no-cache, no-store, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/assets/cache-manifest.json",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "no-cache, no-store, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/assets/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
+        },
+        {
+            "source": "/manifest.json",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=3600, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/blog/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/about-us",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/legal-documents",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/offline",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/privacy-policy",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/progress-preview",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/terms-of-service",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        }
+    ],
     "redirects": [
         {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.polytrack.best"
+                }
+            ],
+            "destination": "https://polytrack.best/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/play",
+            "destination": "/#play",
+            "permanent": true
+        },
+        {
             "source": "/faq",
-            "destination": "/",
+            "destination": "/#faq",
             "permanent": true
         },
         {
             "source": "/features",
-            "destination": "/",
+            "destination": "/#features",
             "permanent": true
         },
         {
             "source": "/what-is-polytrack",
-            "destination": "/",
+            "destination": "/#what-is",
             "permanent": true
         },
         {
             "source": "/how-to-play",
-            "destination": "/",
+            "destination": "/#how-to-play",
             "permanent": true
         },
         {
             "source": "/why-play",
-            "destination": "/",
+            "destination": "/#why-play",
             "permanent": true
         },
         {
             "source": "/records",
-            "destination": "/",
+            "destination": "/blog/polytrack-world-records-guide",
             "permanent": true
         },
         {
             "source": "/downloads",
+            "destination": "/#play",
+            "permanent": true
+        },
+        {
+            "source": "/header",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/header.html",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/footer",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/footer.html",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/generate-icons",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/generate-icons.html",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/assets/favicon-generator.html",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/assets/og-cover-generator.html",
             "destination": "/",
             "permanent": true
         }

@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>自定义 Polytrack 赛道：用编辑器从零打造地图</title>
-    <meta name="description" content="使用 2025 年 Polytrack 编辑器快速拖拽搭建赛道、布置检查点、导入社区代码并分享作品的完整中文教程。">
+    <meta name="description" content="使用 Polytrack 编辑器快速拖拽搭建赛道、布置检查点、导入社区代码并分享作品的完整中文教程。">
     <meta name="robots" content="index,follow">
     
     <meta property="og:type" content="article">
@@ -21,9 +21,9 @@
       "@type": "Article",
       "@id": "https://polytrack.best/blog/custom-polytrack-tracks#article",
       "headline": "自定义 Polytrack 赛道：用编辑器从零打造地图",
-      "description": "使用 2025 年 Polytrack 编辑器快速搭建赛道、布置检查点、导入代码并分享给社区的中文流程指南。",
+      "description": "使用 Polytrack 编辑器快速搭建赛道、布置检查点、导入代码并分享给社区的中文流程指南。",
       "datePublished": "2025-10-14",
-      "dateModified": "2025-10-14",
+      "dateModified": "2026-04-26",
       "author": {
         "@type": "Organization",
         "name": "Polytrack Editorial Team"
@@ -156,7 +156,7 @@
 
 
 
-        <a href="/#features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why
+        <a href="/#why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Why
           Play</a>
 
 
@@ -193,7 +193,7 @@
 
 
 
-      <a href="/play" class="hidden md:inline-flex" style="background-color:#0284c7; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play
+      <a href="/#play" class="hidden md:inline-flex focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300" style="background-color:#0369a1; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Play
         Now</a>
 
 
@@ -203,7 +203,7 @@
 
 
 
-      <button id="nav-toggle" class="md:hidden" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(m){m.style.display=m.style.display==='block'?'none':'block'})(document.getElementById('nav-mobile'))">Menu</button>
+      <button id="nav-toggle" class="md:hidden" aria-controls="nav-mobile" aria-expanded="false" aria-label="Toggle navigation menu" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(btn,m){var open=m.style.display!=='block';m.style.display=open?'block':'none';btn.setAttribute('aria-expanded',open?'true':'false')})(this,document.getElementById('nav-mobile'))">Menu</button>
 
 
 
@@ -250,9 +250,12 @@
 
       <a href="/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Home</a>
       <a href="/#features" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Features</a>
+      <a href="/#what-is" style="display:block;padding:8px 0;color:#334155;text-decoration:none">What is</a>
       <a href="/#how-to-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">How to Play</a>
+      <a href="/#why-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Why Play</a>
+      <a href="/#faq" style="display:block;padding:8px 0;color:#334155;text-decoration:none">FAQ</a>
       <a href="/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
-      <a href="/play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
+      <a href="/#play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Play Now</a>
 
 
 
@@ -292,7 +295,7 @@
           <p class="text-sm font-semibold uppercase tracking-wider text-sky-600">Polytrack 博客</p>
           <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">自定义 Polytrack 赛道：用编辑器从零打造地图</h1>
           <div class="mt-3 flex flex-wrap items-center gap-4 text-sm text-slate-500">
-            <span>更新于 2025 年 10 月 14 日</span>
+            <span>更新于 2026 年 4 月 26 日</span>
             <span class="inline-flex items-center gap-2">
               <svg width="16" height="16" fill="currentColor" aria-hidden="true">
                 <path d="M8 1.333a6.667 6.667 0 1 0 0 13.334A6.667 6.667 0 0 0 8 1.333Zm0 12A5.333 5.333 0 1 1 8 2.667a5.333 5.333 0 0 1 0 10.666Zm.667-8h-1v3.333l2.667 1.6.5-.82-2.167-1.28V5.333Z"></path>
@@ -303,10 +306,10 @@
 
           <article class="prose prose-slate mt-8">
             <p>
-              想要亲手打造一条只属于你的 Poly Track 赛道？2025 版编辑器让拖拽搭建、检查点布置与代码导入都更加顺滑。
+              想要亲手打造一条只属于你的 Poly Track 赛道？当前编辑器让拖拽搭建、检查点布置与代码导入都更加顺滑。
               完成本篇指南即可发布首条自定义赛道；若想进一步提升操作，可阅读
               <a href="/blog/polytrack-gameplay-tips">Polytrack Gameplay Tips</a>，或对标圈速请查阅
-              <a href="/blog/polytrack-world-records-guide">2025 Polytrack World Records Breakdown</a>。
+              <a href="/blog/polytrack-world-records-guide">Polytrack World Records Guide</a>。
             </p>
 
             <h2 id="quick-takeaways">重点速览</h2>
@@ -338,14 +341,16 @@
 
             <h2 id="inspiration-cases">灵感案例合集：五条热门自定义赛道</h2>
             <p>以下赛道均来自社区精选，导入后可直接试玩或作为二创模板：</p>
-            <table>
+            <div class="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+            <table class="min-w-full">
+              <caption class="sr-only">热门 Polytrack 自定义赛道灵感案例</caption>
               <thead>
                 <tr>
-                  <th>赛道名称</th>
-                  <th>核心特色</th>
-                  <th>灵感来源</th>
-                  <th>导入代码 / 链接</th>
-                  <th>难度</th>
+                  <th scope="col">赛道名称</th>
+                  <th scope="col">核心特色</th>
+                  <th scope="col">灵感来源</th>
+                  <th scope="col">导入代码 / 链接</th>
+                  <th scope="col">难度</th>
                 </tr>
               </thead>
               <tbody>
@@ -372,7 +377,7 @@
                 </tr>
                 <tr>
                   <td>The Track to End All</td>
-                  <td>2025 年最长耐力赛道</td>
+                  <td>长距离耐力赛道</td>
                   <td>作者构建日志</td>
                   <td><code>ENDALL-2025</code></td>
                   <td>极高</td>
@@ -386,13 +391,14 @@
                 </tr>
               </tbody>
             </table>
+            </div>
             <p>这些赛道累计浏览量超过 5 万。发布再创作作品时别忘了添加标签 <strong>#CustomPT</strong>，方便原作者与玩家发现。</p>
 
             <h2 id="share-and-multiplayer">分享与联机玩法</h2>
             <ol>
               <li><strong>导出并发布：</strong> 保存赛道生成代码，发布到 itch.io 主题帖或 polytrack.best 论坛。</li>
               <li><strong>多人试跑：</strong> 邀请 Discord 好友，在 <em>Race Multi</em> 中加载代码，10 位观众模式可实时捕捉跳跃与漂移细节。</li>
-              <li><strong>收集反馈：</strong> 鼓励评论留档，截取高光片段，根据测试意见微调检查点或布景。2025 年的热点是跨生物群系混搭与沙漠漂移挑战。</li>
+              <li><strong>收集反馈：</strong> 鼓励评论留档，截取高光片段，根据测试意见微调检查点或布景。当前热点是跨生物群系混搭与沙漠漂移挑战。</li>
             </ol>
 
             <h2 id="quick-faq">快速问答：排查常见编辑器问题</h2>
@@ -414,7 +420,7 @@
             <h2 id="principles">工程原则检视</h2>
             <ul>
               <li><strong>KISS：</strong> 通过分节结构与步骤化讲解降低阅读门槛，阅读路径清晰。</li>
-              <li><strong>YAGNI：</strong> 仅覆盖当前版本（2025 年、v0.5.0）的必备功能，未预留不确定特性。</li>
+              <li><strong>YAGNI：</strong> 仅覆盖当前版本（v0.5.0）的必备功能，未预留不确定特性。</li>
               <li><strong>SOLID：</strong> 将“基础操作 / 灵感案例 / 分享流程 / 问答”划分为职责单一的模块，便于后续独立更新。</li>
               <li><strong>DRY：</strong> 版本兼容、检查点逻辑等核心要点只在对应模块描述一次，避免重复。</li>
             </ul>
@@ -438,13 +444,15 @@
 
   
 
+
+
 <footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
   <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
     <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved.</p>
     <nav style="display:flex;gap:16px;font-size:14px">
-      <a href="/legal-documents.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
-      <a href="/privacy-policy.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
-      <a href="/terms-of-service.html" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
+      <a href="/legal-documents" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
+      <a href="/privacy-policy" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacy</a>
+      <a href="/terms-of-service" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Terms</a>
     </nav>
   </div>
 </footer><script>
@@ -452,4 +460,4 @@
     const el = document.getElementById('y');
     if (el) el.textContent = new Date().getFullYear().toString();
   })();
-</script></body></html>
+</script><script src="/assets/web-vitals.iife.js" defer=""></script><script src="/assets/perf-init.js" defer=""></script></body></html>
