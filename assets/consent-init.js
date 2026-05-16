@@ -1,43 +1,39 @@
-// Unified Cookie Consent initialization
 (function () {
   var CONFIG = {
     gaMeasurementId: '',
-    adsClientId: ''
+    adsClientId: 'ca-pub-3219924658522446'
   };
 
   function loadAnalytics() {
-    if (CONFIG.gaMeasurementId) {
-      var ga = document.createElement('script');
-      ga.async = true;
-      ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(CONFIG.gaMeasurementId);
-      document.head.appendChild(ga);
-      var gtagInit = document.createElement('script');
-      gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','" + CONFIG.gaMeasurementId + "');";
-      document.head.appendChild(gtagInit);
-    }
+    if (!CONFIG.gaMeasurementId) return;
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(CONFIG.gaMeasurementId);
+    document.head.appendChild(ga);
+    var gtagInit = document.createElement('script');
+    gtagInit.innerHTML = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','" + CONFIG.gaMeasurementId + "');";
+    document.head.appendChild(gtagInit);
+  }
 
-    if (CONFIG.adsClientId) {
-      var ads = document.createElement('script');
-      ads.async = true;
-      ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CONFIG.adsClientId);
-      ads.setAttribute('crossorigin', 'anonymous');
-      document.head.appendChild(ads);
-    }
-
-    if (!CONFIG.gaMeasurementId && !CONFIG.adsClientId) {
-      console.info('[consent-init] No analytics IDs configured; skipping loaders.');
-    }
+  function loadAds() {
+    if (!CONFIG.adsClientId) return;
+    var ads = document.createElement('script');
+    ads.async = true;
+    ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CONFIG.adsClientId);
+    ads.setAttribute('crossorigin', 'anonymous');
+    document.head.appendChild(ads);
   }
 
   function runConsent() {
     if (!window.CookieConsent) return;
     try {
       window.CookieConsent.run({
-        categories: { necessary: true, analytics: false },
+        categories: { necessary: true, analytics: false, advertising: false },
         language: {
           en: {
             consentModal: {
               title: 'We use cookies',
+              description: 'We use cookies to improve your experience and show relevant ads.',
               acceptAllBtn: 'Accept all',
               acceptNecessaryBtn: 'Reject all'
             },
@@ -50,9 +46,9 @@
         },
         onAccept: function (ctx) {
           var cats = ctx && (ctx.categories || ctx.accepted || ctx.preferences) || [];
-          if (Array.isArray(cats) ? cats.includes('analytics') : cats.analytics) {
-            loadAnalytics();
-          }
+          var catList = Array.isArray(cats) ? cats : Object.keys(cats).filter(function(k){ return cats[k]; });
+          if (catList.includes('analytics')) loadAnalytics();
+          if (catList.includes('advertising')) loadAds();
         }
       });
     } catch (e) {

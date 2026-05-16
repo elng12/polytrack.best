@@ -67,6 +67,7 @@
     var t = lang.preferencesModal || { title:'Cookie settings', acceptAllBtn:'Accept all', savePreferencesBtn:'Save settings' };
     var current = loadPrefs();
     var analyticsOn = current ? current.categories.indexOf('analytics')>-1 : false;
+    var advertisingOn = current ? current.categories.indexOf('advertising')>-1 : false;
 
     backdropEl = el('div', {class:'cc-modal-backdrop'}, [
       el('div', {class:'cc-modal'}, [
@@ -75,6 +76,10 @@
         el('div', {class:'cc-row'}, [
           el('label', {for:'cc-analytics', text:'Analytics'}),
           (function(){ var sw=el('div',{class:'cc-switch', id:'cc-analytics'}); sw.setAttribute('data-on', analyticsOn?'true':'false'); sw.addEventListener('click', function(){ sw.setAttribute('data-on', sw.getAttribute('data-on')==='true'?'false':'true'); }); return sw; })()
+        ]),
+        el('div', {class:'cc-row'}, [
+          el('label', {for:'cc-advertising', text:'Advertising'}),
+          (function(){ var sw=el('div',{class:'cc-switch', id:'cc-advertising'}); sw.setAttribute('data-on', advertisingOn?'true':'false'); sw.addEventListener('click', function(){ sw.setAttribute('data-on', sw.getAttribute('data-on')==='true'?'false':'true'); }); return sw; })()
         ]),
         el('div', {class:'cc-actions'}, [
           el('button', {class:'cc-btn secondary', id:'cc-accept-all', text: t.acceptAllBtn}),
@@ -87,8 +92,10 @@
     document.getElementById('cc-accept-all').onclick=function(){ accept(categoriesFromConfig(opts.categories||{})); cleanupModal(); };
     document.getElementById('cc-save').onclick=function(){
       var cats=['necessary'];
-      var sw=document.getElementById('cc-analytics');
-      if(sw && sw.getAttribute('data-on')==='true') cats.push('analytics');
+      var swA=document.getElementById('cc-analytics');
+      if(swA && swA.getAttribute('data-on')==='true') cats.push('analytics');
+      var swD=document.getElementById('cc-advertising');
+      if(swD && swD.getAttribute('data-on')==='true') cats.push('advertising');
       accept(cats); cleanupModal();
     };
   }
