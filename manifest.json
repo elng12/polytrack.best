@@ -3,11 +3,19 @@
   "short_name": "Polytrack",
   "description": "Build custom tracks and race cars in this browser-based racing game",
   "start_url": "/",
-  "display": "browser",
+  "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0ea5e9",
   "orientation": "landscape-primary",
   "scope": "/",
   "lang": "en",
-  "categories": ["games", "entertainment"]
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
