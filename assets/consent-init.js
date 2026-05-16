@@ -4,6 +4,32 @@
     adsClientId: 'ca-pub-3219924658522446'
   };
 
+  function initConsentMode() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  }
+
+  function updateConsentMode(categories) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var granted = Array.isArray(categories) ? categories : Object.keys(categories).filter(function(k){ return categories[k]; });
+    gtag('consent', 'update', {
+      analytics_storage: granted.includes('analytics') ? 'granted' : 'denied',
+      ad_storage: granted.includes('advertising') ? 'granted' : 'denied',
+      ad_user_data: granted.includes('advertising') ? 'granted' : 'denied',
+      ad_personalization: granted.includes('advertising') ? 'granted' : 'denied'
+    });
+  }
+
   function loadAnalytics() {
     if (!CONFIG.gaMeasurementId) return;
     var ga = document.createElement('script');
@@ -24,9 +50,17 @@
     document.head.appendChild(ads);
   }
 
+  initConsentMode();
+
   function runConsent() {
     if (!window.CookieConsent) return;
     try {
+      var prefs = null;
+      try { var s = localStorage.getItem('cc_prefs_v1'); if(s) prefs = JSON.parse(s); }catch(e){}
+      if (prefs && prefs.categories) {
+        updateConsentMode(prefs.categories);
+      }
+
       window.CookieConsent.run({
         categories: { necessary: true, analytics: false, advertising: false },
         language: {
@@ -47,6 +81,7 @@
         onAccept: function (ctx) {
           var cats = ctx && (ctx.categories || ctx.accepted || ctx.preferences) || [];
           var catList = Array.isArray(cats) ? cats : Object.keys(cats).filter(function(k){ return cats[k]; });
+          updateConsentMode(catList);
           if (catList.includes('analytics')) loadAnalytics();
           if (catList.includes('advertising')) loadAds();
         }
