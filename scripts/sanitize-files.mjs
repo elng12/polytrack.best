@@ -11,7 +11,7 @@ import { globby } from 'globby';
 const args = process.argv.slice(2);
 const WRITE = args.includes('--write') || args.includes('-w');
 const FAIL_ON_CHANGE = args.includes('--fail-on-change');
-const patterns = ['*.html', 'blog/*.html'];
+const patterns = ['*.html', 'blog/*.html', 'es/**/*.html'];
 
 function sanitize(text) {
   let out = text;

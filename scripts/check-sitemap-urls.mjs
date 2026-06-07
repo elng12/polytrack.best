@@ -1,55 +1,96 @@
 #!/usr/bin/env node
-// check-sitemap-urls.mjs
-// 解析 sitemap.xml 并对每个 URL 做一次 HEAD（失败则 GET）以输出 TSV: url\tstatus\tfinalUrl
 
-import fs from 'node:fs/promises';
-import http from 'node:http';
-import https from 'node:https';
-import path from 'node:path';
+import { promises as fs } from 'node:fs';
+import { absoluteUrl, getDefaultTranslation, getPublishedTranslations, loadI18nConfig } from './i18n-utils.mjs';
 
-function httpGet(u, method = 'HEAD') {
-  return new Promise((resolve, reject) => {
-    const m = u.startsWith('https:') ? https : http;
-    const url = new URL(u);
-    const req = m.request(url, { method }, (res) => {
-      const chunks = [];
-      res.on('data', (d) => chunks.push(d));
-      res.on('end', () => resolve({ status: res.statusCode || 0, headers: res.headers, body: Buffer.concat(chunks) }));
-    });
-    req.on('error', reject);
-    req.end();
-  });
+function stripProtocol(value) {
+  return value.replace(/^https?:\/\//, '');
 }
 
-async function followOnce(u) {
-  try {
-    const h = await httpGet(u, 'HEAD');
-    if (h.status >= 300 && h.status < 400 && h.headers.location) {
-      const next = new URL(h.headers.location, u).toString();
-      const g = await httpGet(next, 'HEAD');
-      return { url: u, finalUrl: next, finalStatus: g.status, redirected: true };
-    }
-    return { url: u, finalUrl: u, finalStatus: h.status, redirected: false };
-  } catch (e) {
-    // 退回到 GET
-    try {
-      const g = await httpGet(u, 'GET');
-      return { url: u, finalUrl: u, finalStatus: g.status, redirected: false };
-    } catch (e2) {
-      return { url: u, finalUrl: u, finalStatus: 0, redirected: false, error: e2.message || e.message };
-    }
+function parseUrlBlocks(xml) {
+  return Array.from(xml.matchAll(/<url>\s*([\s\S]*?)\s*<\/url>/g)).map((match) => match[1]);
+}
+
+function firstMatch(block, pattern) {
+  const match = block.match(pattern);
+  return match ? match[1].trim() : '';
+}
+
+function altSet(block) {
+  return Array.from(block.matchAll(/<xhtml:link\s+[^>]*rel="alternate"[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"[^>]*\/>/g))
+    .map((match) => `${match[1]} ${match[2]}`)
+    .sort();
+}
+
+function expectedAlternates(config, page) {
+  const alternates = getPublishedTranslations(config, page, { indexableOnly: true })
+    .map(({ language, translation }) => `${language.hreflang} ${absoluteUrl(config, translation.url)}`);
+  const defaultTranslation = getDefaultTranslation(config, page);
+  if (defaultTranslation) {
+    alternates.push(`x-default ${absoluteUrl(config, defaultTranslation.translation.url)}`);
   }
+  return alternates.sort();
 }
 
 async function main() {
-  const xml = await fs.readFile(path.resolve(process.cwd(), 'sitemap.xml'), 'utf8');
-  const locs = Array.from(xml.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)).map((m) => m[1].trim());
-  const urls = Array.from(new Set(locs));
-  for (const u of urls) {
-    const r = await followOnce(u);
-    console.log(`${r.url}\t${r.finalStatus}\t${r.finalUrl}`);
+  const [config, xml] = await Promise.all([
+    loadI18nConfig(),
+    fs.readFile('sitemap.xml', 'utf8')
+  ]);
+  const errors = [];
+  const blocks = parseUrlBlocks(xml);
+  const byLoc = new Map();
+
+  if (!xml.includes('xmlns:xhtml=')) errors.push('sitemap is missing xmlns:xhtml');
+
+  for (const block of blocks) {
+    const loc = firstMatch(block, /<loc>\s*([^<]+)\s*<\/loc>/);
+    if (!loc) {
+      errors.push('url block is missing loc');
+      continue;
+    }
+    if (byLoc.has(loc)) errors.push(`duplicate sitemap loc: ${loc}`);
+    byLoc.set(loc, block);
+    if (loc.includes('.html')) errors.push(`loc contains .html: ${loc}`);
+    if (stripProtocol(loc).includes('//')) errors.push(`loc contains double slash: ${loc}`);
+    if (loc !== `${config.canonicalHost}/` && loc.endsWith('/')) errors.push(`loc uses trailing slash: ${loc}`);
   }
+
+  const expectedLocs = [];
+  for (const page of config.pages || []) {
+    for (const item of getPublishedTranslations(config, page, { sitemapOnly: true })) {
+      const loc = absoluteUrl(config, item.translation.url);
+      expectedLocs.push(loc);
+      const block = byLoc.get(loc);
+      if (!block) {
+        errors.push(`missing sitemap loc: ${loc}`);
+        continue;
+      }
+      const lastmod = firstMatch(block, /<lastmod>\s*([^<]+)\s*<\/lastmod>/);
+      const expectedLastmod = item.translation.lastmod || page.lastmod;
+      if (lastmod !== expectedLastmod) errors.push(`${loc}: lastmod should be ${expectedLastmod}`);
+      const actualAlt = altSet(block);
+      const expectedAlt = expectedAlternates(config, page);
+      if (JSON.stringify(actualAlt) !== JSON.stringify(expectedAlt)) {
+        errors.push(`${loc}: alternate links do not match config`);
+      }
+    }
+  }
+
+  for (const loc of byLoc.keys()) {
+    if (!expectedLocs.includes(loc)) errors.push(`unexpected sitemap loc: ${loc}`);
+  }
+
+  if (errors.length) {
+    console.error(`[check:sitemap] Failed with ${errors.length} issue(s):`);
+    errors.forEach((error) => console.error(`- ${error}`));
+    process.exit(1);
+  }
+
+  console.log(`[check:sitemap] OK (${expectedLocs.length} URLs)`);
 }
 
-main().catch((e) => { console.error(e.stack || e.message); process.exit(1); });
-
+main().catch((error) => {
+  console.error('[check:sitemap] Failed:', error && error.stack ? error.stack : error);
+  process.exit(1);
+});

@@ -3,7 +3,7 @@
 // 使用 jsdom 以 DOM 方式安全替换 header/footer 片段
 // 特性：
 // - 默认 dry-run 预览变更；传入 --write/-w 才会实际写入
-// - 支持 --glob 自定义匹配（默认 ['*.html','blog/*.html']）
+// - 支持 --glob 自定义匹配（默认 ['*.html','blog/*.html','es/**/*.html']）
 // - 自动跳过 header.html / footer.html 自身
 // - 可选 --backup 对写入文件生成 .bak 时间戳备份
 
@@ -11,6 +11,17 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { globby } from 'globby';
 import { JSDOM } from 'jsdom';
+import {
+  absoluteUrl,
+  fallbackSwitcherUrl,
+  fileToUrl,
+  findRouteByFile,
+  getDefaultTranslation,
+  getPublishedTranslations,
+  languagePrefix,
+  loadI18nConfig,
+  normalizeUrlPath
+} from './i18n-utils.mjs';
 
 const args = process.argv.slice(2);
 const WRITE = args.includes('--write') || args.includes('-w');
@@ -23,7 +34,15 @@ function getArgAfter(flag, fallback) {
 }
 
 const globArg = getArgAfter('--glob', null);
-const patterns = globArg ? [globArg] : ['*.html', 'blog/*.html'];
+const patterns = globArg ? [globArg] : ['*.html', 'blog/*.html', 'es/**/*.html'];
+const skipFiles = new Set([
+  '404.html',
+  'generate-icons.html',
+  'offline.html',
+  'progress-preview.html',
+  'header.html',
+  'footer.html'
+]);
 
 function ts() {
   const d = new Date();
@@ -160,41 +179,289 @@ function repairHeadIfNeeded(doc) {
   nodes.forEach((n) => head.appendChild(n));
 }
 
-// 强制实施 SEO 规范化 URL (Canonical)
-// 规则: 始终为 self-referencing, absolute https URL, 移除 index.html
-function enforceCanonical(doc, filepath) {
+function ensureMeta(doc, selector, createAttrs) {
   const head = doc.head || doc.querySelector('head');
-  if (!head) return;
+  if (!head) return null;
+  let el = head.querySelector(selector);
+  if (!el) {
+    el = doc.createElement('meta');
+    Object.entries(createAttrs).forEach(([key, value]) => el.setAttribute(key, value));
+    head.appendChild(el);
+  }
+  return el;
+}
 
-  // 1. 移除旧的 canonical
-  const oldLinks = head.querySelectorAll('link[rel="canonical"]');
-  oldLinks.forEach(el => el.remove());
+function ensureLink(doc, selector, attrs) {
+  const head = doc.head || doc.querySelector('head');
+  if (!head) return null;
+  let el = head.querySelector(selector);
+  if (!el) {
+    el = doc.createElement('link');
+    head.appendChild(el);
+  }
+  Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+  return el;
+}
 
-  // 2. 计算新的 canonical URL
-  // 假设文件路径相对于根目录，例如 "blog/my-post.html" -> "https://polytrack.best/blog/my-post"
-  // root "index.html" -> "https://polytrack.best/"
-  let relPath = filepath;
-  // 如果路径以 .html 结尾，去掉它 (除非是 index.html 特殊处理)
-  if (relPath.endsWith('index.html')) {
-    relPath = relPath.slice(0, -10); // remove "index.html"
-  } else if (relPath.endsWith('.html')) {
-    relPath = relPath.slice(0, -5); // remove ".html"
+function updateJsonLd(doc, route, config, canonicalUrl) {
+  if (!route) return;
+  const scripts = Array.from(doc.querySelectorAll('script[type="application/ld+json"]'));
+  scripts.forEach((script) => {
+    try {
+      const data = JSON.parse(script.textContent || '{}');
+      const items = Array.isArray(data) ? data : [data];
+      items.forEach((item) => {
+        if (!item || typeof item !== 'object') return;
+        item.inLanguage = route.language.htmlLang;
+        if (typeof item.url === 'string') item.url = canonicalUrl;
+        if (typeof item['@id'] === 'string' && item['@id'].startsWith(config.canonicalHost)) {
+          const hash = item['@id'].includes('#') ? item['@id'].slice(item['@id'].indexOf('#')) : '';
+          item['@id'] = `${canonicalUrl}${hash}`;
+        }
+        if (item.mainEntityOfPage && typeof item.mainEntityOfPage === 'object') {
+          item.mainEntityOfPage['@id'] = canonicalUrl;
+        }
+      });
+      script.textContent = JSON.stringify(Array.isArray(data) ? items : items[0], null, 2);
+    } catch {
+      // Keep hand-written JSON-LD if it is not valid JSON.
+    }
+  });
+}
+
+function expectedAlternateLinks(config, route) {
+  if (!route || route.translation.noindex || route.page.indexable === false) return [];
+  const links = getPublishedTranslations(config, route.page, { indexableOnly: true })
+    .map(({ language, translation }) => ({
+      hreflang: language.hreflang,
+      href: absoluteUrl(config, translation.url)
+    }));
+  const defaultTranslation = getDefaultTranslation(config, route.page);
+  if (defaultTranslation) {
+    links.push({
+      hreflang: 'x-default',
+      href: absoluteUrl(config, defaultTranslation.translation.url)
+    });
+  }
+  return links;
+}
+
+function enforceMetadata(doc, filepath, config) {
+  const head = doc.head || doc.querySelector('head');
+  if (!head) return null;
+
+  const route = findRouteByFile(config, filepath);
+  const fallbackPath = fileToUrl(filepath);
+  const urlPath = route ? normalizeUrlPath(route.translation.url) : fallbackPath;
+  const canonicalUrl = route ? absoluteUrl(config, urlPath) : `${config.canonicalHost}${urlPath === '/' ? '/' : urlPath}`;
+
+  if (route) {
+    doc.documentElement.setAttribute('lang', route.language.htmlLang);
   }
 
-  // 确保路径以 / 开头如果不为空
-  if (relPath && !relPath.startsWith('/')) {
-    relPath = '/' + relPath;
+  head.querySelectorAll('link[rel="canonical"]').forEach((el) => el.remove());
+  ensureLink(doc, 'link[rel="canonical"]', { rel: 'canonical', href: canonicalUrl });
+
+  head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+  expectedAlternateLinks(config, route).forEach((alt) => {
+    const link = doc.createElement('link');
+    link.setAttribute('rel', 'alternate');
+    link.setAttribute('hreflang', alt.hreflang);
+    link.setAttribute('href', alt.href);
+    head.appendChild(link);
+  });
+
+  const ogUrl = ensureMeta(doc, 'meta[property="og:url"]', { property: 'og:url' });
+  if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+  if (route) {
+    const robots = ensureMeta(doc, 'meta[name="robots"]', { name: 'robots' });
+    if (robots) {
+      robots.setAttribute('content', route.translation.noindex || route.page.indexable === false ? 'noindex,nofollow' : 'index,follow');
+    }
+    updateJsonLd(doc, route, config, canonicalUrl);
   }
-  // 根目录如果是空字符串或仅有/，标准化为 /
-  if (!relPath) relPath = '/';
 
-  const canonicalUrl = `https://polytrack.best${relPath}`;
+  return route;
+}
 
-  // 3. 插入新标签
-  const link = doc.createElement('link');
-  link.setAttribute('rel', 'canonical');
-  link.setAttribute('href', canonicalUrl);
-  head.appendChild(link);
+function labelsFor(languageKey) {
+  if (languageKey === 'es') {
+    return {
+      home: 'Inicio',
+      features: 'Funciones',
+      whatIs: 'Qué es',
+      howToPlay: 'Cómo jugar',
+      whyPlay: 'Por qué jugar',
+      faq: 'FAQ',
+      blog: 'Blog',
+      play: 'Jugar ahora',
+      menu: 'Menú',
+      skip: 'Saltar al contenido principal',
+      about: 'Acerca de',
+      legal: 'Legal',
+      privacy: 'Privacidad',
+      terms: 'Términos',
+      dmca: 'DMCA',
+      cookie: 'Configurar cookies',
+      doNotSell: 'No vender mi información'
+    };
+  }
+  return {
+    home: 'Home',
+    features: 'Features',
+    whatIs: 'What is',
+    howToPlay: 'How to Play',
+    whyPlay: 'Why Play',
+    faq: 'FAQ',
+    blog: 'Blog',
+    play: 'Play Now',
+    menu: 'Menu',
+    skip: 'Skip to main content',
+    about: 'About',
+    legal: 'Legal',
+    privacy: 'Privacy',
+    terms: 'Terms',
+    dmca: 'DMCA',
+    cookie: 'Cookie Settings',
+    doNotSell: 'Do Not Sell My Info'
+  };
+}
+
+function setAnchor(anchor, href, text) {
+  if (!anchor) return;
+  anchor.setAttribute('href', href);
+  if (text) anchor.textContent = text;
+}
+
+function buildLangSwitcher(doc, config, route) {
+  if (!route) return null;
+  const currentLanguage = config.languages[route.languageKey];
+  const isSpanish = route.languageKey === 'es';
+  const wrapper = doc.createElement('nav');
+  wrapper.setAttribute('aria-label', isSpanish ? 'Idioma' : 'Language');
+  wrapper.setAttribute('data-language-switcher', '');
+  wrapper.setAttribute('style', 'position:relative;display:flex;align-items:center;font-size:13px');
+  wrapper.setAttribute('onmouseenter', "var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';");
+  wrapper.setAttribute('onmouseleave', "var m=this.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=this.querySelector('button');if(b)b.setAttribute('aria-expanded','false');");
+  wrapper.setAttribute('onfocusin', "var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';");
+  wrapper.setAttribute('onfocusout', "var t=this;setTimeout(function(){if(!t.contains(document.activeElement)){var m=t.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=t.querySelector('button');if(b)b.setAttribute('aria-expanded','false');}},80);");
+
+  const button = doc.createElement('button');
+  button.setAttribute('type', 'button');
+  button.setAttribute('aria-haspopup', 'listbox');
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-label', isSpanish ? 'Cambiar idioma' : 'Change language');
+  button.setAttribute('style', 'display:flex;align-items:center;gap:8px;min-width:118px;padding:9px 12px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;color:#0f172a;font-weight:700;line-height:1;cursor:pointer');
+  button.setAttribute('onclick', "var m=this.nextElementSibling;var open=m&&m.style.display!=='block';if(m)m.style.display=open?'block':'none';this.setAttribute('aria-expanded',open?'true':'false');event.stopPropagation();");
+  const label = doc.createElement('span');
+  label.textContent = currentLanguage.label;
+  const caret = doc.createElement('span');
+  caret.setAttribute('aria-hidden', 'true');
+  caret.setAttribute('style', 'width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #475569');
+  button.appendChild(label);
+  button.appendChild(caret);
+  wrapper.appendChild(button);
+
+  const menu = doc.createElement('div');
+  menu.setAttribute('data-language-menu', '');
+  menu.setAttribute('role', 'listbox');
+  menu.setAttribute('style', 'display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:150px;padding:6px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;box-shadow:0 12px 30px rgba(15,23,42,.16);z-index:80');
+
+  Object.entries(config.languages)
+    .filter(([, language]) => language.enabled)
+    .forEach(([languageKey, language]) => {
+      const href = fallbackSwitcherUrl(config, route.page, languageKey);
+      if (!href) return;
+      const link = doc.createElement('a');
+      link.setAttribute('href', href);
+      link.setAttribute('hreflang', language.hreflang);
+      link.setAttribute('role', 'option');
+      link.setAttribute('aria-selected', languageKey === route.languageKey ? 'true' : 'false');
+      if (languageKey === route.languageKey) link.setAttribute('aria-current', 'page');
+      link.setAttribute('style', languageKey === route.languageKey
+        ? 'display:block;padding:9px 10px;border-radius:6px;background:#e0f2fe;color:#0369a1;font-weight:700;text-decoration:none;white-space:nowrap'
+        : 'display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap');
+      link.textContent = language.label;
+      menu.appendChild(link);
+    });
+
+  wrapper.appendChild(menu);
+  return menu.childNodes.length ? wrapper : null;
+}
+
+function localizeChrome(doc, route, config) {
+  const languageKey = route ? route.languageKey : 'en';
+  const language = route ? route.language : config.languages.en;
+  const prefix = languagePrefix(language);
+  const labels = labelsFor(languageKey);
+  const home = prefix || '/';
+  const hashPrefix = prefix || '/';
+
+  const logo = doc.querySelector('header a[aria-label]');
+  if (logo) logo.setAttribute('href', home);
+
+  const desktopLinks = Array.from(doc.querySelectorAll('header nav:not([data-language-switcher]) a'));
+  const navMap = [
+    [home, labels.home],
+    [`${hashPrefix}#features`, labels.features],
+    [`${hashPrefix}#what-is`, labels.whatIs],
+    [`${hashPrefix}#how-to-play`, labels.howToPlay],
+    [`${hashPrefix}#why-play`, labels.whyPlay],
+    [`${hashPrefix}#faq`, labels.faq],
+    [`${prefix}/blog`, labels.blog]
+  ];
+  desktopLinks.forEach((anchor, index) => {
+    if (navMap[index]) setAnchor(anchor, navMap[index][0], navMap[index][1]);
+  });
+
+  const playLinks = Array.from(doc.querySelectorAll('header a')).filter((a) => {
+    const text = (a.textContent || '').replace(/\s+/g, ' ').trim();
+    const href = a.getAttribute('href') || '';
+    return href.includes('#play') || text === 'Play Now' || text === 'Jugar ahora';
+  });
+  playLinks.forEach((anchor) => setAnchor(anchor, `${hashPrefix}#play`, labels.play));
+
+  const button = doc.querySelector('#nav-toggle');
+  if (button) {
+    button.textContent = labels.menu;
+    button.setAttribute('aria-label', languageKey === 'es' ? 'Abrir menú de navegación' : 'Toggle navigation menu');
+  }
+
+  const mobileLinks = Array.from(doc.querySelectorAll('#nav-mobile a'));
+  const mobileMap = [...navMap, [`${hashPrefix}#play`, labels.play]];
+  mobileLinks.forEach((anchor, index) => {
+    if (mobileMap[index]) setAnchor(anchor, mobileMap[index][0], mobileMap[index][1]);
+  });
+
+  doc.querySelectorAll('[data-language-switcher]').forEach((el) => el.remove());
+  const switcher = buildLangSwitcher(doc, config, route);
+  const headerControls = doc.querySelector('header div[style*="gap: 16px"]') || doc.querySelector('header div[style*="gap:16px"]');
+  if (switcher && headerControls) {
+    headerControls.insertBefore(switcher, headerControls.lastElementChild || null);
+  }
+
+  const skip = Array.from(doc.querySelectorAll('a[href="#main-content"]')).find((a) => /Skip|Saltar/.test(a.textContent || ''));
+  if (skip) skip.textContent = labels.skip;
+
+  const footerLinks = Array.from(doc.querySelectorAll('footer nav a'));
+  const footerMap = [
+    [`${prefix}/about-us`, labels.about],
+    [`${prefix}/legal-documents`, labels.legal],
+    [`${prefix}/privacy-policy`, labels.privacy],
+    [`${prefix}/terms-of-service`, labels.terms],
+    [`${prefix}/dmca`, labels.dmca]
+  ];
+  footerLinks.forEach((anchor, index) => {
+    if (footerMap[index]) setAnchor(anchor, footerMap[index][0], footerMap[index][1]);
+  });
+
+  const cookieLink = Array.from(doc.querySelectorAll('footer a')).find((a) => /Cookie Settings|Configurar cookies/.test(a.textContent || ''));
+  if (cookieLink) cookieLink.textContent = labels.cookie;
+  const doNotSell = Array.from(doc.querySelectorAll('footer a')).find((a) => /Do Not Sell|No vender/.test(a.textContent || ''));
+  if (doNotSell) {
+    setAnchor(doNotSell, `${prefix}/privacy-policy#ccpa`, labels.doNotSell);
+  }
 }
 
 // 移除 Git 合并冲突标记与被转义的 footer 文本块
@@ -217,13 +484,14 @@ function stripMarkersAndEscapedFooter(htmlText) {
 }
 
 async function main() {
+  const i18nConfig = await loadI18nConfig();
   const headerHTML = await fs.readFile('header.html', 'utf8');
   const footerHTML = await fs.readFile('footer.html', 'utf8');
   const headerFrag = await loadFragment(headerHTML);
   const footerFrag = await loadFragment(footerHTML);
 
   const files = await globby(patterns, { gitignore: true, expandDirectories: false });
-  const targets = files.filter((f) => !/\b(header|footer)\.html$/i.test(f));
+  const targets = files.filter((f) => !skipFiles.has(f));
 
   let changed = 0;
   for (const file of targets) {
@@ -236,7 +504,8 @@ async function main() {
     replaceFirstHeader(document, headerFrag);
     replaceLastFooter(document, footerFrag);
     repairHeadIfNeeded(document);
-    enforceCanonical(document, file);
+    const route = enforceMetadata(document, file, i18nConfig);
+    localizeChrome(document, route, i18nConfig);
 
     let out = dom.serialize();
     out = stripMarkersAndEscapedFooter(out);
