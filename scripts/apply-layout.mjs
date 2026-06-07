@@ -3,7 +3,7 @@
 // 使用 jsdom 以 DOM 方式安全替换 header/footer 片段
 // 特性：
 // - 默认 dry-run 预览变更；传入 --write/-w 才会实际写入
-// - 支持 --glob 自定义匹配（默认 ['*.html','blog/*.html','es/**/*.html']）
+// - 支持 --glob 自定义匹配（默认 ['*.html','blog/*.html','es/**/*.html','pt-br/**/*.html','ja/**/*.html']）
 // - 自动跳过 header.html / footer.html 自身
 // - 可选 --backup 对写入文件生成 .bak 时间戳备份
 
@@ -35,7 +35,7 @@ function getArgAfter(flag, fallback) {
 }
 
 const globArg = getArgAfter('--glob', null);
-const patterns = globArg ? [globArg] : ['*.html', 'blog/*.html', 'es/**/*.html'];
+const patterns = globArg ? [globArg] : ['*.html', 'blog/*.html', 'es/**/*.html', 'pt-br/**/*.html', 'ja/**/*.html'];
 const skipFiles = new Set([
   '404.html',
   'generate-icons.html',
@@ -308,6 +308,27 @@ function labelsFor(languageKey) {
       doNotSell: 'No vender mi información'
     };
   }
+  if (languageKey === 'pt-BR') {
+    return {
+      home: 'Início',
+      features: 'Recursos',
+      whatIs: 'O que é',
+      howToPlay: 'Como jogar',
+      whyPlay: 'Por que jogar',
+      faq: 'FAQ',
+      blog: 'Blog',
+      play: 'Jogar agora',
+      menu: 'Menu',
+      skip: 'Pular para o conteúdo principal',
+      about: 'Sobre',
+      legal: 'Legal',
+      privacy: 'Privacidade',
+      terms: 'Termos',
+      dmca: 'DMCA',
+      cookie: 'Configurar cookies',
+      doNotSell: 'Não vender minhas informações'
+    };
+  }
   return {
     home: 'Home',
     features: 'Features',
@@ -348,8 +369,9 @@ function buildLangSwitcher(doc, config, route) {
   if (!route) return null;
   const currentLanguage = config.languages[route.languageKey];
   const isSpanish = route.languageKey === 'es';
+  const isPortuguese = route.languageKey === 'pt-BR';
   const wrapper = doc.createElement('nav');
-  wrapper.setAttribute('aria-label', isSpanish ? 'Idioma' : 'Language');
+  wrapper.setAttribute('aria-label', isSpanish || isPortuguese ? 'Idioma' : 'Language');
   wrapper.setAttribute('data-language-switcher', '');
   wrapper.setAttribute('style', 'position:relative;display:flex;align-items:center;font-size:13px');
   wrapper.setAttribute('onmouseenter', "var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';");
@@ -361,7 +383,7 @@ function buildLangSwitcher(doc, config, route) {
   button.setAttribute('type', 'button');
   button.setAttribute('aria-haspopup', 'listbox');
   button.setAttribute('aria-expanded', 'false');
-  button.setAttribute('aria-label', isSpanish ? 'Cambiar idioma' : 'Change language');
+  button.setAttribute('aria-label', isSpanish ? 'Cambiar idioma' : isPortuguese ? 'Alterar idioma' : 'Change language');
   button.setAttribute('style', 'display:flex;align-items:center;gap:8px;min-width:118px;padding:9px 12px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;color:#0f172a;font-weight:700;line-height:1;cursor:pointer');
   button.setAttribute('onclick', "var m=this.nextElementSibling;var open=m&&m.style.display!=='block';if(m)m.style.display=open?'block':'none';this.setAttribute('aria-expanded',open?'true':'false');event.stopPropagation();");
   const label = doc.createElement('span');
@@ -436,7 +458,7 @@ function localizeChrome(doc, route, config) {
   const button = doc.querySelector('#nav-toggle');
   if (button) {
     button.textContent = labels.menu;
-    button.setAttribute('aria-label', languageKey === 'es' ? 'Abrir menú de navegación' : 'Toggle navigation menu');
+    button.setAttribute('aria-label', languageKey === 'es' ? 'Abrir menú de navegación' : languageKey === 'pt-BR' ? 'Abrir menu de navegação' : 'Toggle navigation menu');
   }
 
   const mobileLinks = Array.from(doc.querySelectorAll('#nav-mobile a'));

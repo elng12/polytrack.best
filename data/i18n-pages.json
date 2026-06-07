@@ -20,8 +20,8 @@
       "prefix": "/pt-br",
       "hreflang": "pt-BR",
       "htmlLang": "pt-BR",
-      "label": "Português (BR)",
-      "enabled": false
+      "label": "Português",
+      "enabled": true
     },
     "ja": {
       "prefix": "/ja",
@@ -57,6 +57,14 @@
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/index.html",
+          "url": "/pt-br/",
+          "title": "Jogar Polytrack online grátis",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
         }
       }
     },
@@ -82,6 +90,14 @@
           "file": "es/blog/index.html",
           "url": "/es/blog/",
           "title": "Blog de Polytrack - Guías y consejos",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/blog/index.html",
+          "url": "/pt-br/blog/",
+          "title": "Blog do Polytrack - Guias e dicas",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
@@ -113,6 +129,14 @@
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/about-us.html",
+          "url": "/pt-br/about-us",
+          "title": "Sobre o Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
         }
       }
     },
@@ -138,6 +162,14 @@
           "file": "es/legal-documents.html",
           "url": "/es/legal-documents",
           "title": "Información legal - Aviso auxiliar en español",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/legal-documents.html",
+          "url": "/pt-br/legal-documents",
+          "title": "Informações legais - Aviso auxiliar em português",
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
@@ -169,6 +201,14 @@
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/privacy-policy.html",
+          "url": "/pt-br/privacy-policy",
+          "title": "Política de privacidade - Aviso auxiliar em português",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
         }
       }
     },
@@ -194,6 +234,14 @@
           "file": "es/terms-of-service.html",
           "url": "/es/terms-of-service",
           "title": "Términos del servicio - Aviso auxiliar en español",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/terms-of-service.html",
+          "url": "/pt-br/terms-of-service",
+          "title": "Termos de serviço - Aviso auxiliar em português",
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
@@ -225,6 +273,14 @@
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/dmca.html",
+          "url": "/pt-br/dmca",
+          "title": "DMCA e direitos autorais - Aviso auxiliar em português",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
         }
       }
     },
@@ -250,6 +306,14 @@
           "file": "es/blog/track-builder-guide.html",
           "url": "/es/blog/track-builder-guide",
           "title": "Guía del editor de pistas de Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "pt-BR": {
+          "file": "pt-br/blog/track-builder-guide.html",
+          "url": "/pt-br/blog/track-builder-guide",
+          "title": "Guia do editor de pistas do Polytrack",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
