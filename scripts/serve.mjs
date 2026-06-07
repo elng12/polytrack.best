@@ -105,10 +105,6 @@ const server = http.createServer(async (req, res) => {
       return redirect(res, `${pathname.slice(3)}${url.search}`);
     }
 
-    if (pathname.length > 1 && pathname.endsWith('/')) {
-      return redirect(res, pathname.slice(0, -1) + url.search);
-    }
-
     if (REDIRECTS.has(pathname)) {
       return redirect(res, REDIRECTS.get(pathname));
     }
@@ -128,6 +124,9 @@ const server = http.createServer(async (req, res) => {
     try {
       const st = await fsp.stat(normalized);
       if (st.isDirectory()) {
+        if (!pathname.endsWith('/')) {
+          return redirect(res, `${pathname}/${url.search}`);
+        }
         // try index.html
         const indexPath = path.join(normalized, 'index.html');
         try {
@@ -140,6 +139,13 @@ const server = http.createServer(async (req, res) => {
         return sendFile(res, normalized);
       }
     } catch {
+      if (pathname.length > 1 && pathname.endsWith('/')) {
+        const cleanHtmlFile = `${path.join(PROJECT_ROOT, pathname.slice(0, -1))}.html`;
+        try {
+          await fsp.access(cleanHtmlFile);
+          return redirect(res, pathname.slice(0, -1) + url.search);
+        } catch {}
+      }
       // fallback: /path -> /path.html, then /path/index.html if either exists
       const cleanUrlFile = `${normalized}.html`;
       try {

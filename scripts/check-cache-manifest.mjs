@@ -21,8 +21,6 @@ async function main() {
     seen.add(file);
     if (file.includes('.html')) errors.push(`URL contains .html: ${file}`);
     if (hasDoubleSlash(file)) errors.push(`URL contains double slash: ${file}`);
-    if (file !== '/' && file.length > 1 && file.endsWith('/')) errors.push(`URL uses trailing slash: ${file}`);
-    if (file === '/es/' || file === '/es/blog/' || file === '/blog/') errors.push(`non-final URL in cache manifest: ${file}`);
     if (!file.startsWith('/')) errors.push(`URL must start with /: ${file}`);
   }
 

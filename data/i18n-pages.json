@@ -52,7 +52,7 @@
         },
         "es": {
           "file": "es/index.html",
-          "url": "/es",
+          "url": "/es/",
           "title": "Jugar Polytrack online gratis",
           "status": "published",
           "noindex": false,
@@ -72,7 +72,7 @@
       "translations": {
         "en": {
           "file": "blog/index.html",
-          "url": "/blog",
+          "url": "/blog/",
           "title": "Polytrack Blog - Tips, Guides, and Community Updates",
           "status": "published",
           "noindex": false,
@@ -80,7 +80,7 @@
         },
         "es": {
           "file": "es/blog/index.html",
-          "url": "/es/blog",
+          "url": "/es/blog/",
           "title": "Blog de Polytrack - Guías y consejos",
           "status": "published",
           "noindex": false,

@@ -17,16 +17,18 @@ export function normalizeUrlPath(value) {
   let out = value.trim();
   if (!out.startsWith('/')) out = `/${out}`;
   out = normalizeSlashes(out);
-  if (out.endsWith('/index.html')) out = out.slice(0, -11);
-  if (out.endsWith('.html')) out = out.slice(0, -5);
-  if (out.length > 1 && out.endsWith('/')) out = out.slice(0, -1);
+  if (out.endsWith('/index.html')) {
+    out = `${out.slice(0, -11)}/`;
+  } else if (out.endsWith('.html')) {
+    out = out.slice(0, -5);
+  }
   return out || '/';
 }
 
 export function fileToUrl(file) {
   const normalized = file.split(path.sep).join('/');
   if (normalized === 'index.html') return '/';
-  if (normalized.endsWith('/index.html')) return normalizeUrlPath(normalized.slice(0, -11));
+  if (normalized.endsWith('/index.html')) return normalizeUrlPath(`${normalized.slice(0, -11)}/`);
   return normalizeUrlPath(normalized);
 }
 

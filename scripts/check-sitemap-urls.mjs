@@ -53,7 +53,6 @@ async function main() {
     byLoc.set(loc, block);
     if (loc.includes('.html')) errors.push(`loc contains .html: ${loc}`);
     if (stripProtocol(loc).includes('//')) errors.push(`loc contains double slash: ${loc}`);
-    if (loc !== `${config.canonicalHost}/` && loc.endsWith('/')) errors.push(`loc uses trailing slash: ${loc}`);
   }
 
   const expectedLocs = [];

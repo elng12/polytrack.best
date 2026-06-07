@@ -15,6 +15,7 @@ import {
   absoluteUrl,
   fallbackSwitcherUrl,
   fileToUrl,
+  findPageById,
   findRouteByFile,
   getDefaultTranslation,
   getPublishedTranslations,
@@ -334,6 +335,15 @@ function setAnchor(anchor, href, text) {
   if (text) anchor.textContent = text;
 }
 
+function configuredPageUrl(config, pageId, languageKey, fallback) {
+  const page = findPageById(config, pageId);
+  const translation = page?.translations?.[languageKey];
+  if (translation?.status === 'published' && translation.url) {
+    return normalizeUrlPath(translation.url);
+  }
+  return fallback;
+}
+
 function buildLangSwitcher(doc, config, route) {
   if (!route) return null;
   const currentLanguage = config.languages[route.languageKey];
@@ -395,8 +405,9 @@ function localizeChrome(doc, route, config) {
   const language = route ? route.language : config.languages.en;
   const prefix = languagePrefix(language);
   const labels = labelsFor(languageKey);
-  const home = prefix || '/';
-  const hashPrefix = prefix || '/';
+  const home = configuredPageUrl(config, 'home', languageKey, prefix || '/');
+  const blog = configuredPageUrl(config, 'blog-index', languageKey, prefix ? `${prefix}/blog/` : '/blog/');
+  const hashPrefix = home;
 
   const logo = doc.querySelector('header a[aria-label]');
   if (logo) logo.setAttribute('href', home);
@@ -409,7 +420,7 @@ function localizeChrome(doc, route, config) {
     [`${hashPrefix}#how-to-play`, labels.howToPlay],
     [`${hashPrefix}#why-play`, labels.whyPlay],
     [`${hashPrefix}#faq`, labels.faq],
-    [`${prefix}/blog`, labels.blog]
+    [blog, labels.blog]
   ];
   desktopLinks.forEach((anchor, index) => {
     if (navMap[index]) setAnchor(anchor, navMap[index][0], navMap[index][1]);

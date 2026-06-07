@@ -4,9 +4,9 @@
 # Multilingual canonical paths
 /en              /           301
 /en/*            /:splat     301
-/blog/           /blog       301
-/es/             /es         301
-/es/blog/        /es/blog    301
+/blog            /blog/      301
+/es              /es/        301
+/es/blog         /es/blog/   301
 
 # Consolidate content to Home anchors (High Value)
 /play             /#play      301
