@@ -7,8 +7,8 @@
     "build-css": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch",
     "build-css-prod": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
     "dev": "npm run build-css",
-    "build": "npm run build-css-prod && node scripts/gen-cache-manifest.mjs",
-    "typecheck": "npm run check:layout && node scripts/sanitize-files.mjs --fail-on-change",
+    "build": "npm run build-css-prod && node scripts/apply-layout.mjs --write && npm run check:i18n && node scripts/gen-sitemap.mjs && npm run check:sitemap && node scripts/gen-cache-manifest.mjs && npm run check:cache",
+    "typecheck": "npm run check:layout && npm run check:i18n && npm run check:sitemap && node scripts/gen-cache-manifest.mjs && npm run check:cache && node scripts/sanitize-files.mjs --fail-on-change",
     "serve": "node scripts/serve.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "sanitize:files": "node scripts/sanitize-files.mjs",
@@ -16,6 +16,9 @@
     "apply:layout": "node scripts/apply-layout.mjs",
     "apply:layout:write": "node scripts/apply-layout.mjs --write --backup",
     "check:layout": "node scripts/apply-layout.mjs --fail-on-change",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "check:sitemap": "node scripts/check-sitemap-urls.mjs",
+    "check:cache": "node scripts/check-cache-manifest.mjs",
     "scan:garble": "rg -n -S \"<<<<<<<|&lt;footer|鈥|锟|锔|/div&gt;\" --glob=*.html --glob=blog/*.html --glob=assets/*.html --color=never"
   },
   "keywords": [

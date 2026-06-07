@@ -3,8 +3,6 @@
 
 const CACHE_PREFIX = 'polytrack';
 const FALLBACK_STATIC_FILES = [
-  '/',
-  '/index.html',
   '/offline',
   '/assets/styles.css',
   '/assets/logo.svg',

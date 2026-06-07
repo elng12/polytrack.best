@@ -16,7 +16,7 @@ function toPublicPath(absPath) {
   // 统一使用 POSIX 分隔符，前置 '/'
   const publicPath = '/' + rel.split(path.sep).join('/');
   if (publicPath === '/index.html') return '/';
-  if (publicPath.endsWith('/index.html')) return publicPath.slice(0, -10) + '/';
+  if (publicPath.endsWith('/index.html')) return publicPath.slice(0, -11) || '/';
   if (publicPath.endsWith('.html')) return publicPath.slice(0, -5);
   return publicPath;
 }
@@ -39,10 +39,9 @@ async function contentVersion(files, publicPaths) {
 }
 
 async function main() {
-  // 需要缓存的模式：根目录 HTML、blog 下 HTML、关键文本文件、assets 静态资源
+  // 第一阶段多语言上线时，HTML 不进入长期 precache；只保留离线页和静态资源。
   const patterns = [
-    '*.html',
-    'blog/**/*.html',
+    'offline.html',
     'manifest.json',
     'robots.txt',
     'sitemap.xml',
@@ -76,8 +75,7 @@ async function main() {
   const publicPaths = cacheFiles.map((f) => toPublicPath(f));
   let staticFiles = Array.from(new Set(publicPaths)).sort((a, b) => a.localeCompare(b));
 
-  // 将根路径 '/' 放在首位，确保导航可用
-  if (!staticFiles.includes('/')) staticFiles.unshift('/');
+  // 只缓存离线兜底页，不缓存首页和语言 HTML。
   if (!staticFiles.includes('/offline')) staticFiles.push('/offline');
 
   const manifest = {

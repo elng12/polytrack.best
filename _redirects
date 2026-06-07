@@ -1,6 +1,13 @@
 # SEO 301 Redirects for Polytrack.best
 # Source: Migration Matrix 2025-12-23
 
+# Multilingual canonical paths
+/en              /           301
+/en/*            /:splat     301
+/blog/           /blog       301
+/es/             /es         301
+/es/blog/        /es/blog    301
+
 # Consolidate content to Home anchors (High Value)
 /play             /#play      301
 /faq              /#faq       301

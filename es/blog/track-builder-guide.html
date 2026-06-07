@@ -1,0 +1,353 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía del editor de pistas de Polytrack | Crear y publicar pistas</title>
+  <meta name="description" content="Aprende a usar el editor de pistas de Polytrack: planifica el circuito, coloca checkpoints, prueba saltos y publica una pista personalizada.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0ea5e9">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Guía del editor de pistas de Polytrack">
+  <meta property="og:description" content="Flujo práctico para crear, probar y publicar pistas personalizadas en Polytrack.">
+  <meta property="og:url" content="https://polytrack.best/es/blog/track-builder-guide">
+  <meta property="og:image" content="https://polytrack.best/assets/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guía del editor de pistas de Polytrack">
+  <meta name="twitter:description" content="Crea mejores pistas de Polytrack con este flujo paso a paso.">
+  <meta name="twitter:image" content="https://polytrack.best/assets/og-cover.jpg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://polytrack.best/es/blog/track-builder-guide#article",
+  "headline": "Guía del editor de pistas de Polytrack",
+  "description": "Guía en español para planificar, construir, probar y publicar pistas personalizadas de Polytrack.",
+  "datePublished": "2026-06-07",
+  "dateModified": "2026-06-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Polytrack Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Polytrack",
+    "url": "https://polytrack.best",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://polytrack.best/assets/logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://polytrack.best/es/blog/track-builder-guide"
+  },
+  "image": "https://polytrack.best/assets/og-cover.jpg",
+  "articleSection": "Creación",
+  "keywords": [
+    "editor de pistas Polytrack",
+    "pistas personalizadas Polytrack",
+    "crear pistas Polytrack"
+  ],
+  "inLanguage": "es"
+}</script>
+  
+<link rel="canonical" href="https://polytrack.best/es/blog/track-builder-guide"><link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide"><link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide"><link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide"></head>
+<body class="bg-white text-slate-800 antialiased"><header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
+
+
+
+
+
+
+
+
+  <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+
+
+
+
+
+
+
+
+    <a href="/es" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
+
+
+
+
+
+
+
+
+      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px">
+
+
+
+
+
+
+
+
+      <span style="font-weight:600">Polytrack</span>
+
+
+
+
+
+
+
+
+    </a>
+
+
+
+
+
+
+
+
+    <div style="display: flex; align-items: center; gap: 16px;">
+
+
+
+
+
+
+
+
+      <nav class="hidden md:flex items-center gap-6 text-sm" style="gap:16px;font-size:14px">
+
+
+
+
+
+
+
+
+        <a href="/es" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Inicio</a>
+
+
+
+
+
+
+
+
+        <a href="/es#features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Funciones</a>
+
+
+
+
+
+
+
+
+        <a href="/es#what-is" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Qué es</a>
+
+
+
+
+
+
+
+
+        <a href="/es#how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Cómo jugar</a>
+
+
+
+
+
+
+
+
+        <a href="/es#why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Por qué jugar</a>
+
+
+
+
+
+
+
+
+        <a href="/es#faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
+
+
+
+
+
+
+
+
+        <a href="/es/blog" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">Blog</a>
+
+
+
+
+
+
+
+
+      </nav>
+
+
+
+
+
+
+
+
+      <a href="/es#play" class="hidden md:inline-flex focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300" style="background-color:#0369a1; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">Jugar ahora</a>
+
+
+
+
+
+
+
+
+      <nav aria-label="Idioma" data-language-switcher="" style="position:relative;display:flex;align-items:center;font-size:13px" onmouseenter="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';" onmouseleave="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=this.querySelector('button');if(b)b.setAttribute('aria-expanded','false');" onfocusin="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';" onfocusout="var t=this;setTimeout(function(){if(!t.contains(document.activeElement)){var m=t.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=t.querySelector('button');if(b)b.setAttribute('aria-expanded','false');}},80);"><button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Cambiar idioma" style="display:flex;align-items:center;gap:8px;min-width:118px;padding:9px 12px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;color:#0f172a;font-weight:700;line-height:1;cursor:pointer" onclick="var m=this.nextElementSibling;var open=m&amp;&amp;m.style.display!=='block';if(m)m.style.display=open?'block':'none';this.setAttribute('aria-expanded',open?'true':'false');event.stopPropagation();"><span>Español</span><span aria-hidden="true" style="width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #475569"></span></button><div data-language-menu="" role="listbox" style="display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:150px;padding:6px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;box-shadow:0 12px 30px rgba(15,23,42,.16);z-index:80"><a href="/blog/track-builder-guide" hreflang="en" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">English</a><a href="/es/blog/track-builder-guide" hreflang="es" role="option" aria-selected="true" aria-current="page" style="display:block;padding:9px 10px;border-radius:6px;background:#e0f2fe;color:#0369a1;font-weight:700;text-decoration:none;white-space:nowrap">Español</a></div></nav><button id="nav-toggle" class="md:hidden" aria-controls="nav-mobile" aria-expanded="false" aria-label="Abrir menú de navegación" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(btn,m){var open=m.style.display!=='block';m.style.display=open?'block':'none';btn.setAttribute('aria-expanded',open?'true':'false')})(this,document.getElementById('nav-mobile'))">Menú</button>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
+
+
+
+
+
+
+
+
+    <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
+
+
+
+
+
+
+
+
+      <a href="/es" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Inicio</a>
+      <a href="/es#features" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Funciones</a>
+      <a href="/es#what-is" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Qué es</a>
+      <a href="/es#how-to-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Cómo jugar</a>
+      <a href="/es#why-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Por qué jugar</a>
+      <a href="/es#faq" style="display:block;padding:8px 0;color:#334155;text-decoration:none">FAQ</a>
+      <a href="/es/blog" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Blog</a>
+      <a href="/es#play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">Jugar ahora</a>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+</header>
+  <main id="main-content">
+    <section class="px-4 py-12">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-sky-600">Blog de Polytrack</p>
+        <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Guía del editor de pistas de Polytrack</h1>
+        <div class="mt-3 flex flex-wrap items-center gap-4 text-sm text-slate-500">
+          <span>Actualizado el 7 de junio de 2026</span>
+          <span>Lectura: 7 min</span>
+        </div>
+        <article class="prose prose-slate mt-8">
+          <p>Crear una pista buena en Polytrack no empieza colocando bloques al azar. Primero necesitas una idea clara: cuánto debe durar la vuelta, dónde estará el salto principal y qué error debe poder recuperar el jugador.</p>
+
+          <h2>1. Define la experiencia</h2>
+          <p>Antes de abrir el editor, decide si tu pista será corta, técnica o de resistencia. Una pista de 30 a 45 segundos sirve para aprender rápido. Una pista larga necesita checkpoints más generosos y secciones visualmente claras.</p>
+
+          <h2>2. Coloca inicio, meta y línea principal</h2>
+          <ol>
+            <li>Empieza con una recta corta para que el jugador entienda la velocidad.</li>
+            <li>Añade una curva o rampa sencilla antes de subir la dificultad.</li>
+            <li>Prueba la sección antes de seguir construyendo.</li>
+          </ol>
+
+          <h2>3. Usa checkpoints con intención</h2>
+          <p>Los checkpoints no son decoración. Sirven para evitar frustración después de un salto largo o una zona difícil. Colócalos antes de los puntos donde un error puede arruinar toda la vuelta.</p>
+
+          <h2>4. Prueba cada tramo</h2>
+          <p>Corre la pista varias veces. Si solo funciona cuando tú haces la trazada perfecta, probablemente sea demasiado dura. Ajusta anchura, ángulo y distancia de saltos hasta que el reto sea justo.</p>
+
+          <h2>5. Publica con una descripción útil</h2>
+          <p>Cuando exportes o compartas una pista, explica qué tipo de reto ofrece: velocidad, saltos, drift, precisión o práctica para principiantes. Una buena descripción ayuda a que otros jugadores sepan qué esperar.</p>
+
+          <h2>FAQ rápida</h2>
+          <h3>¿Cuál es la mejor pista para empezar?</h3>
+          <p>Una pista corta con una recta, una curva clara y un salto simple. Así puedes probar el editor sin perder tiempo.</p>
+          <h3>¿Cuándo debo usar checkpoints?</h3>
+          <p>Antes o después de saltos largos, curvas ciegas y zonas donde el coche puede quedar atrapado.</p>
+          <h3>¿Puedo compartir pistas personalizadas?</h3>
+          <p>Sí. Guarda o exporta tu pista y comparte el código o archivo según el flujo que uses.</p>
+
+          <div class="mt-12 rounded-lg border border-slate-200 bg-slate-50 p-6">
+            <h2 class="text-xl font-semibold text-slate-900">Siguiente paso</h2>
+            <p class="mt-3 text-sm text-slate-600">Vuelve a <a href="/es/blog">las guías en español</a> o abre <a href="/es#play">Polytrack</a> para probar tu primera pista.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+
+<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
+  <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved. · <a href="#" onclick="event.preventDefault();if(window.CookieConsent)CookieConsent.showPreferences()" style="color:#64748b;text-decoration:underline">Configurar cookies</a> · <a href="/es/privacy-policy#ccpa" style="color:#64748b;text-decoration:underline">No vender mi información</a></p>
+    <nav aria-label="Footer navigation" style="display:flex;gap:16px;font-size:14px">
+      <a href="/es/about-us" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Acerca de</a>
+      <a href="/es/legal-documents" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Legal</a>
+      <a href="/es/privacy-policy" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Privacidad</a>
+      <a href="/es/terms-of-service" class="hover:text-sky-700" style="color:#334155;text-decoration:none">Términos</a>
+      <a href="/es/dmca" class="hover:text-sky-700" style="color:#334155;text-decoration:none">DMCA</a>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="/assets/cookieconsent.css"><script src="/assets/cookieconsent.umd.js" defer=""></script><script src="/assets/consent-init.js" defer=""></script><script>
+  (function () {
+    const el = document.getElementById('y');
+    if (el) el.textContent = new Date().getFullYear().toString();
+  })();
+</script><script src="/assets/web-vitals.iife.js" defer=""></script><script src="/assets/perf-init.js" defer=""></script></body></html>

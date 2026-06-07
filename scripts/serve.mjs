@@ -97,6 +97,18 @@ const server = http.createServer(async (req, res) => {
       return sendFile(res, path.join(PROJECT_ROOT, 'index.html'));
     }
 
+    if (pathname === '/en' || pathname === '/en/') {
+      return redirect(res, `/${url.search}`);
+    }
+
+    if (pathname.startsWith('/en/')) {
+      return redirect(res, `${pathname.slice(3)}${url.search}`);
+    }
+
+    if (pathname.length > 1 && pathname.endsWith('/')) {
+      return redirect(res, pathname.slice(0, -1) + url.search);
+    }
+
     if (REDIRECTS.has(pathname)) {
       return redirect(res, REDIRECTS.get(pathname));
     }
@@ -116,10 +128,6 @@ const server = http.createServer(async (req, res) => {
     try {
       const st = await fsp.stat(normalized);
       if (st.isDirectory()) {
-        // ensure trailing slash for directories
-        if (!pathname.endsWith('/')) {
-          return redirect(res, pathname + '/');
-        }
         // try index.html
         const indexPath = path.join(normalized, 'index.html');
         try {

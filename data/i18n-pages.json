@@ -1,0 +1,420 @@
+{
+  "canonicalHost": "https://polytrack.best",
+  "xDefault": "en",
+  "languages": {
+    "en": {
+      "prefix": "",
+      "hreflang": "en",
+      "htmlLang": "en",
+      "label": "English",
+      "enabled": true
+    },
+    "es": {
+      "prefix": "/es",
+      "hreflang": "es",
+      "htmlLang": "es",
+      "label": "Español",
+      "enabled": true
+    },
+    "pt-BR": {
+      "prefix": "/pt-br",
+      "hreflang": "pt-BR",
+      "htmlLang": "pt-BR",
+      "label": "Português (BR)",
+      "enabled": false
+    },
+    "ja": {
+      "prefix": "/ja",
+      "hreflang": "ja",
+      "htmlLang": "ja",
+      "label": "日本語",
+      "enabled": false
+    }
+  },
+  "pages": [
+    {
+      "id": "home",
+      "type": "home",
+      "schemaType": "WebSite",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "weekly",
+      "priority": 1.0,
+      "translations": {
+        "en": {
+          "file": "index.html",
+          "url": "/",
+          "title": "Polytrack - Play Online & Build Custom Tracks (Free)",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/index.html",
+          "url": "/es",
+          "title": "Jugar Polytrack online gratis",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "blog-index",
+      "type": "blog-index",
+      "schemaType": "Blog",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "weekly",
+      "priority": 0.7,
+      "translations": {
+        "en": {
+          "file": "blog/index.html",
+          "url": "/blog",
+          "title": "Polytrack Blog - Tips, Guides, and Community Updates",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/blog/index.html",
+          "url": "/es/blog",
+          "title": "Blog de Polytrack - Guías y consejos",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "about-us",
+      "type": "page",
+      "schemaType": "WebPage",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "about-us.html",
+          "url": "/about-us",
+          "title": "About Polytrack - Mission, Team, and Roadmap",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/about-us.html",
+          "url": "/es/about-us",
+          "title": "Acerca de Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "legal-documents",
+      "type": "legal",
+      "schemaType": "WebPage",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "legal-documents.html",
+          "url": "/legal-documents",
+          "title": "Legal Information | Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/legal-documents.html",
+          "url": "/es/legal-documents",
+          "title": "Información legal - Aviso auxiliar en español",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "privacy-policy",
+      "type": "legal",
+      "schemaType": "WebPage",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "monthly",
+      "priority": 0.5,
+      "translations": {
+        "en": {
+          "file": "privacy-policy.html",
+          "url": "/privacy-policy",
+          "title": "Privacy Policy | Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/privacy-policy.html",
+          "url": "/es/privacy-policy",
+          "title": "Política de privacidad - Aviso auxiliar en español",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "terms-of-service",
+      "type": "legal",
+      "schemaType": "WebPage",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "monthly",
+      "priority": 0.5,
+      "translations": {
+        "en": {
+          "file": "terms-of-service.html",
+          "url": "/terms-of-service",
+          "title": "Terms of Service | Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/terms-of-service.html",
+          "url": "/es/terms-of-service",
+          "title": "Términos del servicio - Aviso auxiliar en español",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "dmca",
+      "type": "legal",
+      "schemaType": "WebPage",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "monthly",
+      "priority": 0.5,
+      "translations": {
+        "en": {
+          "file": "dmca.html",
+          "url": "/dmca",
+          "title": "DMCA & Copyright Policy | Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/dmca.html",
+          "url": "/es/dmca",
+          "title": "DMCA y derechos de autor - Aviso auxiliar en español",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "track-builder-guide",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/track-builder-guide.html",
+          "url": "/blog/track-builder-guide",
+          "title": "Track Builder Bible: From Concept to Published Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        },
+        "es": {
+          "file": "es/blog/track-builder-guide.html",
+          "url": "/es/blog/track-builder-guide",
+          "title": "Guía del editor de pistas de Polytrack",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "custom-polytrack-tracks",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-07",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/custom-polytrack-tracks.html",
+          "url": "/blog/custom-polytrack-tracks",
+          "title": "Polytrack Custom Tracks Guide",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "community-tracks-showcase",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2025-10-04",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/community-tracks-showcase.html",
+          "url": "/blog/community-tracks-showcase",
+          "title": "Best Polytrack Maps: Community Track Showcase",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "ghost-racing-strategies",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2025-10-04",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/ghost-racing-strategies.html",
+          "url": "/blog/ghost-racing-strategies",
+          "title": "Ghost Racing Strategies for Polytrack PBs",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "mobile-controls-setup",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2025-10-04",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/mobile-controls-setup.html",
+          "url": "/blog/mobile-controls-setup",
+          "title": "How to Set Up Polytrack Controls on Mobile and Controller",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "performance-optimization-tips",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2025-10-04",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/performance-optimization-tips.html",
+          "url": "/blog/performance-optimization-tips",
+          "title": "Polytrack Performance Optimisation Tips",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "polytrack-gameplay-tips",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2025-10-10",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/polytrack-gameplay-tips.html",
+          "url": "/blog/polytrack-gameplay-tips",
+          "title": "Polytrack Gameplay Tips: Jumps, Drifts, and Speed",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "polytrack-unblocked-guide",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-05-16",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/polytrack-unblocked-guide.html",
+          "url": "/blog/polytrack-unblocked-guide",
+          "title": "Polytrack Connection Troubleshooting Guide",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
+      "id": "polytrack-world-records-guide",
+      "type": "blog",
+      "schemaType": "Article",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2025-10-09",
+      "changefreq": "monthly",
+      "priority": 0.6,
+      "translations": {
+        "en": {
+          "file": "blog/polytrack-world-records-guide.html",
+          "url": "/blog/polytrack-world-records-guide",
+          "title": "Polytrack World Records Guide: Track 1 to Summer 3 WRs",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    }
+  ]
+}
