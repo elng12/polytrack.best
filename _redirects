@@ -9,6 +9,8 @@
 /es/blog         /es/blog/   301
 /pt-br           /pt-br/     301
 /pt-br/blog      /pt-br/blog/ 301
+/ja              /ja/        301
+/ja/blog         /ja/blog/   301
 
 # Consolidate content to Home anchors (High Value)
 /play             /#play      301

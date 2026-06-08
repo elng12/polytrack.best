@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polytrackを無料でオンラインプレイ | ブラウザで使えるトラックエディター</title>
+  <meta name="description" content="Polytrackをブラウザで無料プレイ。レースを走り、トラックエディターで自作コースを作り、ダウンロードなしでタイムを伸ばせます。">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0ea5e9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Polytrackを無料でオンラインプレイ">
+  <meta property="og:description" content="レースを走り、自作コースを作り、Polytrackをブラウザですぐ遊べます。">
+  <meta property="og:url" content="https://polytrack.best/ja/">
+  <meta property="og:image" content="https://polytrack.best/assets/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Polytrackを無料でオンラインプレイ">
+  <meta name="twitter:description" content="日本語でPolytrackをプレイ。短いレース、トラックエディター、ブラウザ無料ゲーム。">
+  <meta name="twitter:image" content="https://polytrack.best/assets/og-cover.jpg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "@id": "https://polytrack.best/ja/#game",
+  "name": "Polytrack",
+  "url": "https://polytrack.best/ja/",
+  "inLanguage": "ja",
+  "description": "自作コースを作れるブラウザ向けレースゲーム。",
+  "applicationCategory": "Game"
+}</script>
+<link rel="canonical" href="https://polytrack.best/ja/"><link rel="alternate" hreflang="en" href="https://polytrack.best/"><link rel="alternate" hreflang="es" href="https://polytrack.best/es/"><link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/"><link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/"><link rel="alternate" hreflang="x-default" href="https://polytrack.best/"></head>
+<body class="bg-white text-slate-800 antialiased"><header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
+
+
+
+
+
+
+
+
+  <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+
+
+
+
+
+
+
+
+    <a href="/ja/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
+
+
+
+
+
+
+
+
+      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px">
+
+
+
+
+
+
+
+
+      <span style="font-weight:600">Polytrack</span>
+
+
+
+
+
+
+
+
+    </a>
+
+
+
+
+
+
+
+
+    <div style="display: flex; align-items: center; gap: 16px;">
+
+
+
+
+
+
+
+
+      <nav class="hidden md:flex items-center gap-6 text-sm" style="gap:16px;font-size:14px">
+
+
+
+
+
+
+
+
+        <a href="/ja/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">ホーム</a>
+
+
+
+
+
+
+
+
+        <a href="/ja/#features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">特徴</a>
+
+
+
+
+
+
+
+
+        <a href="/ja/#what-is" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">概要</a>
+
+
+
+
+
+
+
+
+        <a href="/ja/#how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">遊び方</a>
+
+
+
+
+
+
+
+
+        <a href="/ja/#why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">おすすめ</a>
+
+
+
+
+
+
+
+
+        <a href="/ja/#faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
+
+
+
+
+
+
+
+
+        <a href="/ja/blog/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">ブログ</a>
+
+
+
+
+
+
+
+
+      </nav>
+
+
+
+
+
+
+
+
+      <a href="/ja/#play" class="hidden md:inline-flex focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300" style="background-color:#0369a1; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">今すぐプレイ</a>
+
+
+
+
+
+
+
+
+      <nav aria-label="言語" data-language-switcher="" style="position:relative;display:flex;align-items:center;font-size:13px" onmouseenter="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';" onmouseleave="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=this.querySelector('button');if(b)b.setAttribute('aria-expanded','false');" onfocusin="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';" onfocusout="var t=this;setTimeout(function(){if(!t.contains(document.activeElement)){var m=t.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=t.querySelector('button');if(b)b.setAttribute('aria-expanded','false');}},80);"><button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="言語を変更" style="display:flex;align-items:center;gap:8px;min-width:118px;padding:9px 12px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;color:#0f172a;font-weight:700;line-height:1;cursor:pointer" onclick="var m=this.nextElementSibling;var open=m&amp;&amp;m.style.display!=='block';if(m)m.style.display=open?'block':'none';this.setAttribute('aria-expanded',open?'true':'false');event.stopPropagation();"><span>日本語</span><span aria-hidden="true" style="width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #475569"></span></button><div data-language-menu="" role="listbox" style="display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:150px;padding:6px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;box-shadow:0 12px 30px rgba(15,23,42,.16);z-index:80"><a href="/" hreflang="en" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">English</a><a href="/es/" hreflang="es" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">Español</a><a href="/pt-br/" hreflang="pt-BR" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">Português</a><a href="/ja/" hreflang="ja" role="option" aria-selected="true" aria-current="page" style="display:block;padding:9px 10px;border-radius:6px;background:#e0f2fe;color:#0369a1;font-weight:700;text-decoration:none;white-space:nowrap">日本語</a></div></nav><button id="nav-toggle" class="md:hidden" aria-controls="nav-mobile" aria-expanded="false" aria-label="ナビゲーションメニューを開く" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(btn,m){var open=m.style.display!=='block';m.style.display=open?'block':'none';btn.setAttribute('aria-expanded',open?'true':'false')})(this,document.getElementById('nav-mobile'))">メニュー</button>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
+
+
+
+
+
+
+
+
+    <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
+
+
+
+
+
+
+
+
+      <a href="/ja/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">ホーム</a>
+      <a href="/ja/#features" style="display:block;padding:8px 0;color:#334155;text-decoration:none">特徴</a>
+      <a href="/ja/#what-is" style="display:block;padding:8px 0;color:#334155;text-decoration:none">概要</a>
+      <a href="/ja/#how-to-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">遊び方</a>
+      <a href="/ja/#why-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">おすすめ</a>
+      <a href="/ja/#faq" style="display:block;padding:8px 0;color:#334155;text-decoration:none">FAQ</a>
+      <a href="/ja/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">ブログ</a>
+      <a href="/ja/#play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">今すぐプレイ</a>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+</header>
+  <main id="main-content">
+    <section class="bg-slate-900 px-4 py-16 text-white">
+      <div class="mx-auto max-w-5xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-sky-300">Polytrack 日本語版</p>
+        <h1 class="mt-3 text-4xl font-bold md:text-6xl">Polytrackを無料でオンラインプレイ</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-200">ブラウザでそのままレースを開始できます。短いラップを走り、トラックエディターで自作コースを作り、少しずつタイムを縮めましょう。</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="rounded-md bg-sky-600 px-5 py-3 font-semibold text-white hover:bg-sky-700" href="#play">今すぐプレイ</a>
+          <a class="rounded-md border border-white/30 px-5 py-3 font-semibold text-white hover:bg-white/10" href="#how-to-play">遊び方を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="play" class="px-4 py-12">
+      <div class="mx-auto max-w-5xl">
+        <div class="mb-5">
+          <h2 class="text-2xl font-bold text-slate-900">レースと作成</h2>
+          <p class="mt-2 text-slate-600">ゲームが読み込まれたら、すぐに走れます。エディターでコース作成も試せます。</p>
+        </div>
+        <div class="overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow">
+          <div class="aspect-video">
+            <iframe src="https://app-polytrack.kodub.com/0.5.0/?embed=true" title="Polytrack game" loading="lazy" allow="fullscreen; gamepad" class="h-full w-full border-0"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="bg-slate-50 px-4 py-12">
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+        <article class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-xl font-bold text-slate-900">トラックエディター</h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600">カーブ、ジャンプ、チェックポイントを置いて、自分だけのコースを作れます。</p>
+        </article>
+        <article class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-xl font-bold text-slate-900">短いレース</h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600">1周ごとに改善点が見えます。少しずつ走りを整えるのが楽しいゲームです。</p>
+        </article>
+        <article class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-xl font-bold text-slate-900">ダウンロード不要</h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600">重いインストールなしで、対応ブラウザからそのまま遊べます。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="what-is" class="px-4 py-12">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-900">Polytrackとは</h2>
+        <p class="mt-4 text-lg leading-relaxed text-slate-600">Polytrackは、走ることとコースを作ることを短い時間で楽しめるブラウザゲームです。決まったコースでタイムを狙うだけでなく、自分で作ったコースを何度も試せます。</p>
+      </div>
+    </section>
+
+    <section id="how-to-play" class="bg-slate-50 px-4 py-12">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-900">Polytrackの遊び方</h2>
+        <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-600">
+          <li>ゲームを読み込み、まずは短いコースを走ります。</li>
+          <li>曲がりにくい場所やジャンプの着地を確認します。</li>
+          <li>エディターでコースを調整し、もう一度テストします。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="why-play" class="px-4 py-12">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-900">なぜPolytrackを遊ぶのか</h2>
+        <p class="mt-4 text-lg leading-relaxed text-slate-600">Polytrackは短時間でも進歩が分かります。1つのカーブを直す、ジャンプをきれいに決める、コースの流れを作る。小さな改善がそのままタイムに出ます。</p>
+      </div>
+    </section>
+
+    <section id="faq" class="bg-slate-50 px-4 py-12">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-900">よくある質問</h2>
+        <div class="mt-6 space-y-5">
+          <div>
+            <h3 class="font-semibold text-slate-900">Polytrackは無料ですか？</h3>
+            <p class="mt-1 text-sm text-slate-600">はい。ブラウザから無料で遊べます。</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-900">自作コースを作れますか？</h3>
+            <p class="mt-1 text-sm text-slate-600">はい。トラックエディターでコースを作り、テストできます。</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-900">スマホで遊べますか？</h3>
+            <p class="mt-1 text-sm text-slate-600">一部のスマホブラウザでも動きますが、キーボードやコントローラーの方が操作しやすいです。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'iframe_embed_ja' });
+  </script>
+
+
+<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
+  <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved. · <a href="#" onclick="event.preventDefault();if(window.CookieConsent)CookieConsent.showPreferences()" style="color:#64748b;text-decoration:underline">Cookie設定</a> · <a href="/ja/privacy-policy#ccpa" style="color:#64748b;text-decoration:underline">個人情報を販売しない</a></p>
+    <nav aria-label="Footer navigation" style="display:flex;gap:16px;font-size:14px">
+      <a href="/ja/about-us" class="hover:text-sky-700" style="color:#334155;text-decoration:none">概要</a>
+      <a href="/ja/legal-documents" class="hover:text-sky-700" style="color:#334155;text-decoration:none">法的情報</a>
+      <a href="/ja/privacy-policy" class="hover:text-sky-700" style="color:#334155;text-decoration:none">プライバシー</a>
+      <a href="/ja/terms-of-service" class="hover:text-sky-700" style="color:#334155;text-decoration:none">利用規約</a>
+      <a href="/ja/dmca" class="hover:text-sky-700" style="color:#334155;text-decoration:none">DMCA</a>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="/assets/cookieconsent.css"><script src="/assets/cookieconsent.umd.js" defer=""></script><script src="/assets/consent-init.js" defer=""></script><script>
+  (function () {
+    const el = document.getElementById('y');
+    if (el) el.textContent = new Date().getFullYear().toString();
+  })();
+</script><script src="/assets/web-vitals.iife.js" defer=""></script><script src="/assets/perf-init.js" defer=""></script></body></html>

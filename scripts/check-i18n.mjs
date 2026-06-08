@@ -12,6 +12,7 @@ import {
 
 const SPANISH_HINTS = /\b(jugar|pistas?|editor|gu[ií]a|gratis|carrera|consejos|blog|privacidad|t[eé]rminos|aviso|espa[nñ]ol)\b/i;
 const PORTUGUESE_HINTS = /\b(jogar|pistas?|editor|guia|gr[aá]tis|corrida|dicas|blog|privacidade|termos|aviso|portugu[eê]s|sobre|criar)\b/i;
+const JAPANESE_HINTS = /[ぁ-んァ-ン一-龯]/;
 const CJK = /[\u3400-\u9fff]/;
 
 function cleanUrlForDoubleSlash(url) {
@@ -109,6 +110,11 @@ async function main() {
       if (languageKey === 'pt-BR' && !translation.noindex) {
         const combined = `${title} ${desc} ${h1}`;
         assert(PORTUGUESE_HINTS.test(combined), `${translation.file}: Portuguese page does not look localized enough`, errors);
+      }
+
+      if (languageKey === 'ja' && !translation.noindex) {
+        const combined = `${title} ${desc} ${h1}`;
+        assert(JAPANESE_HINTS.test(combined), `${translation.file}: Japanese page does not look localized enough`, errors);
       }
 
       if (languageKey === 'en') {

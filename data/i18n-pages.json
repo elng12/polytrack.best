@@ -28,7 +28,7 @@
       "hreflang": "ja",
       "htmlLang": "ja",
       "label": "日本語",
-      "enabled": false
+      "enabled": true
     }
   },
   "pages": [
@@ -65,6 +65,15 @@
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/index.html",
+          "url": "/ja/",
+          "title": "Polytrackを無料でオンラインプレイ",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -101,6 +110,15 @@
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/blog/index.html",
+          "url": "/ja/blog/",
+          "title": "Polytrackブログ - ガイドとコツ",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -137,6 +155,15 @@
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/about-us.html",
+          "url": "/ja/about-us",
+          "title": "Polytrackについて",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -173,6 +200,15 @@
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/legal-documents.html",
+          "url": "/ja/legal-documents",
+          "title": "法的情報 - 日本語補助説明",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -209,6 +245,15 @@
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/privacy-policy.html",
+          "url": "/ja/privacy-policy",
+          "title": "プライバシーポリシー - 日本語補助説明",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -245,6 +290,15 @@
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/terms-of-service.html",
+          "url": "/ja/terms-of-service",
+          "title": "利用規約 - 日本語補助説明",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -281,6 +335,15 @@
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/dmca.html",
+          "url": "/ja/dmca",
+          "title": "DMCAと著作権 - 日本語補助説明",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -317,6 +380,15 @@
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
+        },
+        "ja": {
+          "file": "ja/blog/track-builder-guide.html",
+          "url": "/ja/blog/track-builder-guide",
+          "title": "Polytrack トラックエディターガイド",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },

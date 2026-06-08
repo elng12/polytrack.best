@@ -329,6 +329,27 @@ function labelsFor(languageKey) {
       doNotSell: 'Não vender minhas informações'
     };
   }
+  if (languageKey === 'ja') {
+    return {
+      home: 'ホーム',
+      features: '特徴',
+      whatIs: '概要',
+      howToPlay: '遊び方',
+      whyPlay: 'おすすめ',
+      faq: 'FAQ',
+      blog: 'ブログ',
+      play: '今すぐプレイ',
+      menu: 'メニュー',
+      skip: 'メインコンテンツへ移動',
+      about: '概要',
+      legal: '法的情報',
+      privacy: 'プライバシー',
+      terms: '利用規約',
+      dmca: 'DMCA',
+      cookie: 'Cookie設定',
+      doNotSell: '個人情報を販売しない'
+    };
+  }
   return {
     home: 'Home',
     features: 'Features',
@@ -370,8 +391,9 @@ function buildLangSwitcher(doc, config, route) {
   const currentLanguage = config.languages[route.languageKey];
   const isSpanish = route.languageKey === 'es';
   const isPortuguese = route.languageKey === 'pt-BR';
+  const isJapanese = route.languageKey === 'ja';
   const wrapper = doc.createElement('nav');
-  wrapper.setAttribute('aria-label', isSpanish || isPortuguese ? 'Idioma' : 'Language');
+  wrapper.setAttribute('aria-label', isSpanish || isPortuguese ? 'Idioma' : isJapanese ? '言語' : 'Language');
   wrapper.setAttribute('data-language-switcher', '');
   wrapper.setAttribute('style', 'position:relative;display:flex;align-items:center;font-size:13px');
   wrapper.setAttribute('onmouseenter', "var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';");
@@ -383,7 +405,7 @@ function buildLangSwitcher(doc, config, route) {
   button.setAttribute('type', 'button');
   button.setAttribute('aria-haspopup', 'listbox');
   button.setAttribute('aria-expanded', 'false');
-  button.setAttribute('aria-label', isSpanish ? 'Cambiar idioma' : isPortuguese ? 'Alterar idioma' : 'Change language');
+  button.setAttribute('aria-label', isSpanish ? 'Cambiar idioma' : isPortuguese ? 'Alterar idioma' : isJapanese ? '言語を変更' : 'Change language');
   button.setAttribute('style', 'display:flex;align-items:center;gap:8px;min-width:118px;padding:9px 12px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;color:#0f172a;font-weight:700;line-height:1;cursor:pointer');
   button.setAttribute('onclick', "var m=this.nextElementSibling;var open=m&&m.style.display!=='block';if(m)m.style.display=open?'block':'none';this.setAttribute('aria-expanded',open?'true':'false');event.stopPropagation();");
   const label = doc.createElement('span');
@@ -451,14 +473,14 @@ function localizeChrome(doc, route, config) {
   const playLinks = Array.from(doc.querySelectorAll('header a')).filter((a) => {
     const text = (a.textContent || '').replace(/\s+/g, ' ').trim();
     const href = a.getAttribute('href') || '';
-    return href.includes('#play') || text === 'Play Now' || text === 'Jugar ahora';
+    return href.includes('#play') || text === 'Play Now' || text === 'Jugar ahora' || text === 'Jogar agora' || text === '今すぐプレイ';
   });
   playLinks.forEach((anchor) => setAnchor(anchor, `${hashPrefix}#play`, labels.play));
 
   const button = doc.querySelector('#nav-toggle');
   if (button) {
     button.textContent = labels.menu;
-    button.setAttribute('aria-label', languageKey === 'es' ? 'Abrir menú de navegación' : languageKey === 'pt-BR' ? 'Abrir menu de navegação' : 'Toggle navigation menu');
+    button.setAttribute('aria-label', languageKey === 'es' ? 'Abrir menú de navegación' : languageKey === 'pt-BR' ? 'Abrir menu de navegação' : languageKey === 'ja' ? 'ナビゲーションメニューを開く' : 'Toggle navigation menu');
   }
 
   const mobileLinks = Array.from(doc.querySelectorAll('#nav-mobile a'));
@@ -474,7 +496,7 @@ function localizeChrome(doc, route, config) {
     headerControls.insertBefore(switcher, headerControls.lastElementChild || null);
   }
 
-  const skip = Array.from(doc.querySelectorAll('a[href="#main-content"]')).find((a) => /Skip|Saltar/.test(a.textContent || ''));
+  const skip = Array.from(doc.querySelectorAll('a[href="#main-content"]')).find((a) => /Skip|Saltar|Pular|メインコンテンツ/.test(a.textContent || ''));
   if (skip) skip.textContent = labels.skip;
 
   const footerLinks = Array.from(doc.querySelectorAll('footer nav a'));
@@ -489,9 +511,9 @@ function localizeChrome(doc, route, config) {
     if (footerMap[index]) setAnchor(anchor, footerMap[index][0], footerMap[index][1]);
   });
 
-  const cookieLink = Array.from(doc.querySelectorAll('footer a')).find((a) => /Cookie Settings|Configurar cookies/.test(a.textContent || ''));
+  const cookieLink = Array.from(doc.querySelectorAll('footer a')).find((a) => /Cookie Settings|Configurar cookies|Cookie設定/.test(a.textContent || ''));
   if (cookieLink) cookieLink.textContent = labels.cookie;
-  const doNotSell = Array.from(doc.querySelectorAll('footer a')).find((a) => /Do Not Sell|No vender/.test(a.textContent || ''));
+  const doNotSell = Array.from(doc.querySelectorAll('footer a')).find((a) => /Do Not Sell|No vender|Não vender|個人情報/.test(a.textContent || ''));
   if (doNotSell) {
     setAnchor(doNotSell, `${prefix}/privacy-policy#ccpa`, labels.doNotSell);
   }
