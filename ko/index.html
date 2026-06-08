@@ -279,12 +279,16 @@
       <div class="mx-auto max-w-5xl">
         <div class="mb-5">
           <h2 class="text-2xl font-bold text-slate-900">레이스와 제작</h2>
-          <p class="mt-2 text-slate-600">게임이 로드되면 바로 달릴 수 있습니다. 트랙 에디터로 코스 만들기도 함께 테스트할 수 있습니다.</p>
+          <p class="mt-2 text-slate-600">공식 게임을 새 탭에서 열면 바로 달릴 수 있습니다. 트랙 에디터로 코스 만들기도 함께 테스트할 수 있습니다.</p>
         </div>
         <div class="overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow">
-          <div class="aspect-video">
-            <iframe src="https://app-polytrack.kodub.com/0.5.0/?embed=true" title="Polytrack game" loading="lazy" allow="fullscreen; gamepad" class="h-full w-full border-0"></iframe>
-          </div>
+          <a href="https://app-polytrack.kodub.com/0.5.1/?" target="_blank" rel="noopener noreferrer" onclick="trackGameOpen('external_open_ko')" class="aspect-video flex text-center text-white" style="min-height:320px;align-items:center;justify-content:center;flex-direction:column;background-image:linear-gradient(rgba(15,23,42,.46),rgba(15,23,42,.68)),url('/assets/og-cover.jpg');background-size:cover;background-position:center;text-decoration:none">
+            <span style="width:80px;height:80px;border-radius:999px;background:#0369a1;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(0,0,0,.35)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:42px;height:42px;color:white;margin-left:4px"><path d="M8 5v14l11-7z"></path></svg>
+            </span>
+            <span style="margin-top:1rem;font-size:1.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.5)">지금 플레이</span>
+            <span style="margin-top:.35rem;font-size:.95rem;font-weight:500;color:rgba(255,255,255,.9);text-shadow:0 2px 4px rgba(0,0,0,.5)">공식 게임을 새 탭에서 엽니다</span>
+          </a>
         </div>
       </div>
     </section>
@@ -352,9 +356,12 @@
     </section>
   </main>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'iframe_embed_ko' });
+    function trackGameOpen(label) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'game_open', event_label: label });
+    }
   </script>
+
 
 
 <footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
