@@ -3,7 +3,7 @@
 // 使用 jsdom 以 DOM 方式安全替换 header/footer 片段
 // 特性：
 // - 默认 dry-run 预览变更；传入 --write/-w 才会实际写入
-// - 支持 --glob 自定义匹配（默认 ['*.html','blog/*.html','es/**/*.html','pt-br/**/*.html','ja/**/*.html','ko/**/*.html']）
+// - 支持 --glob 自定义匹配（默认 ['*.html','blog/*.html','es/**/*.html','pt-br/**/*.html','ja/**/*.html','ko/**/*.html','de/**/*.html']）
 // - 自动跳过 header.html / footer.html 自身
 // - 可选 --backup 对写入文件生成 .bak 时间戳备份
 
@@ -35,7 +35,7 @@ function getArgAfter(flag, fallback) {
 }
 
 const globArg = getArgAfter('--glob', null);
-const patterns = globArg ? [globArg] : ['*.html', 'blog/*.html', 'es/**/*.html', 'pt-br/**/*.html', 'ja/**/*.html', 'ko/**/*.html'];
+const patterns = globArg ? [globArg] : ['*.html', 'blog/*.html', 'es/**/*.html', 'pt-br/**/*.html', 'ja/**/*.html', 'ko/**/*.html', 'de/**/*.html'];
 const skipFiles = new Set([
   '404.html',
   'generate-icons.html',
@@ -371,6 +371,27 @@ function labelsFor(languageKey) {
       doNotSell: '개인정보 판매 거부'
     };
   }
+  if (languageKey === 'de') {
+    return {
+      home: 'Start',
+      features: 'Funktionen',
+      whatIs: 'Was ist',
+      howToPlay: 'So spielst du',
+      whyPlay: 'Warum spielen',
+      faq: 'FAQ',
+      blog: 'Blog',
+      play: 'Jetzt spielen',
+      menu: 'Menü',
+      skip: 'Zum Hauptinhalt springen',
+      about: 'Über uns',
+      legal: 'Rechtliches',
+      privacy: 'Datenschutz',
+      terms: 'Bedingungen',
+      dmca: 'DMCA',
+      cookie: 'Cookie-Einstellungen',
+      doNotSell: 'Meine Daten nicht verkaufen'
+    };
+  }
   return {
     home: 'Home',
     features: 'Features',
@@ -414,8 +435,9 @@ function buildLangSwitcher(doc, config, route) {
   const isPortuguese = route.languageKey === 'pt-BR';
   const isJapanese = route.languageKey === 'ja';
   const isKorean = route.languageKey === 'ko';
+  const isGerman = route.languageKey === 'de';
   const wrapper = doc.createElement('nav');
-  wrapper.setAttribute('aria-label', isSpanish || isPortuguese ? 'Idioma' : isJapanese ? '言語' : isKorean ? '언어' : 'Language');
+  wrapper.setAttribute('aria-label', isSpanish || isPortuguese ? 'Idioma' : isJapanese ? '言語' : isKorean ? '언어' : isGerman ? 'Sprache' : 'Language');
   wrapper.setAttribute('data-language-switcher', '');
   wrapper.setAttribute('style', 'position:relative;display:flex;align-items:center;font-size:13px');
   wrapper.setAttribute('onmouseenter', "var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';");
@@ -427,7 +449,7 @@ function buildLangSwitcher(doc, config, route) {
   button.setAttribute('type', 'button');
   button.setAttribute('aria-haspopup', 'listbox');
   button.setAttribute('aria-expanded', 'false');
-  button.setAttribute('aria-label', isSpanish ? 'Cambiar idioma' : isPortuguese ? 'Alterar idioma' : isJapanese ? '言語を変更' : isKorean ? '언어 변경' : 'Change language');
+  button.setAttribute('aria-label', isSpanish ? 'Cambiar idioma' : isPortuguese ? 'Alterar idioma' : isJapanese ? '言語を変更' : isKorean ? '언어 변경' : isGerman ? 'Sprache ändern' : 'Change language');
   button.setAttribute('style', 'display:flex;align-items:center;gap:8px;min-width:118px;padding:9px 12px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;color:#0f172a;font-weight:700;line-height:1;cursor:pointer');
   button.setAttribute('onclick', "var m=this.nextElementSibling;var open=m&&m.style.display!=='block';if(m)m.style.display=open?'block':'none';this.setAttribute('aria-expanded',open?'true':'false');event.stopPropagation();");
   const label = doc.createElement('span');
@@ -495,14 +517,14 @@ function localizeChrome(doc, route, config) {
   const playLinks = Array.from(doc.querySelectorAll('header a')).filter((a) => {
     const text = (a.textContent || '').replace(/\s+/g, ' ').trim();
     const href = a.getAttribute('href') || '';
-    return href.includes('#play') || text === 'Play Now' || text === 'Jugar ahora' || text === 'Jogar agora' || text === '今すぐプレイ' || text === '지금 플레이';
+    return href.includes('#play') || text === 'Play Now' || text === 'Jugar ahora' || text === 'Jogar agora' || text === '今すぐプレイ' || text === '지금 플레이' || text === 'Jetzt spielen';
   });
   playLinks.forEach((anchor) => setAnchor(anchor, `${hashPrefix}#play`, labels.play));
 
   const button = doc.querySelector('#nav-toggle');
   if (button) {
     button.textContent = labels.menu;
-    button.setAttribute('aria-label', languageKey === 'es' ? 'Abrir menú de navegación' : languageKey === 'pt-BR' ? 'Abrir menu de navegação' : languageKey === 'ja' ? 'ナビゲーションメニューを開く' : languageKey === 'ko' ? '탐색 메뉴 열기' : 'Toggle navigation menu');
+    button.setAttribute('aria-label', languageKey === 'es' ? 'Abrir menú de navegación' : languageKey === 'pt-BR' ? 'Abrir menu de navegação' : languageKey === 'ja' ? 'ナビゲーションメニューを開く' : languageKey === 'ko' ? '탐색 메뉴 열기' : languageKey === 'de' ? 'Navigationsmenü öffnen' : 'Toggle navigation menu');
   }
 
   const mobileLinks = Array.from(doc.querySelectorAll('#nav-mobile a'));
@@ -518,7 +540,7 @@ function localizeChrome(doc, route, config) {
     headerControls.insertBefore(switcher, headerControls.lastElementChild || null);
   }
 
-  const skip = Array.from(doc.querySelectorAll('a[href="#main-content"]')).find((a) => /Skip|Saltar|Pular|メインコンテンツ|본문/.test(a.textContent || ''));
+  const skip = Array.from(doc.querySelectorAll('a[href="#main-content"]')).find((a) => /Skip|Saltar|Pular|メインコンテンツ|본문|Hauptinhalt/.test(a.textContent || ''));
   if (skip) skip.textContent = labels.skip;
 
   const footerLinks = Array.from(doc.querySelectorAll('footer nav a'));
@@ -533,9 +555,9 @@ function localizeChrome(doc, route, config) {
     if (footerMap[index]) setAnchor(anchor, footerMap[index][0], footerMap[index][1]);
   });
 
-  const cookieLink = Array.from(doc.querySelectorAll('footer a')).find((a) => /Cookie Settings|Configurar cookies|Cookie設定|쿠키 설정/.test(a.textContent || ''));
+  const cookieLink = Array.from(doc.querySelectorAll('footer a')).find((a) => /Cookie Settings|Configurar cookies|Cookie設定|쿠키 설정|Cookie-Einstellungen/.test(a.textContent || ''));
   if (cookieLink) cookieLink.textContent = labels.cookie;
-  const doNotSell = Array.from(doc.querySelectorAll('footer a')).find((a) => /Do Not Sell|No vender|Não vender|個人情報|개인정보/.test(a.textContent || ''));
+  const doNotSell = Array.from(doc.querySelectorAll('footer a')).find((a) => /Do Not Sell|No vender|Não vender|個人情報|개인정보|Meine Daten/.test(a.textContent || ''));
   if (doNotSell) {
     setAnchor(doNotSell, `${prefix}/privacy-policy#ccpa`, labels.doNotSell);
   }
