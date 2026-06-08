@@ -45,6 +45,8 @@ const skipFiles = new Set([
   'footer.html'
 ]);
 
+const ADSENSE_ACCOUNT_ID = 'ca-pub-3219924658522446';
+
 function ts() {
   const d = new Date();
   const pad = (n) => String(n).padStart(2, '0');
@@ -274,6 +276,9 @@ function enforceMetadata(doc, filepath, config) {
 
   const ogUrl = ensureMeta(doc, 'meta[property="og:url"]', { property: 'og:url' });
   if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+  const adsenseAccount = ensureMeta(doc, 'meta[name="google-adsense-account"]', { name: 'google-adsense-account' });
+  if (adsenseAccount) adsenseAccount.setAttribute('content', ADSENSE_ACCOUNT_ID);
 
   if (route) {
     const robots = ensureMeta(doc, 'meta[name="robots"]', { name: 'robots' });
