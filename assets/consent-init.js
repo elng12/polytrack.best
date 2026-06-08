@@ -43,6 +43,11 @@
 
   function loadAds() {
     if (!CONFIG.adsClientId) return;
+    var existing = Array.prototype.some.call(document.scripts, function (script) {
+      var src = script.getAttribute('src') || '';
+      return src.includes('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js') && src.includes(CONFIG.adsClientId);
+    });
+    if (existing) return;
     var ads = document.createElement('script');
     ads.async = true;
     ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CONFIG.adsClientId);

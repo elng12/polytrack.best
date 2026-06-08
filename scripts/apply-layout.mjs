@@ -46,6 +46,7 @@ const skipFiles = new Set([
 ]);
 
 const ADSENSE_ACCOUNT_ID = 'ca-pub-3219924658522446';
+const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ACCOUNT_ID}`;
 
 function ts() {
   const d = new Date();
@@ -206,6 +207,23 @@ function ensureLink(doc, selector, attrs) {
   return el;
 }
 
+function ensureScript(doc, selector, attrs) {
+  const head = doc.head || doc.querySelector('head');
+  if (!head) return null;
+  const matches = Array.from(head.querySelectorAll(selector));
+  const el = matches.shift() || doc.createElement('script');
+  matches.forEach((duplicate) => duplicate.remove());
+  Object.entries(attrs).forEach(([key, value]) => {
+    if (value === true) {
+      el.setAttribute(key, '');
+    } else {
+      el.setAttribute(key, value);
+    }
+  });
+  if (!el.parentNode) head.appendChild(el);
+  return el;
+}
+
 function updateJsonLd(doc, route, config, canonicalUrl) {
   if (!route) return;
   const scripts = Array.from(doc.querySelectorAll('script[type="application/ld+json"]'));
@@ -279,6 +297,12 @@ function enforceMetadata(doc, filepath, config) {
 
   const adsenseAccount = ensureMeta(doc, 'meta[name="google-adsense-account"]', { name: 'google-adsense-account' });
   if (adsenseAccount) adsenseAccount.setAttribute('content', ADSENSE_ACCOUNT_ID);
+
+  ensureScript(doc, `script[src="${ADSENSE_SCRIPT_SRC}"]`, {
+    async: true,
+    src: ADSENSE_SCRIPT_SRC,
+    crossorigin: 'anonymous'
+  });
 
   if (route) {
     const robots = ensureMeta(doc, 'meta[name="robots"]', { name: 'robots' });
