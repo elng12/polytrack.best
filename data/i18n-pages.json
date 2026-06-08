@@ -36,6 +36,13 @@
       "htmlLang": "ko",
       "label": "한국어",
       "enabled": true
+    },
+    "de": {
+      "prefix": "/de",
+      "hreflang": "de",
+      "htmlLang": "de",
+      "label": "Deutsch",
+      "enabled": true
     }
   },
   "pages": [
@@ -86,6 +93,15 @@
           "file": "ko/index.html",
           "url": "/ko/",
           "title": "Polytrack 무료 온라인 플레이",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/index.html",
+          "url": "/de/",
+          "title": "Polytrack kostenlos online spielen",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true,
@@ -144,6 +160,15 @@
           "noindex": false,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/blog/index.html",
+          "url": "/de/blog/",
+          "title": "Polytrack Blog - Guides und Tipps",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -194,6 +219,15 @@
           "file": "ko/about-us.html",
           "url": "/ko/about-us",
           "title": "Polytrack 소개",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/about-us.html",
+          "url": "/de/about-us",
+          "title": "Über Polytrack",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true,
@@ -252,6 +286,15 @@
           "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/legal-documents.html",
+          "url": "/de/legal-documents",
+          "title": "Rechtliche Informationen - Deutscher Hilfshinweis",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -302,6 +345,15 @@
           "file": "ko/privacy-policy.html",
           "url": "/ko/privacy-policy",
           "title": "개인정보 처리방침 - 한국어 보조 안내",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/privacy-policy.html",
+          "url": "/de/privacy-policy",
+          "title": "Datenschutzerklärung - Deutscher Hilfshinweis",
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true,
@@ -360,6 +412,15 @@
           "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/terms-of-service.html",
+          "url": "/de/terms-of-service",
+          "title": "Nutzungsbedingungen - Deutscher Hilfshinweis",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -414,6 +475,15 @@
           "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/dmca.html",
+          "url": "/de/dmca",
+          "title": "DMCA und Urheberrecht - Deutscher Hilfshinweis",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -464,6 +534,15 @@
           "file": "ko/blog/track-builder-guide.html",
           "url": "/ko/blog/track-builder-guide",
           "title": "Polytrack 트랙 에디터 가이드",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "de": {
+          "file": "de/blog/track-builder-guide.html",
+          "url": "/de/blog/track-builder-guide",
+          "title": "Polytrack Streckeneditor Guide",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true,
