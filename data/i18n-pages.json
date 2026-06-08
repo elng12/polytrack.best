@@ -29,6 +29,13 @@
       "htmlLang": "ja",
       "label": "日本語",
       "enabled": true
+    },
+    "ko": {
+      "prefix": "/ko",
+      "hreflang": "ko",
+      "htmlLang": "ko",
+      "label": "한국어",
+      "enabled": true
     }
   },
   "pages": [
@@ -70,6 +77,15 @@
           "file": "ja/index.html",
           "url": "/ja/",
           "title": "Polytrackを無料でオンラインプレイ",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/index.html",
+          "url": "/ko/",
+          "title": "Polytrack 무료 온라인 플레이",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true,
@@ -119,6 +135,15 @@
           "noindex": false,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/blog/index.html",
+          "url": "/ko/blog/",
+          "title": "Polytrack 블로그 - 가이드와 팁",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -160,6 +185,15 @@
           "file": "ja/about-us.html",
           "url": "/ja/about-us",
           "title": "Polytrackについて",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/about-us.html",
+          "url": "/ko/about-us",
+          "title": "Polytrack 소개",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true,
@@ -209,6 +243,15 @@
           "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/legal-documents.html",
+          "url": "/ko/legal-documents",
+          "title": "법적 정보 - 한국어 보조 안내",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -250,6 +293,15 @@
           "file": "ja/privacy-policy.html",
           "url": "/ja/privacy-policy",
           "title": "プライバシーポリシー - 日本語補助説明",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/privacy-policy.html",
+          "url": "/ko/privacy-policy",
+          "title": "개인정보 처리방침 - 한국어 보조 안내",
           "status": "published",
           "noindex": true,
           "includeInLanguageSwitcher": true,
@@ -299,6 +351,15 @@
           "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/terms-of-service.html",
+          "url": "/ko/terms-of-service",
+          "title": "서비스 약관 - 한국어 보조 안내",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -344,6 +405,15 @@
           "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/dmca.html",
+          "url": "/ko/dmca",
+          "title": "DMCA 및 저작권 - 한국어 보조 안내",
+          "status": "published",
+          "noindex": true,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
         }
       }
     },
@@ -385,6 +455,15 @@
           "file": "ja/blog/track-builder-guide.html",
           "url": "/ja/blog/track-builder-guide",
           "title": "Polytrack トラックエディターガイド",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true,
+          "lastmod": "2026-06-08"
+        },
+        "ko": {
+          "file": "ko/blog/track-builder-guide.html",
+          "url": "/ko/blog/track-builder-guide",
+          "title": "Polytrack 트랙 에디터 가이드",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true,

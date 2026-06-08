@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="ko"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polytrack 트랙 에디터 가이드 | 코스 제작과 공개</title>
+  <meta name="description" content="Polytrack 트랙 에디터 사용법. 코스 흐름, 체크포인트, 점프 테스트, 공개 전 확인할 점을 설명합니다.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Polytrack 트랙 에디터 가이드">
+  <meta property="og:description" content="Polytrack에서 커스텀 트랙을 만들고 테스트하고 공개하는 기본 가이드.">
+  <meta property="og:url" content="https://polytrack.best/ko/blog/track-builder-guide">
+  <meta property="og:image" content="https://polytrack.best/assets/blog/builder-guide.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Polytrack 트랙 에디터 가이드">
+  <meta name="twitter:description" content="Polytrack에서 플레이하기 좋은 커스텀 코스를 만드는 순서.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://polytrack.best/ko/blog/track-builder-guide#article",
+  "headline": "Polytrack 트랙 에디터 가이드",
+  "description": "Polytrack에서 커스텀 코스를 계획, 제작, 테스트, 공개하는 한국어 가이드.",
+  "url": "https://polytrack.best/ko/blog/track-builder-guide",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-08",
+  "dateModified": "2026-06-08",
+  "author": {
+    "@type": "Organization",
+    "name": "Polytrack Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Polytrack",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://polytrack.best/assets/logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://polytrack.best/ko/blog/track-builder-guide"
+  }
+}</script>
+<link rel="canonical" href="https://polytrack.best/ko/blog/track-builder-guide"><link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide"><link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide"><link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/track-builder-guide"><link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/track-builder-guide"><link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/track-builder-guide"><link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide"></head>
+<body class="bg-white text-slate-800 antialiased"><header style="border-bottom:1px solid #e5e7eb;background:#ffffff;position:sticky;top:0;z-index:40">
+
+
+
+
+
+
+
+
+  <div style="max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+
+
+
+
+
+
+
+
+    <a href="/ko/" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#1f2937" aria-label="Polytrack Home">
+
+
+
+
+
+
+
+
+      <img src="/assets/logo.svg" alt="Polytrack logo" style="height:24px;width:24px">
+
+
+
+
+
+
+
+
+      <span style="font-weight:600">Polytrack</span>
+
+
+
+
+
+
+
+
+    </a>
+
+
+
+
+
+
+
+
+    <div style="display: flex; align-items: center; gap: 16px;">
+
+
+
+
+
+
+
+
+      <nav class="hidden md:flex items-center gap-6 text-sm" style="gap:16px;font-size:14px">
+
+
+
+
+
+
+
+
+        <a href="/ko/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">홈</a>
+
+
+
+
+
+
+
+
+        <a href="/ko/#features" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">특징</a>
+
+
+
+
+
+
+
+
+        <a href="/ko/#what-is" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">소개</a>
+
+
+
+
+
+
+
+
+        <a href="/ko/#how-to-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">플레이 방법</a>
+
+
+
+
+
+
+
+
+        <a href="/ko/#why-play" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">추천 이유</a>
+
+
+
+
+
+
+
+
+        <a href="/ko/#faq" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">FAQ</a>
+
+
+
+
+
+
+
+
+        <a href="/ko/blog/" class="hover:text-sky-700 transition-colors" style="color:#334155;text-decoration:none">블로그</a>
+
+
+
+
+
+
+
+
+      </nav>
+
+
+
+
+
+
+
+
+      <a href="/ko/#play" class="hidden md:inline-flex focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300" style="background-color:#0369a1; color:white; border-radius:6px; padding: 8px 16px; text-decoration:none; font-size: 14px; font-weight: 500; white-space: nowrap;">지금 플레이</a>
+
+
+
+
+
+
+
+
+      <nav aria-label="언어" data-language-switcher="" style="position:relative;display:flex;align-items:center;font-size:13px" onmouseenter="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';" onmouseleave="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=this.querySelector('button');if(b)b.setAttribute('aria-expanded','false');" onfocusin="var m=this.querySelector('[data-language-menu]');if(m)m.style.display='block';" onfocusout="var t=this;setTimeout(function(){if(!t.contains(document.activeElement)){var m=t.querySelector('[data-language-menu]');if(m)m.style.display='none';var b=t.querySelector('button');if(b)b.setAttribute('aria-expanded','false');}},80);"><button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="언어 변경" style="display:flex;align-items:center;gap:8px;min-width:118px;padding:9px 12px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;color:#0f172a;font-weight:700;line-height:1;cursor:pointer" onclick="var m=this.nextElementSibling;var open=m&amp;&amp;m.style.display!=='block';if(m)m.style.display=open?'block':'none';this.setAttribute('aria-expanded',open?'true':'false');event.stopPropagation();"><span>한국어</span><span aria-hidden="true" style="width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #475569"></span></button><div data-language-menu="" role="listbox" style="display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:150px;padding:6px;border:1px solid #dbe3ee;border-radius:8px;background:#fff;box-shadow:0 12px 30px rgba(15,23,42,.16);z-index:80"><a href="/blog/track-builder-guide" hreflang="en" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">English</a><a href="/es/blog/track-builder-guide" hreflang="es" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">Español</a><a href="/pt-br/blog/track-builder-guide" hreflang="pt-BR" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">Português</a><a href="/ja/blog/track-builder-guide" hreflang="ja" role="option" aria-selected="false" style="display:block;padding:9px 10px;border-radius:6px;color:#334155;text-decoration:none;white-space:nowrap">日本語</a><a href="/ko/blog/track-builder-guide" hreflang="ko" role="option" aria-selected="true" aria-current="page" style="display:block;padding:9px 10px;border-radius:6px;background:#e0f2fe;color:#0369a1;font-weight:700;text-decoration:none;white-space:nowrap">한국어</a></div></nav><button id="nav-toggle" class="md:hidden" aria-controls="nav-mobile" aria-expanded="false" aria-label="탐색 메뉴 열기" style="padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#334155" onclick="(function(btn,m){var open=m.style.display!=='block';m.style.display=open?'block':'none';btn.setAttribute('aria-expanded',open?'true':'false')})(this,document.getElementById('nav-mobile'))">메뉴</button>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <div id="nav-mobile" class="md:hidden" style="border-top:1px solid #e5e7eb;background:#ffffff;display:none">
+
+
+
+
+
+
+
+
+    <div style="max-width:1024px;margin:0 auto;padding:8px 16px">
+
+
+
+
+
+
+
+
+      <a href="/ko/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">홈</a>
+      <a href="/ko/#features" style="display:block;padding:8px 0;color:#334155;text-decoration:none">특징</a>
+      <a href="/ko/#what-is" style="display:block;padding:8px 0;color:#334155;text-decoration:none">소개</a>
+      <a href="/ko/#how-to-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">플레이 방법</a>
+      <a href="/ko/#why-play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">추천 이유</a>
+      <a href="/ko/#faq" style="display:block;padding:8px 0;color:#334155;text-decoration:none">FAQ</a>
+      <a href="/ko/blog/" style="display:block;padding:8px 0;color:#334155;text-decoration:none">블로그</a>
+      <a href="/ko/#play" style="display:block;padding:8px 0;color:#334155;text-decoration:none">지금 플레이</a>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+</header>
+  <main id="main-content">
+    <section class="px-4 py-12">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-sky-600">Polytrack 블로그</p>
+        <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Polytrack 트랙 에디터 가이드</h1>
+        <p class="mt-4 text-lg leading-relaxed text-slate-600">좋은 트랙은 블록을 많이 놓는다고 완성되지 않습니다. 한 바퀴 길이, 핵심 구간, 실수 후 다시 회복할 공간을 먼저 생각하면 만들기 쉽습니다.</p>
+
+        <article class="prose prose-slate mt-8">
+          <h2>1. 짧은 한 바퀴부터 설계하기</h2>
+          <p>처음부터 긴 코스를 만들기보다 30초에서 60초 정도의 짧은 한 바퀴를 만드는 것이 좋습니다. 커브, 점프, 결승까지의 흐름을 빠르게 확인할 수 있습니다.</p>
+
+          <h2>2. 트랙의 핵심 구간 만들기</h2>
+          <p>큰 점프, 연속 커브, 속도를 맞춰야 하는 직선처럼 코스의 기억에 남는 부분을 하나 정하세요. 핵심 구간이 있으면 다시 도전하고 싶은 트랙이 됩니다.</p>
+
+          <h2>3. 체크포인트를 적당히 사용하기</h2>
+          <p>체크포인트는 편하지만 너무 많으면 긴장감이 줄어듭니다. 어려운 구간 뒤에 두고, 실패해도 바로 다시 연습할 수 있는 위치가 좋습니다.</p>
+
+          <h2>4. 바꿀 때마다 테스트하기</h2>
+          <p>점프나 커브를 추가했다면 바로 몇 바퀴 달려 보세요. 같은 위치에서 계속 실패한다면 각도를 부드럽게 하거나 착지 공간을 넓히는 편이 좋습니다.</p>
+
+          <h2>5. 흐름이 맞으면 공개하기</h2>
+          <p>좋은 트랙에는 알기 쉬운 시작, 기억나는 중간 구간, 다시 달리고 싶은 마무리가 있습니다. 이 흐름이 맞으면 공개하고 공유하세요.</p>
+
+          <h2>자주 묻는 질문</h2>
+          <h3>긴 트랙을 만들어야 하나요?</h3>
+          <p>아니요. 짧아도 잘 테스트된 트랙이 길고 복잡한 트랙보다 플레이하기 좋은 경우가 많습니다.</p>
+
+          <h3>가장 흔한 실수는 무엇인가요?</h3>
+          <p>테스트하기 전에 장애물을 너무 많이 넣는 것입니다. 먼저 단순한 구조를 만들고, 나중에 난도를 올리세요.</p>
+        </article>
+
+        <div class="mt-10 rounded-lg bg-slate-50 p-6">
+          <h2 class="text-xl font-bold text-slate-900">다음 단계</h2>
+          <p class="mt-3 text-sm text-slate-600"><a class="text-sky-700 underline" href="/ko/blog/">한국어 가이드 목록</a>으로 돌아가거나, <a class="text-sky-700 underline" href="/ko/#play">Polytrack을 열고</a> 첫 트랙을 테스트하세요.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+<footer class="border-t border-slate-200 bg-slate-50" style="border-top:1px solid #e5e7eb;background:#f8fafc">
+  <div style="max-width:1024px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <p class="text-xs text-slate-500">© <span id="y"></span> Polytrack. All rights reserved. · <a href="#" onclick="event.preventDefault();if(window.CookieConsent)CookieConsent.showPreferences()" style="color:#64748b;text-decoration:underline">쿠키 설정</a> · <a href="/ko/privacy-policy#ccpa" style="color:#64748b;text-decoration:underline">개인정보 판매 거부</a></p>
+    <nav aria-label="Footer navigation" style="display:flex;gap:16px;font-size:14px">
+      <a href="/ko/about-us" class="hover:text-sky-700" style="color:#334155;text-decoration:none">소개</a>
+      <a href="/ko/legal-documents" class="hover:text-sky-700" style="color:#334155;text-decoration:none">법적 정보</a>
+      <a href="/ko/privacy-policy" class="hover:text-sky-700" style="color:#334155;text-decoration:none">개인정보</a>
+      <a href="/ko/terms-of-service" class="hover:text-sky-700" style="color:#334155;text-decoration:none">약관</a>
+      <a href="/ko/dmca" class="hover:text-sky-700" style="color:#334155;text-decoration:none">DMCA</a>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="/assets/cookieconsent.css"><script src="/assets/cookieconsent.umd.js" defer=""></script><script src="/assets/consent-init.js" defer=""></script><script>
+  (function () {
+    const el = document.getElementById('y');
+    if (el) el.textContent = new Date().getFullYear().toString();
+  })();
+</script><script src="/assets/web-vitals.iife.js" defer=""></script><script src="/assets/perf-init.js" defer=""></script></body></html>
