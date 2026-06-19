@@ -295,21 +295,27 @@ function enforceMetadata(doc, filepath, config) {
   const ogUrl = ensureMeta(doc, 'meta[property="og:url"]', { property: 'og:url' });
   if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
 
-  const adsenseAccount = ensureMeta(doc, 'meta[name="google-adsense-account"]', { name: 'google-adsense-account' });
-  if (adsenseAccount) adsenseAccount.setAttribute('content', ADSENSE_ACCOUNT_ID);
-
-  ensureScript(doc, `script[src="${ADSENSE_SCRIPT_SRC}"]`, {
-    async: true,
-    src: ADSENSE_SCRIPT_SRC,
-    crossorigin: 'anonymous'
-  });
-
   if (route) {
     const robots = ensureMeta(doc, 'meta[name="robots"]', { name: 'robots' });
     if (robots) {
       robots.setAttribute('content', route.translation.noindex || route.page.indexable === false ? 'noindex,nofollow' : 'index,follow');
     }
     updateJsonLd(doc, route, config, canonicalUrl);
+  }
+
+  const shouldServeAds = !route || (!route.translation.noindex && route.page.indexable !== false);
+  if (shouldServeAds) {
+    const adsenseAccount = ensureMeta(doc, 'meta[name="google-adsense-account"]', { name: 'google-adsense-account' });
+    if (adsenseAccount) adsenseAccount.setAttribute('content', ADSENSE_ACCOUNT_ID);
+
+    ensureScript(doc, `script[src="${ADSENSE_SCRIPT_SRC}"]`, {
+      async: true,
+      src: ADSENSE_SCRIPT_SRC,
+      crossorigin: 'anonymous'
+    });
+  } else {
+    head.querySelectorAll('meta[name="google-adsense-account"]').forEach((el) => el.remove());
+    head.querySelectorAll('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]').forEach((el) => el.remove());
   }
 
   return route;

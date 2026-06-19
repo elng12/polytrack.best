@@ -4,83 +4,8 @@
 
   <url>
     <loc>https://polytrack.best/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/es/</loc>
-    <lastmod>2026-06-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/pt-br/</loc>
-    <lastmod>2026-06-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/ja/</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/ko/</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/de/</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -88,83 +13,8 @@
 
   <url>
     <loc>https://polytrack.best/blog/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/es/blog/</loc>
-    <lastmod>2026-06-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/pt-br/blog/</loc>
-    <lastmod>2026-06-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/ja/blog/</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/ko/blog/</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/de/blog/</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/" />
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -172,7 +22,7 @@
 
   <url>
     <loc>https://polytrack.best/about-us</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/about-us" />
     <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/about-us" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/about-us" />
@@ -186,7 +36,7 @@
 
   <url>
     <loc>https://polytrack.best/es/about-us</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/about-us" />
     <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/about-us" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/about-us" />
@@ -200,7 +50,7 @@
 
   <url>
     <loc>https://polytrack.best/pt-br/about-us</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/about-us" />
     <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/about-us" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/about-us" />
@@ -255,8 +105,17 @@
   </url>
 
   <url>
+    <loc>https://polytrack.best/contact</loc>
+    <lastmod>2026-06-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://polytrack.best/legal-documents</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/legal-documents" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/legal-documents" />
     <changefreq>monthly</changefreq>
@@ -265,7 +124,7 @@
 
   <url>
     <loc>https://polytrack.best/privacy-policy</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/privacy-policy" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/privacy-policy" />
     <changefreq>monthly</changefreq>
@@ -274,7 +133,7 @@
 
   <url>
     <loc>https://polytrack.best/terms-of-service</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/terms-of-service" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/terms-of-service" />
     <changefreq>monthly</changefreq>
@@ -283,7 +142,7 @@
 
   <url>
     <loc>https://polytrack.best/dmca</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/dmca" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/dmca" />
     <changefreq>monthly</changefreq>
@@ -292,102 +151,9 @@
 
   <url>
     <loc>https://polytrack.best/blog/track-builder-guide</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/track-builder-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/es/blog/track-builder-guide</loc>
-    <lastmod>2026-06-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/pt-br/blog/track-builder-guide</loc>
-    <lastmod>2026-06-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/ja/blog/track-builder-guide</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/ko/blog/track-builder-guide</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/de/blog/track-builder-guide</loc>
-    <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://polytrack.best/es/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://polytrack.best/pt-br/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://polytrack.best/ja/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://polytrack.best/ko/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://polytrack.best/de/blog/track-builder-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/track-builder-guide" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/blog/custom-polytrack-tracks</loc>
-    <lastmod>2026-06-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/custom-polytrack-tracks" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/custom-polytrack-tracks" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/blog/community-tracks-showcase</loc>
-    <lastmod>2025-10-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/community-tracks-showcase" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/community-tracks-showcase" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -397,24 +163,6 @@
     <lastmod>2025-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/ghost-racing-strategies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/ghost-racing-strategies" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/blog/mobile-controls-setup</loc>
-    <lastmod>2025-10-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/mobile-controls-setup" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/mobile-controls-setup" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://polytrack.best/blog/performance-optimization-tips</loc>
-    <lastmod>2025-10-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/performance-optimization-tips" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/performance-optimization-tips" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -439,7 +187,7 @@
 
   <url>
     <loc>https://polytrack.best/blog/polytrack-world-records-guide</loc>
-    <lastmod>2025-10-09</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://polytrack.best/blog/polytrack-world-records-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://polytrack.best/blog/polytrack-world-records-guide" />
     <changefreq>monthly</changefreq>

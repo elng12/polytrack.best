@@ -73,10 +73,14 @@ async function main() {
       assert(getMeta(doc, 'meta[property="og:url"]') === canonical, `${translation.file}: og:url should be ${canonical}`, errors);
 
       const robots = getMeta(doc, 'meta[name="robots"]').replace(/\s+/g, '').toLowerCase();
+      const hasAdsenseCode = Boolean(doc.querySelector('meta[name="google-adsense-account"]'))
+        || Array.from(doc.querySelectorAll('script[src]')).some((script) => (script.getAttribute('src') || '').includes('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'));
       if (translation.noindex || page.indexable === false) {
         assert(robots.includes('noindex'), `${translation.file}: noindex page must include noindex robots`, errors);
+        assert(!hasAdsenseCode, `${translation.file}: noindex page should not include AdSense code`, errors);
       } else {
         assert(!robots.includes('noindex'), `${translation.file}: indexable page should not include noindex robots`, errors);
+        assert(hasAdsenseCode, `${translation.file}: indexable page should include AdSense code`, errors);
       }
 
       const urlFields = [

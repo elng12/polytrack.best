@@ -52,14 +52,14 @@
       "schemaType": "WebSite",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "weekly",
       "priority": 1.0,
       "translations": {
         "en": {
           "file": "index.html",
           "url": "/",
-          "title": "Polytrack - Play Online & Build Custom Tracks (Free)",
+          "title": "Polytrack Guide, Controls, Track Builder Tips & Official Game Link",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
@@ -69,7 +69,7 @@
           "url": "/es/",
           "title": "Jugar Polytrack online gratis",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         },
         "pt-BR": {
@@ -77,7 +77,7 @@
           "url": "/pt-br/",
           "title": "Jogar Polytrack online grátis",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         },
         "ja": {
@@ -85,7 +85,7 @@
           "url": "/ja/",
           "title": "Polytrackを無料でオンラインプレイ",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         },
@@ -94,7 +94,7 @@
           "url": "/ko/",
           "title": "Polytrack 무료 온라인 플레이",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         },
@@ -103,7 +103,7 @@
           "url": "/de/",
           "title": "Polytrack kostenlos online spielen",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         }
@@ -115,7 +115,7 @@
       "schemaType": "Blog",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "weekly",
       "priority": 0.7,
       "translations": {
@@ -132,7 +132,7 @@
           "url": "/es/blog/",
           "title": "Blog de Polytrack - Guías y consejos",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         },
         "pt-BR": {
@@ -140,7 +140,7 @@
           "url": "/pt-br/blog/",
           "title": "Blog do Polytrack - Guias e dicas",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         },
         "ja": {
@@ -148,7 +148,7 @@
           "url": "/ja/blog/",
           "title": "Polytrackブログ - ガイドとコツ",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         },
@@ -157,7 +157,7 @@
           "url": "/ko/blog/",
           "title": "Polytrack 블로그 - 가이드와 팁",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         },
@@ -166,7 +166,7 @@
           "url": "/de/blog/",
           "title": "Polytrack Blog - Guides und Tipps",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         }
@@ -178,14 +178,14 @@
       "schemaType": "WebPage",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "monthly",
       "priority": 0.6,
       "translations": {
         "en": {
           "file": "about-us.html",
           "url": "/about-us",
-          "title": "About Polytrack - Mission, Team, and Roadmap",
+          "title": "About Polytrack.best - Independent Polytrack Guide Hub",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
@@ -236,19 +236,39 @@
       }
     },
     {
+      "id": "contact",
+      "type": "page",
+      "schemaType": "ContactPage",
+      "indexable": true,
+      "inSitemap": true,
+      "lastmod": "2026-06-19",
+      "changefreq": "monthly",
+      "priority": 0.5,
+      "translations": {
+        "en": {
+          "file": "contact.html",
+          "url": "/contact",
+          "title": "Contact Polytrack.best",
+          "status": "published",
+          "noindex": false,
+          "includeInLanguageSwitcher": true
+        }
+      }
+    },
+    {
       "id": "legal-documents",
       "type": "legal",
       "schemaType": "WebPage",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "monthly",
       "priority": 0.6,
       "translations": {
         "en": {
           "file": "legal-documents.html",
           "url": "/legal-documents",
-          "title": "Legal Information | Polytrack",
+          "title": "Legal Information | Polytrack.best",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
@@ -304,14 +324,14 @@
       "schemaType": "WebPage",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "monthly",
       "priority": 0.5,
       "translations": {
         "en": {
           "file": "privacy-policy.html",
           "url": "/privacy-policy",
-          "title": "Privacy Policy | Polytrack",
+          "title": "Privacy Policy | Polytrack.best",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
@@ -367,14 +387,14 @@
       "schemaType": "WebPage",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "monthly",
       "priority": 0.5,
       "translations": {
         "en": {
           "file": "terms-of-service.html",
           "url": "/terms-of-service",
-          "title": "Terms of Service | Polytrack",
+          "title": "Terms of Service | Polytrack.best",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
@@ -430,14 +450,14 @@
       "schemaType": "WebPage",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "monthly",
       "priority": 0.5,
       "translations": {
         "en": {
           "file": "dmca.html",
           "url": "/dmca",
-          "title": "DMCA & Copyright Policy | Polytrack",
+          "title": "DMCA & Copyright Policy | Polytrack.best",
           "status": "published",
           "noindex": false,
           "includeInLanguageSwitcher": true
@@ -493,7 +513,7 @@
       "schemaType": "Article",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2026-06-07",
+      "lastmod": "2026-06-19",
       "changefreq": "monthly",
       "priority": 0.6,
       "translations": {
@@ -510,7 +530,7 @@
           "url": "/es/blog/track-builder-guide",
           "title": "Guía del editor de pistas de Polytrack",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         },
         "pt-BR": {
@@ -518,7 +538,7 @@
           "url": "/pt-br/blog/track-builder-guide",
           "title": "Guia do editor de pistas do Polytrack",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         },
         "ja": {
@@ -526,7 +546,7 @@
           "url": "/ja/blog/track-builder-guide",
           "title": "Polytrack トラックエディターガイド",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         },
@@ -535,7 +555,7 @@
           "url": "/ko/blog/track-builder-guide",
           "title": "Polytrack 트랙 에디터 가이드",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         },
@@ -544,7 +564,7 @@
           "url": "/de/blog/track-builder-guide",
           "title": "Polytrack Streckeneditor Guide",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true,
           "lastmod": "2026-06-08"
         }
@@ -565,7 +585,7 @@
           "url": "/blog/custom-polytrack-tracks",
           "title": "Polytrack Custom Tracks Guide",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         }
       }
@@ -585,7 +605,7 @@
           "url": "/blog/community-tracks-showcase",
           "title": "Best Polytrack Maps: Community Track Showcase",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         }
       }
@@ -625,7 +645,7 @@
           "url": "/blog/mobile-controls-setup",
           "title": "How to Set Up Polytrack Controls on Mobile and Controller",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         }
       }
@@ -645,7 +665,7 @@
           "url": "/blog/performance-optimization-tips",
           "title": "Polytrack Performance Optimisation Tips",
           "status": "published",
-          "noindex": false,
+          "noindex": true,
           "includeInLanguageSwitcher": true
         }
       }
@@ -696,7 +716,7 @@
       "schemaType": "Article",
       "indexable": true,
       "inSitemap": true,
-      "lastmod": "2025-10-09",
+      "lastmod": "2026-06-19",
       "changefreq": "monthly",
       "priority": 0.6,
       "translations": {
