@@ -227,3 +227,14 @@
 未做：尚未线上部署；尚未做线上 URL 抽查；尚未做 GSC live test / request indexing；尚未提交 AdSense 重审。  
 复查日期：2026-07-10。  
 下一步：提交并推送到 `main` 触发 GitHub Pages 部署，等部署完成后抽查线上 URL。
+
+## 2026-07-09 线上部署和 GSC 公开抓取检查记录
+
+问题：本地验收通过后，需要确认 GitHub Pages 部署成功，真实线上页面已更新，并证明 Googlebot 能读取 sitemap 和 sitemap 中的 URL。
+证据：`main` 推送 commit `b790b26` 后触发 GitHub Actions：Quality Gate run `28992884782`，Deploy to GitHub Pages run `28992884767`。
+本轮边界：执行提交、推送、GitHub Pages 部署、线上 URL 抽查和公开抓取检查；不登录用户 Google 账号，不提交 AdSense 重审。
+修改：提交 `Improve AdSense content readiness` 并推送到 `origin/main`；线上站点已由 GitHub Pages 部署。
+验证：Quality Gate 成功；Deploy to GitHub Pages 成功；线上 `/`、`/blog/`、5 篇 P0 文章、`/sitemap.xml`、`/ads.txt`、`/assets/styles.css` 均返回 200；线上 sitemap 18 个 URL 全部返回 200；线上核心页未发现指向 4 个 `noindex,nofollow` 薄页的显眼链接；`gsc-site-submit-check` 显示 sitemap 200、Googlebot 访问 sitemap 200、robots 200、robots 包含 Sitemap 行、sitemap XML 解析成功且 18 个 loc 全部 200。
+未做：Chrome 打开 GSC URL Inspection 时跳到 Google 登录页，因此未做 GSC 后台 live test / request indexing；未检查 AdSense Policy Center；未提交 AdSense 重审。
+复查日期：2026-07-10。
+下一步：用已登录 Google 的浏览器进入 GSC，对首页和 5 篇 P0 文章做 URL Inspection / request indexing；确认 Policy Center 没问题后，再考虑 AdSense 重审。

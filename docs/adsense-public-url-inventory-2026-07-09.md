@@ -300,3 +300,34 @@ AdSense 重新提交：不建议
 - 推送上线后抽查真实 `https://polytrack.best/` 页面。
 - 线上通过后，再做 GSC live test / request indexing。
 - GSC 和 Policy Center 都没问题后，才考虑 AdSense 重审。
+
+## 16. 2026-07-09 线上部署和 GSC 公开抓取检查
+
+已处理：
+
+- commit `b790b26` 推送到 `origin/main`。
+- GitHub Actions `Quality Gate` run `28992884782` 成功。
+- GitHub Actions `Deploy to GitHub Pages` run `28992884767` 成功。
+- 抽查线上 `https://polytrack.best/`、`/blog/`、5 篇 P0 英文核心文章、`/sitemap.xml`、`/ads.txt`、`/assets/styles.css`。
+- 使用 `gsc-site-submit-check` 检查公开抓取条件。
+
+验证：
+
+- 线上核心 URL 均返回 200。
+- 线上 sitemap 18 个 URL 全部返回 200。
+- 线上核心页未发现指向 4 个 `noindex,nofollow` 薄页的显眼链接。
+- sitemap 返回 200。
+- Googlebot 访问 sitemap 返回 200。
+- robots.txt 返回 200，且包含 Sitemap 行。
+- sitemap XML 可解析为 `urlset`，包含 18 个 loc。
+
+未完成：
+
+- Chrome 打开 GSC URL Inspection 时跳到 Google 登录页，所以本轮没有在 GSC 后台点击 live test / request indexing。
+- 未检查 AdSense Policy Center。
+- 未提交 AdSense 重审。
+
+当前建议：
+
+- 现在可以进入 GSC 做人工 URL Inspection / request indexing。
+- 还不要直接点 AdSense 重审；至少先确认 GSC 能抓首页和 5 篇 P0 文章，并确认 Policy Center 没有问题。
