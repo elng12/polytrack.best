@@ -249,3 +249,15 @@
 未做：未提交 GSC URL Inspection，也未提交 AdSense 重审。
 复查日期：2026-07-12。
 下一步：观察搜索引擎重新抓取，不再为这条链接继续改页面结构。
+
+## 2026-07-11 首页游戏首屏恢复和部署记录
+
+问题：GSC 显示首页和 `polytrack`、`polytrack online`、`polytrack game` 等游戏意图词严重掉量，但线上首页把独立攻略中心放在首屏，官方游戏入口下移。
+证据：GSC 最终数据日期为 2026-07-09；全站最近完整日为 14 点击、724 曝光，点击比 28 天日均低 60.8%；首页 2026-06-03 至 06-09 对比 2026-07-03 至 07-09 为 279 点击降到 22、5,673 曝光降到 836。
+本轮边界：只恢复英文首页的游戏首屏和游戏意图元数据；保留已经补强的攻略内容、P0 文章、ObbyList 链接和现有 noindex 决策；不请求收录、不提交 AdSense 重审。
+修改：首页 title、description、OG、Twitter、WebPage 和 breadcrumb 重新强调在线玩；H1 改为 `Play Polytrack Online`；官方 Kodub 游戏面板移到首屏；攻略路径移动到下一段；游戏面板从 `div + window.open` 改成真实的外部链接，保留新窗口和安全 rel 属性。
+验证：测试先确认旧页面不满足 game-first 顺序，再确认 title、H1、区块顺序和真实外链通过；`npm run typecheck` 和 `npm run build` 通过；本地桌面 1280x720 和手机 390x844 均无横向溢出、控制台无错误，手机首屏可看到游戏面板并露出下一段攻略入口；攻略卡片跳转成功。
+部署：提交 `430a126` 已推送到 `main`；Quality Gate run `29144505715` 和 Deploy to GitHub Pages run `29144505709` 均成功；线上首页返回 200，并确认新 title、H1、game-first 顺序、Kodub 官方游戏链接和 ObbyList 链接都存在。
+未做：未请求 GSC 重新收录；未恢复 4 个 noindex 页面；未提交 AdSense 重审。
+复查日期：请求抓取后的第 3 个和第 7 个完整 GSC 数据日。
+下一步：在 GSC 请求首页重新抓取，只观察首页和游戏意图词，不同时改文章或 noindex 页面。
