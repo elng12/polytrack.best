@@ -243,9 +243,9 @@
 
 问题：需要从 Polytrack.best 给 `https://obbylist.com/` 增加一个自然、可抓取的普通链接。
 证据：首页原来没有指向 ObbyList 的链接。
-本轮边界：只改英文首页和迭代记录；不改其他语言、不部署、不提交。
+本轮边界：只改英文首页和迭代记录，提交到 `main` 并部署；不改其他语言。
 修改：在首页博客推荐区和 FAQ 之间新增 `More game guides` 小节，用 `ObbyList` 品牌名链接到 `https://obbylist.com/`；链接没有 `nofollow`、`sponsored` 或 `ugc` 属性。
-验证：链接检查脚本确认目标地址存在且没有阻止跟随的 `rel` 值；`npm run typecheck` 通过；`npm run build` 通过；本地浏览器确认版式正常，点击后到达 ObbyList 首页。
-未做：未推送、未部署，所以线上页面暂时还没有这条链接。
+验证：链接检查脚本确认目标地址存在且没有阻止跟随的 `rel` 值；`npm run typecheck` 通过；`npm run build` 通过；本地浏览器确认版式正常，点击后到达 ObbyList 首页。提交 `6ce25ae` 已推送到 `main`；Quality Gate run `29143845711` 和 Deploy to GitHub Pages run `29143845715` 均成功；线上首页返回 200，源代码已出现 `https://obbylist.com/` 链接。
+未做：未提交 GSC URL Inspection，也未提交 AdSense 重审。
 复查日期：2026-07-12。
-下一步：确认改动后提交并部署，再抽查线上首页源代码和真实跳转。
+下一步：观察搜索引擎重新抓取，不再为这条链接继续改页面结构。
