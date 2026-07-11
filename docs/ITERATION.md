@@ -238,3 +238,14 @@
 未做：Chrome 打开 GSC URL Inspection 时跳到 Google 登录页，因此未做 GSC 后台 live test / request indexing；未检查 AdSense Policy Center；未提交 AdSense 重审。
 复查日期：2026-07-10。
 下一步：用已登录 Google 的浏览器进入 GSC，对首页和 5 篇 P0 文章做 URL Inspection / request indexing；确认 Policy Center 没问题后，再考虑 AdSense 重审。
+
+## 2026-07-11 ObbyList dofollow 链接记录
+
+问题：需要从 Polytrack.best 给 `https://obbylist.com/` 增加一个自然、可抓取的普通链接。
+证据：首页原来没有指向 ObbyList 的链接。
+本轮边界：只改英文首页和迭代记录；不改其他语言、不部署、不提交。
+修改：在首页博客推荐区和 FAQ 之间新增 `More game guides` 小节，用 `ObbyList` 品牌名链接到 `https://obbylist.com/`；链接没有 `nofollow`、`sponsored` 或 `ugc` 属性。
+验证：链接检查脚本确认目标地址存在且没有阻止跟随的 `rel` 值；`npm run typecheck` 通过；`npm run build` 通过；本地浏览器确认版式正常，点击后到达 ObbyList 首页。
+未做：未推送、未部署，所以线上页面暂时还没有这条链接。
+复查日期：2026-07-12。
+下一步：确认改动后提交并部署，再抽查线上首页源代码和真实跳转。
